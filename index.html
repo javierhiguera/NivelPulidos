@@ -38,8 +38,8 @@
       </header>
 
       <div class="hero-content">
-        <h1>Nivel Pulidos, llevamos cada superficie <span>a otro nivel.</span></h1>
-        <p class="hero-text">Pulido, restauración y mantenimiento profesional de superficies.</p>
+        <h1>Nivel Pulidos, llevamos cada Superficie <span>a otro nivel.</span></h1>
+        <p class="hero-text">(Pulido, restauración y mantenimiento profesional de superficies.)</p>
         <div class="buttons">
           <a href="#presupuesto" class="button primary">
             <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -256,30 +256,45 @@
             Localidad
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
+          
           <label>
             Tipo de superficie
-            <select id="superficie" required>
-              <option value="">Seleccionar</option>
-              <option>Mármol</option>
-              <option>Mosaico</option>
-              <option>Parquet</option>
-              <option>Granito</option>
-              <option>Hormigón</option>
-              <option>Calcáreo</option>
-              <option>Travertino</option>
-              <option>Otra</option>
-            </select>
+            <div class="custom-select" id="custom-superficie">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Mármol">Mármol</li>
+                <li class="custom-option" data-value="Mosaico">Mosaico</li>
+                <li class="custom-option" data-value="Parquet">Parquet</li>
+                <li class="custom-option" data-value="Granito">Granito</li>
+                <li class="custom-option" data-value="Hormigón">Hormigón</li>
+                <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
+                <li class="custom-option" data-value="Travertino">Travertino</li>
+                <li class="custom-option" data-value="Otra">Otra</li>
+              </ul>
+              <input type="hidden" id="superficie" name="superficie" value="" required>
+            </div>
           </label>
+
           <label>
             Servicio
-            <select id="servicio" required>
-              <option value="">Seleccionar</option>
-              <option>Pulido</option>
-              <option>Restauración</option>
-              <option>Mantenimiento</option>
-              <option>No estoy seguro</option>
-            </select>
+            <div class="custom-select" id="custom-servicio">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Pulido">Pulido</li>
+                <li class="custom-option" data-value="Restauración">Restauración</li>
+                <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
+                <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
+              </ul>
+              <input type="hidden" id="servicio" name="servicio" value="" required>
+            </div>
           </label>
+
           <label>
             Metros cuadrados aproximados
             <input id="metros" type="number" min="1" placeholder="Ej. 50" />
