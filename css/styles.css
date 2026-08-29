@@ -14,20 +14,10 @@ button, input, select, textarea { font: inherit; }
 .logo { display: flex; align-items: center; flex-shrink: 0; }
 .logo img { width: 58px; height: 58px; display: block; object-fit: contain; }
 
-/* MAYÚSCULAS MISMA TIPOGRAFÍA */
 .nav nav { display: flex; align-items: center; gap: 30px; white-space: nowrap; }
-.nav nav a {
-  color: #fff;
-  opacity: .9;
-  transition: opacity .25s ease;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
+.nav nav a { color: #fff; opacity: .9; transition: opacity .25s ease; text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
 .nav nav a:hover { opacity: .55; }
 
-/* ESTILOS DEL BOTÓN HAMBURGUESA (OCULTO EN ESCRITORIO, MODERNO Y OPACO) */
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 20; }
 .menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px auto; background-color: rgba(255,255,255,.65); border-radius: 2px; transition: all .3s ease-in-out; }
 .menu-toggle:hover span { background-color: #fff; }
@@ -98,47 +88,14 @@ h2 { max-width: 800px; margin: 0 0 45px; font-size: clamp(36px, 5vw, 58px); line
 .schedule strong { display: block; margin-bottom: 5px; color: #fff; }
 form { display: grid; gap: 18px; }
 label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
-
-/* INPUTS Y SELECTS CON EL MISMO DEGRADADO Y BORDES REDONDEADOS */
-input, select, textarea {
-  width: 100%;
-  padding: 15px 17px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 20px;
-  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
-  color: #fff;
-  outline: none;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 7px 20px rgba(0,0,0,.16);
-  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
-}
+input, select, textarea { width: 100%; padding: 15px 17px; border: 1px solid rgba(255,255,255,.18); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035)); color: #fff; outline: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 7px 20px rgba(0,0,0,.16); transition: border-color .2s ease, background .2s ease, box-shadow .2s ease; }
 input:focus, textarea:focus { border-color: rgba(255,255,255,.42); background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055)); box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18); }
 input::placeholder, textarea::placeholder { color: #979b9f; }
 textarea { resize: vertical; min-height: 130px; }
 #metros { appearance: textfield; -moz-appearance: textfield; }
 #metros::-webkit-outer-spin-button, #metros::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .submit { width: 100%; margin-top: 5px; }
-
-/* DESPLEGABLES (Select con degradado y opciones redondeadas) */
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  min-height: 52px;
-  padding: 15px 52px 15px 20px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 999px;
-  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-position: right 18px center;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
-  color: #fff;
-  cursor: pointer;
-  outline: none;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 7px 20px rgba(0,0,0,.16);
-  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
-}
+select { appearance: none; -webkit-appearance: none; -moz-appearance: none; width: 100%; min-height: 52px; padding: 15px 52px 15px 20px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035)); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-position: right 18px center; background-size: 16px 16px; background-repeat: no-repeat; color: #fff; cursor: pointer; outline: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 7px 20px rgba(0,0,0,.16); transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
 select:hover { border-color: rgba(255,255,255,.32); background-color: rgba(255,255,255,.075); }
 select:focus { border-color: rgba(255,255,255,.42); background-color: rgba(255,255,255,.09); box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18); }
 select option { background: #292c2f; color: #fff; border-radius: 10px; }
@@ -180,31 +137,9 @@ footer { padding: 40px 0 32px; background: #000000; }
   .header { padding: 14px 0; }
   .nav { width: calc(100% - 24px); flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; }
   .logo img { width: 46px; height: 46px; }
-  
-  /* BOTÓN HAMBURGUESA */
   .menu-toggle { display: block; }
-  
-  /* MENÚ MÓVIL REDONDEADO Y TRANSLÚCIDO */
-  .nav nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 10px;
-    right: 10px;
-    background: rgba(30, 32, 35, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    z-index: 100;
-  }
+  .nav nav { display: none; position: absolute; top: 70px; left: 10px; right: 10px; background: rgba(30, 32, 35, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex-direction: column; align-items: center; padding: 20px; gap: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 100; }
   .nav nav.open { display: flex; }
-
   .container { width: calc(100% - 32px); }
   .hero { min-height: 100svh; }
   .hero-content { width: calc(100% - 32px); padding-top: 120px; }
@@ -213,19 +148,15 @@ footer { padding: 40px 0 32px; background: #000000; }
   .hero-text { font-size: 17px; }
   .buttons { width: 100%; }
   .button { width: 100%; }
-  
-  /* GRIDS MÓVILES: 2 EN SERVICIOS, 3 EN SUPERFICIES */
   .cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .card h3 { font-size: 20px; }
   .card p { font-size: 14px; line-height: 1.5; }
   .card-content { padding: 18px; }
   .card-image { height: 140px; }
-  
   .surface-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .surface-grid img { height: 140px; }
   .surface-grid strong { font-size: 16px; }
   .surface-grid span { font-size: 11px; }
-
   select { width: 100%; min-width: 0; min-height: 52px; padding: 15px 48px 15px 18px; border-radius: 999px; background-position: right 17px center; background-size: 15px 15px; font-size: 16px; }
   .gallery-wrapper { width: 100%; overflow: visible; }
   .gallery { width: calc(100% + 32px); max-width: none; margin-left: -16px; margin-right: -16px; padding: 4px 16px 8px; gap: 12px; overflow-x: auto; overflow-y: visible; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; touch-action: pan-y; }
