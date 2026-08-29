@@ -27,7 +27,6 @@
   </header>
 
   <main>
-
     <!-- HERO -->
     <section class="hero">
       <div class="hero-content">
@@ -230,7 +229,7 @@
       </div>
     </section>
 
-    <!-- PRESUPUESTO (con custom-selects) -->
+    <!-- PRESUPUESTO (selects nativos con estilo) -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
@@ -255,65 +254,30 @@
             Localidad
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
-
-          <!-- Tipo de superficie - Custom Select -->
           <label>
             Tipo de superficie
-            <div class="custom-select" data-select-id="superficie">
-              <select class="custom-select-native" id="superficie" required>
-                <option value="">Seleccionar</option>
-                <option value="Mármol">Mármol</option>
-                <option value="Mosaico">Mosaico</option>
-                <option value="Parquet">Parquet</option>
-                <option value="Granito">Granito</option>
-                <option value="Hormigón">Hormigón</option>
-                <option value="Calcáreo">Calcáreo</option>
-                <option value="Travertino">Travertino</option>
-                <option value="Otra">Otra</option>
-              </select>
-              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                <span class="custom-select-value">Seleccionar</span>
-                <span class="custom-select-arrow"></span>
-              </button>
-              <div class="custom-select-menu" role="listbox">
-                <button type="button" class="custom-select-option" data-value="" role="option">Seleccionar</button>
-                <button type="button" class="custom-select-option" data-value="Mármol" role="option">Mármol</button>
-                <button type="button" class="custom-select-option" data-value="Mosaico" role="option">Mosaico</button>
-                <button type="button" class="custom-select-option" data-value="Parquet" role="option">Parquet</button>
-                <button type="button" class="custom-select-option" data-value="Granito" role="option">Granito</button>
-                <button type="button" class="custom-select-option" data-value="Hormigón" role="option">Hormigón</button>
-                <button type="button" class="custom-select-option" data-value="Calcáreo" role="option">Calcáreo</button>
-                <button type="button" class="custom-select-option" data-value="Travertino" role="option">Travertino</button>
-                <button type="button" class="custom-select-option" data-value="Otra" role="option">Otra</button>
-              </div>
-            </div>
+            <select id="superficie" required>
+              <option value="">Seleccionar</option>
+              <option>Mármol</option>
+              <option>Mosaico</option>
+              <option>Parquet</option>
+              <option>Granito</option>
+              <option>Hormigón</option>
+              <option>Calcáreo</option>
+              <option>Travertino</option>
+              <option>Otra</option>
+            </select>
           </label>
-
-          <!-- Servicio - Custom Select -->
           <label>
             Servicio
-            <div class="custom-select" data-select-id="servicio">
-              <select class="custom-select-native" id="servicio" required>
-                <option value="">Seleccionar</option>
-                <option value="Pulido">Pulido</option>
-                <option value="Restauración">Restauración</option>
-                <option value="Mantenimiento">Mantenimiento</option>
-                <option value="No estoy seguro">No estoy seguro</option>
-              </select>
-              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                <span class="custom-select-value">Seleccionar</span>
-                <span class="custom-select-arrow"></span>
-              </button>
-              <div class="custom-select-menu" role="listbox">
-                <button type="button" class="custom-select-option" data-value="" role="option">Seleccionar</button>
-                <button type="button" class="custom-select-option" data-value="Pulido" role="option">Pulido</button>
-                <button type="button" class="custom-select-option" data-value="Restauración" role="option">Restauración</button>
-                <button type="button" class="custom-select-option" data-value="Mantenimiento" role="option">Mantenimiento</button>
-                <button type="button" class="custom-select-option" data-value="No estoy seguro" role="option">No estoy seguro</button>
-              </div>
-            </div>
+            <select id="servicio" required>
+              <option value="">Seleccionar</option>
+              <option>Pulido</option>
+              <option>Restauración</option>
+              <option>Mantenimiento</option>
+              <option>No estoy seguro</option>
+            </select>
           </label>
-
           <label>
             Metros cuadrados aproximados
             <input id="metros" type="number" min="1" placeholder="Ej. 50" />
@@ -382,7 +346,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
