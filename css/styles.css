@@ -15,7 +15,7 @@ body {
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(180deg, #686b6e 0%, #626568 7%, #5a5d60 14%, #525558 22%, #494c4f 31%, #404346 40%, #373a3d 50%, #2d3033 61%, #232629 72%, #181a1d 83%, #0c0d0f 93%, #000000 100%) !important;
+  background: linear-gradient(180deg, #686b6e 0%, #626568 7%, #5a5d60 14%, #525558 22%, #494c4f 31%, #404346 40%, #373a3d 50%, #2d3033 61%, #232629 72%, #181a1d 83%, #0c0d0f 93%, #000000 100%);
 }
 
 a {
@@ -49,9 +49,13 @@ textarea {
   background: linear-gradient(180deg, #e6e7e8, #86898c);
 }
 
-/* ========================= HEADER (100% TRANSPARENTE, SIN LÍNEA) ========================= */
+/* HEADER TRANSPARENTE Y FLOTANTE (SIN FRANJA GRIS) */
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  z-index: 10;
   padding: 18px 0;
   background: transparent !important;
   border-bottom: none !important;
@@ -96,7 +100,7 @@ textarea {
   opacity: .55;
 }
 
-/* ========================= HERO ========================= */
+/* HERO */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -120,7 +124,7 @@ textarea {
   z-index: 2;
   width: min(1150px, 90%);
   margin: auto;
-  padding-top: 10px;
+  padding-top: 110px; /* Espacio para que el menú no tape el texto */
 }
 
 .eyebrow {
@@ -159,7 +163,7 @@ h1 span {
   line-height: 1.6;
 }
 
-/* ========================= BOTONES ========================= */
+/* BOTONES */
 .buttons {
   display: flex;
   flex-wrap: wrap;
@@ -204,7 +208,7 @@ h1 span {
   flex-shrink: 0;
 }
 
-/* ========================= GENERAL ========================= */
+/* GENERAL */
 .section {
   padding: 105px 0;
   background: transparent;
@@ -224,7 +228,7 @@ h2 {
   font-weight: 700;
 }
 
-/* ========================= SERVICIOS ========================= */
+/* SERVICIOS */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -270,7 +274,7 @@ h2 {
   line-height: 1.7;
 }
 
-/* ========================= SUPERFICIES ========================= */
+/* SUPERFICIES */
 .surface-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -322,7 +326,7 @@ h2 {
   font-size: 13px;
 }
 
-/* ========================= TRABAJOS ========================= */
+/* TRABAJOS */
 .gallery-wrapper {
   width: 100%;
   overflow: visible;
@@ -369,7 +373,7 @@ h2 {
   transition: none !important;
 }
 
-/* ========================= COMPARADOR ========================= */
+/* COMPARADOR */
 .comparison {
   position: relative;
   width: 100%;
@@ -486,7 +490,7 @@ h2 {
   touch-action: none;
 }
 
-/* ========================= BARRA CARRUSEL ========================= */
+/* BARRA CARRUSEL */
 .gallery-scrollbar {
   position: relative;
   width: 145px;
@@ -517,7 +521,7 @@ h2 {
   cursor: grabbing;
 }
 
-/* ========================= FORMULARIO (FONDO OSCURO Y REDONDEADO CORRECTO) ========================= */
+/* FORMULARIO (FONDO Y DISEÑO ORIGINAL, REDONDEADO) */
 .form-layout {
   display: grid;
   grid-template-columns: .8fr 1.2fr;
@@ -585,7 +589,6 @@ select {
   cursor: pointer;
 }
 
-/* OPCIONES REDONDEADAS EN DESPLEGABLES */
 select option {
   background: #292c2f !important;
   color: #fff !important;
@@ -626,7 +629,7 @@ textarea::placeholder {
   margin-top: 5px;
 }
 
-/* ========================= NOSOTROS ========================= */
+/* NOSOTROS */
 .two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -682,7 +685,7 @@ textarea::placeholder {
   font-weight: 600;
 }
 
-/* ========================= CONTACTO ========================= */
+/* CONTACTO */
 .contact {
   padding: 90px 0;
   background: transparent;
@@ -730,7 +733,7 @@ textarea::placeholder {
   flex-shrink: 0;
 }
 
-/* ========================= FOOTER ========================= */
+/* FOOTER */
 footer {
   padding: 40px 0 32px;
   background: #000000;
@@ -768,7 +771,7 @@ footer {
   transform: translateY(-1px);
 }
 
-/* ========================= RESPONSIVE ========================= */
+/* RESPONSIVE */
 @media (max-width: 850px) {
   .nav {
     width: calc(100% - 32px);
@@ -821,6 +824,7 @@ footer {
   }
   .header {
     padding: 14px 0;
+    position: absolute;
   }
   .nav {
     width: calc(100% - 24px);
@@ -847,7 +851,7 @@ footer {
   }
   .hero-content {
     width: calc(100% - 32px);
-    padding-top: 10px;
+    padding-top: 120px;
   }
   h1 {
     letter-spacing: -2.5px;
