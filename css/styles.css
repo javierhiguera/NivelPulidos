@@ -49,16 +49,11 @@ textarea {
   background: linear-gradient(180deg, #e6e7e8, #86898c);
 }
 
-/* ========================= HEADER ========================= */
+/* ========================= HEADER (NO FIJO) ========================= */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
+  position: relative;
   width: 100%;
   padding: 18px 0;
-  pointer-events: none;
 }
 
 .nav {
@@ -76,7 +71,6 @@ textarea {
   box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 8px 28px rgba(0,0,0,.22);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  pointer-events: auto;
 }
 
 .logo {
@@ -134,7 +128,7 @@ textarea {
   z-index: 2;
   width: min(1150px, 90%);
   margin: auto;
-  padding-top: 70px;
+  padding-top: 0; /* Ya no hay header fijo que cubra */
 }
 
 .eyebrow {
@@ -567,8 +561,21 @@ label {
   font-weight: 600;
 }
 
+/* Inputs y selects con borde redondeado (999px) */
 input,
-select,
+select {
+  width: 100%;
+  padding: 15px 17px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+  color: #fff;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 7px 20px rgba(0,0,0,.16);
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+/* Textarea con borde menos redondeado para mantener usabilidad */
 textarea {
   width: 100%;
   padding: 15px 17px;
@@ -586,7 +593,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   padding: 15px 52px 15px 20px;
-  border-radius: 999px;
   background-color: rgba(255,255,255,.055);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   background-position: right 18px center;
@@ -769,8 +775,13 @@ footer {
   object-fit: contain;
   margin-bottom: 4px;
 }
+
+/* Texto "Created by..." con degradado rojo igual al botón primario */
 .creator {
-  color: #a7a7a7;
+  color: transparent;
+  background: linear-gradient(135deg, #d12d50 0%, #9a1939 48%, #640d28 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   font-family: "OCR A Extended", "OCR A Std", "OCR A", monospace;
   font-size: 13px;
   font-weight: 500;
@@ -834,10 +845,8 @@ footer {
     overflow-x: hidden;
   }
   .header {
-    display: block;
-    position: absolute;
+    position: relative; /* Ya no es fijo, se mantiene relativo */
     padding: 14px 0;
-    pointer-events: none;
   }
   .nav {
     width: calc(100% - 24px);
@@ -851,7 +860,6 @@ footer {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     justify-content: flex-start;
-    pointer-events: auto;
   }
   .logo {
     display: flex;
@@ -871,7 +879,7 @@ footer {
   }
   .hero-content {
     width: calc(100% - 32px);
-    padding-top: 30px;
+    padding-top: 10px; /* Ajuste menor */
   }
   h1 {
     letter-spacing: -2.5px;
