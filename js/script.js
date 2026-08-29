@@ -7,6 +7,44 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
+/* DESPLEGABLES PERSONALIZADOS (FORMULARIO) */
+document.querySelectorAll('.custom-select').forEach(customSelect => {
+    const trigger = customSelect.querySelector('.custom-select-trigger');
+    const options = customSelect.querySelectorAll('.custom-option');
+    const hiddenInput = customSelect.querySelector('input[type="hidden"]');
+    const selectedText = trigger.querySelector('.selected-text');
+
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Cierra los demás
+        document.querySelectorAll('.custom-select.open').forEach(select => {
+            if (select !== customSelect) select.classList.remove('open');
+        });
+        customSelect.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedText.textContent = option.textContent;
+            hiddenInput.value = option.dataset.value;
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            customSelect.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        });
+    });
+});
+
+/* Cerrar dropdowns al hacer clic fuera */
+document.addEventListener('click', () => {
+    document.querySelectorAll('.custom-select.open').forEach(select => {
+        select.classList.remove('open');
+        select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
+    });
+});
+
 /* FORMULARIO WHATSAPP */
 const form = document.querySelector("#quote-form");
 
@@ -19,8 +57,8 @@ form?.addEventListener("submit", (event) => {
   const nombre = getValue("#nombre");
   const telefono = getValue("#telefono");
   const localidad = getValue("#localidad");
-  const superficie = document.querySelector("#superficie").value;
-  const servicio = document.querySelector("#servicio").value;
+  const superficie = getValue("#superficie");
+  const servicio = getValue("#servicio");
   const metros = getValue("#metros");
   const descripcion = getValue("#descripcion");
 
