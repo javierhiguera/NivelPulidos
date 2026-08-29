@@ -1,6 +1,4 @@
-/* =========================================================
-   MENÚ HAMBURGUESA (MÓVIL)
-========================================================= */
+/* MENÚ HAMBURGUESA */
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('.nav nav');
 
@@ -9,9 +7,7 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* =========================================================
-   FORMULARIO WHATSAPP
-========================================================= */
+/* FORMULARIO WHATSAPP */
 const form = document.querySelector("#quote-form");
 
 form?.addEventListener("submit", (event) => {
@@ -52,9 +48,7 @@ ${descripcion || "Sin descripción adicional."}`;
   window.open(url, "_blank");
 });
 
-/* =========================================================
-   COMPARADORES ANTES / DESPUÉS
-========================================================= */
+/* COMPARADORES */
 document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   const before = comparison.querySelector(".comparison-before");
   const divider = comparison.querySelector(".comparison-divider");
@@ -155,9 +149,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* =========================================================
-   CARRUSEL + BARRA INFERIOR
-========================================================= */
+/* CARRUSEL */
 const gallery = document.querySelector("#gallery-track");
 const scrollbar = document.querySelector("#gallery-scrollbar");
 const thumb = document.querySelector("#gallery-scrollbar-thumb");
