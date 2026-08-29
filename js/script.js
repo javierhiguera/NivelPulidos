@@ -6,6 +6,7 @@ const mobileNav = document.querySelector('.nav nav');
 
 menuToggle?.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
+    menuToggle.classList.toggle('active');
 });
 
 /* =========================================================
