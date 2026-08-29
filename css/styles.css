@@ -49,11 +49,13 @@ textarea {
   background: linear-gradient(180deg, #e6e7e8, #86898c);
 }
 
-/* ========================= HEADER (SIN FIJACIÓN, SIN CÁPSULA) ========================= */
+/* ========================= HEADER (INTEGRADO, SIN LÍNEA) ========================= */
 .header {
   width: 100%;
   padding: 18px 0;
-  background: transparent;
+  background-color: #686b6e;
+  border-bottom: none !important;
+  box-shadow: none !important;
 }
 
 .nav {
@@ -551,7 +553,6 @@ label {
   font-weight: 600;
 }
 
-/* Todos los inputs, selects y textarea con borde redondeado consistente */
 input,
 select,
 textarea {
@@ -566,7 +567,6 @@ textarea {
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
 
-/* Solo textarea mantiene un radio ligeramente menor por usabilidad */
 textarea {
   border-radius: 20px;
   resize: vertical;
@@ -577,6 +577,7 @@ select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  border-radius: 999px;
   padding: 15px 52px 15px 20px;
   background-color: rgba(255,255,255,.055);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
@@ -597,10 +598,12 @@ select:focus {
 select option {
   background: #292c2f;
   color: #fff;
+  border-radius: 10px;
 }
 select option:checked {
   background: #3b3e41;
   color: #fff;
+  border-radius: 10px;
 }
 
 input:focus,
@@ -756,7 +759,6 @@ footer {
   margin-bottom: 4px;
 }
 
-/* "Created by..." con degradado oscuro → claro (invertido) */
 .creator {
   color: transparent;
   background: linear-gradient(135deg, #640d28 0%, #9a1939 48%, #d12d50 100%);
