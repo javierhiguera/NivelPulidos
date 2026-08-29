@@ -71,7 +71,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     return ((event.clientX - rect.left) / rect.width) * 100;
   }
 
-  // Mouse drag on the whole comparison
   comparison.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "mouse") return;
     dragging = true;
@@ -98,7 +97,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     pointerId = null;
   });
 
-  // Touch drag on the control button only
   control.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "touch") return;
     dragging = true;
@@ -147,7 +145,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
 });
 
 /* =========================================================
-   CARRUSEL + BARRA INFERIOR (SIN BLOQUEO DE SCROLL)
+   CARRUSEL + BARRA INFERIOR
 ========================================================= */
 const gallery = document.querySelector("#gallery-track");
 const scrollbar = document.querySelector("#gallery-scrollbar");
@@ -191,7 +189,6 @@ if (gallery && scrollbar && thumb) {
     gallery.scrollLeft = ratio * getMaxScroll();
   }
 
-  // Barra arrastrable
   scrollbar.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     draggingBar = true;
@@ -221,7 +218,6 @@ if (gallery && scrollbar && thumb) {
   gallery.addEventListener("scroll", syncScrollbar, { passive: true });
   window.addEventListener("resize", syncScrollbar);
 
-  // Arrastre del carrusel (permite scroll vertical de la página al pasar el mouse)
   gallery.addEventListener("pointerdown", (event) => {
     if (event.target.closest(".comparison-control")) return;
     if (event.pointerType === "mouse" && event.button !== 0) return;
