@@ -15,7 +15,7 @@ body {
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(180deg, #686b6e 0%, #626568 7%, #5a5d60 14%, #525558 22%, #494c4f 31%, #404346 40%, #373a3d 50%, #2d3033 61%, #232629 72%, #181a1d 83%, #0c0d0f 93%, #000000 100%);
+  background: linear-gradient(180deg, #686b6e 0%, #626568 7%, #5a5d60 14%, #525558 22%, #494c4f 31%, #404346 40%, #373a3d 50%, #2d3033 61%, #232629 72%, #181a1d 83%, #0c0d0f 93%, #000000 100%) !important;
 }
 
 a {
@@ -49,7 +49,7 @@ textarea {
   background: linear-gradient(180deg, #e6e7e8, #86898c);
 }
 
-/* HEADER TRANSPARENTE Y FLOTANTE (SIN FRANJA GRIS) */
+/* ========================= HEADER (FLOTANTE Y TRANSPARENTE, SIN LÍNEA) ========================= */
 .header {
   position: absolute;
   top: 0;
@@ -100,7 +100,7 @@ textarea {
   opacity: .55;
 }
 
-/* HERO */
+/* ========================= HERO ========================= */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -124,7 +124,7 @@ textarea {
   z-index: 2;
   width: min(1150px, 90%);
   margin: auto;
-  padding-top: 110px; /* Espacio para que el menú no tape el texto */
+  padding-top: 110px; /* Deja espacio para el header */
 }
 
 .eyebrow {
@@ -163,13 +163,7 @@ h1 span {
   line-height: 1.6;
 }
 
-/* BOTONES */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
+/* ========================= BOTONES (Tuyos) ========================= */
 .button {
   display: inline-flex;
   align-items: center;
@@ -188,19 +182,16 @@ h1 span {
   transform: translateY(-2px);
   filter: brightness(1.08);
 }
-
 .primary {
   color: #fff;
   background: linear-gradient(135deg, #d12d50 0%, #9a1939 48%, #640d28 100%);
   box-shadow: 0 9px 28px rgba(154,25,57,.42);
 }
-
 .whatsapp {
   color: #fff;
   background: linear-gradient(135deg, #39f477 0%, #19d96b 45%, #078c67 100%);
   box-shadow: 0 9px 28px rgba(18,217,107,.34);
 }
-
 .button-icon {
   width: 19px;
   height: 19px;
@@ -208,17 +199,15 @@ h1 span {
   flex-shrink: 0;
 }
 
-/* GENERAL */
+/* ========================= GENERAL ========================= */
 .section {
   padding: 105px 0;
   background: transparent;
 }
-
 .container {
   width: min(1150px, 90%);
   margin: auto;
 }
-
 h2 {
   max-width: 800px;
   margin: 0 0 45px;
@@ -228,13 +217,12 @@ h2 {
   font-weight: 700;
 }
 
-/* SERVICIOS */
+/* ========================= SERVICIOS ========================= */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
-
 .card {
   min-height: 290px;
   padding: 0;
@@ -249,7 +237,6 @@ h2 {
   border-color: #777c80;
   background: linear-gradient(145deg, #44484b, #292c2f);
 }
-
 .card-image {
   width: 100%;
   height: 190px;
@@ -260,7 +247,6 @@ h2 {
 .card:hover .card-image {
   transform: scale(1.04);
 }
-
 .card-content {
   padding: 24px 28px 30px;
 }
@@ -274,7 +260,7 @@ h2 {
   line-height: 1.7;
 }
 
-/* SUPERFICIES */
+/* ========================= SUPERFICIES ========================= */
 .surface-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -304,7 +290,6 @@ h2 {
 .surface-grid > div:hover img {
   transform: scale(1.04);
 }
-
 .surface-info {
   position: absolute;
   left: 0;
@@ -326,18 +311,17 @@ h2 {
   font-size: 13px;
 }
 
-/* TRABAJOS */
+/* ========================= TRABAJOS (SCROLL DESBLOQUEADO) ========================= */
 .gallery-wrapper {
   width: 100%;
   overflow: visible;
 }
-
 .gallery {
   display: flex;
   gap: 18px;
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible !important;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -352,7 +336,6 @@ h2 {
 .gallery:active {
   cursor: grabbing;
 }
-
 .gallery-card {
   position: relative;
   flex: 0 0 min(560px, 78vw);
@@ -373,7 +356,7 @@ h2 {
   transition: none !important;
 }
 
-/* COMPARADOR */
+/* ========================= COMPARADOR ========================= */
 .comparison {
   position: relative;
   width: 100%;
@@ -384,7 +367,6 @@ h2 {
   isolation: isolate;
   touch-action: pan-y;
 }
-
 .comparison-after,
 .comparison-before {
   position: absolute;
@@ -402,7 +384,6 @@ h2 {
   -webkit-clip-path: inset(0 50% 0 0);
   will-change: clip-path;
 }
-
 .comparison img {
   position: absolute;
   inset: 0;
@@ -425,7 +406,6 @@ h2 {
   transform: none !important;
   transition: none !important;
 }
-
 .comparison-divider {
   position: absolute;
   top: 0;
@@ -438,7 +418,6 @@ h2 {
   box-shadow: 0 0 8px rgba(0,0,0,.35);
   pointer-events: none;
 }
-
 .comparison-handle {
   position: absolute;
   top: 50%;
@@ -474,7 +453,6 @@ h2 {
   right: 10px;
   transform: translateY(-50%) rotate(135deg);
 }
-
 .comparison-control {
   position: absolute;
   top: 50%;
@@ -490,7 +468,7 @@ h2 {
   touch-action: none;
 }
 
-/* BARRA CARRUSEL */
+/* ========================= BARRA CARRUSEL ========================= */
 .gallery-scrollbar {
   position: relative;
   width: 145px;
@@ -502,7 +480,6 @@ h2 {
   touch-action: none;
   user-select: none;
 }
-
 .gallery-scrollbar-thumb {
   position: absolute;
   top: 0;
@@ -521,18 +498,18 @@ h2 {
   cursor: grabbing;
 }
 
-/* FORMULARIO (FONDO Y DISEÑO ORIGINAL, REDONDEADO) */
+/* =========================================================
+   PRESUPUESTO (estructura y contenedores) - EXACTAMENTE TUYO
+========================================================= */
 .form-layout {
   display: grid;
   grid-template-columns: .8fr 1.2fr;
   gap: 80px;
 }
-
 .form-info > p:not(.eyebrow) {
   color: #d0d2d4;
   line-height: 1.7;
 }
-
 .schedule {
   margin-top: 38px;
   color: #d0d2d4;
@@ -545,97 +522,111 @@ h2 {
   color: #fff;
 }
 
+/* =========================================================
+   FORMULARIO (etiquetas, campos y envío) - EXACTAMENTE TUYO
+========================================================= */
 form {
   display: grid;
   gap: 18px;
 }
-
 label {
   display: grid;
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
 }
-
 input,
 select,
 textarea {
   width: 100%;
   padding: 15px 17px;
-  border: 1px solid rgba(255,255,255,.18) !important;
-  border-radius: 999px !important;
-  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035)) !important;
-  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+  color: #fff;
   outline: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 7px 20px rgba(0,0,0,.16);
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
-
-textarea {
-  border-radius: 20px !important;
-  resize: vertical;
-  min-height: 130px;
-}
-
-select {
-  appearance: none !important;
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  padding: 15px 52px 15px 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
-  background-position: right 18px center !important;
-  background-size: 16px 16px !important;
-  background-repeat: no-repeat !important;
-  cursor: pointer;
-}
-
-select option {
-  background: #292c2f !important;
-  color: #fff !important;
-  border-radius: 10px !important;
-}
-
-select option:checked {
-  background: #3b3e41 !important;
-  color: #fff !important;
-  border-radius: 10px !important;
-}
-
-select:focus,
 input:focus,
 textarea:focus {
-  border-color: rgba(255,255,255,.42) !important;
-  background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055)) !important;
-  box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18);
+  border-color: rgba(255,255,255,.42);
+  background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055));
+  box-shadow: 0 0 0 3px rgba(255,255,255,.07),
+              inset 0 1px 0 rgba(255,255,255,.15),
+              0 10px 24px rgba(0,0,0,.18);
 }
-
 input::placeholder,
 textarea::placeholder {
   color: #979b9f;
 }
-
+textarea {
+  resize: vertical;
+  min-height: 130px;
+}
 #metros {
-  appearance: textfield !important;
-  -moz-appearance: textfield !important;
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
 #metros::-webkit-outer-spin-button,
 #metros::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 .submit {
   width: 100%;
   margin-top: 5px;
 }
 
-/* NOSOTROS */
+/* =========================================================
+   DESPLEGABLES (select personalizado con flecha) - EXACTAMENTE TUYO
+========================================================= */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  min-height: 52px;
+  padding: 15px 52px 15px 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background-color: rgba(255,255,255,.055);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 18px center;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 7px 20px rgba(0,0,0,.16);
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+select:hover {
+  border-color: rgba(255,255,255,.32);
+  background-color: rgba(255,255,255,.075);
+}
+select:focus {
+  border-color: rgba(255,255,255,.42);
+  background-color: rgba(255,255,255,.09);
+  box-shadow: 0 0 0 3px rgba(255,255,255,.07),
+              inset 0 1px 0 rgba(255,255,255,.15),
+              0 10px 24px rgba(0,0,0,.18);
+}
+select option {
+  background: #292c2f;
+  color: #fff;
+}
+select option:checked {
+  background: #3b3e41;
+  color: #fff;
+}
+
+/* ========================= NOSOTROS ========================= */
 .two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
 }
-
 .text {
   color: #d0d2d4;
   font-size: 17px;
@@ -646,7 +637,6 @@ textarea::placeholder {
   margin-top: 0;
   margin-bottom: 22px;
 }
-
 .director-quote {
   position: relative;
   margin-top: 42px;
@@ -685,7 +675,7 @@ textarea::placeholder {
   font-weight: 600;
 }
 
-/* CONTACTO */
+/* ========================= CONTACTO ========================= */
 .contact {
   padding: 90px 0;
   background: transparent;
@@ -733,7 +723,7 @@ textarea::placeholder {
   flex-shrink: 0;
 }
 
-/* FOOTER */
+/* ========================= FOOTER ========================= */
 footer {
   padding: 40px 0 32px;
   background: #000000;
@@ -754,7 +744,6 @@ footer {
   object-fit: contain;
   margin-bottom: 4px;
 }
-
 .creator {
   color: transparent;
   background: linear-gradient(135deg, #640d28 0%, #9a1939 48%, #d12d50 100%);
@@ -771,7 +760,9 @@ footer {
   transform: translateY(-1px);
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   AJUSTES RESPONSIVE - EXACTAMENTE TUYO
+========================================================= */
 @media (max-width: 850px) {
   .nav {
     width: calc(100% - 32px);
@@ -794,96 +785,50 @@ footer {
     width: 44px;
     height: 44px;
   }
-  .two-columns,
-  .form-layout {
+  .two-columns, .form-layout {
     grid-template-columns: 1fr;
-  }
-  .cards {
-    grid-template-columns: 1fr;
-  }
-  .surface-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .form-layout {
     gap: 45px;
   }
-  .section {
-    padding: 75px 0;
-  }
-  .gallery-card {
-    flex-basis: 82vw;
-  }
+  .cards { grid-template-columns: 1fr; }
+  .surface-grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 75px 0; }
+  .gallery-card { flex-basis: 82vw; }
 }
-
 @media (max-width: 600px) {
-  html,
-  body {
+  html, body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
   }
-  .header {
-    padding: 14px 0;
-    position: absolute;
-  }
+  .header { padding: 14px 0; }
   .nav {
     width: calc(100% - 24px);
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
-  .logo img {
-    width: 46px;
-    height: 46px;
-  }
-  .nav nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 16px;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-  .container {
-    width: calc(100% - 32px);
-  }
-  .hero {
-    min-height: 100svh;
-  }
-  .hero-content {
-    width: calc(100% - 32px);
-    padding-top: 120px;
-  }
-  h1 {
-    letter-spacing: -2.5px;
-  }
-  h2 {
-    letter-spacing: -1.5px;
-  }
-  .hero-text {
-    font-size: 17px;
-  }
-  .buttons {
-    width: 100%;
-  }
-  .button {
-    width: 100%;
-  }
-  .surface-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .logo img { width: 46px; height: 46px; }
+  .nav nav { display: flex; flex-wrap: wrap; gap: 12px 16px; font-size: 13px; white-space: nowrap; }
+  .container { width: calc(100% - 32px); }
+  .hero { min-height: 100svh; }
+  .hero-content { width: calc(100% - 32px); padding-top: 120px; }
+  h1 { letter-spacing: -2.5px; }
+  h2 { letter-spacing: -1.5px; }
+  .hero-text { font-size: 17px; }
+  .buttons { width: 100%; }
+  .button { width: 100%; }
+  .surface-grid { grid-template-columns: 1fr; }
   select {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
     padding: 15px 48px 15px 18px;
-    border-radius: 999px !important;
-    background-position: right 17px center !important;
-    background-size: 15px 15px !important;
+    border-radius: 999px;
+    background-position: right 17px center;
+    background-size: 15px 15px;
     font-size: 16px;
   }
-
-  .gallery-wrapper {
-    width: 100%;
-    overflow: visible;
-  }
+  .gallery-wrapper { width: 100%; overflow: visible; }
   .gallery {
     width: calc(100% + 32px);
     max-width: none;
@@ -892,7 +837,7 @@ footer {
     padding: 4px 16px 8px;
     gap: 12px;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -910,84 +855,29 @@ footer {
     transform: none !important;
     transition: none !important;
   }
-  .gallery-card:hover {
-    transform: none !important;
-  }
-
   .comparison {
     aspect-ratio: 4 / 3;
     border-radius: 20px;
     touch-action: pan-y;
   }
-  .comparison-before {
-    clip-path: inset(0 50% 0 0);
-    -webkit-clip-path: inset(0 50% 0 0);
-  }
-  .comparison-handle {
-    width: 42px;
-    height: 42px;
-  }
-  .comparison-control {
-    width: 60px;
-    height: 60px;
-    touch-action: none;
-  }
-
-  .gallery-scrollbar {
-    width: 105px;
-    height: 4px;
-    margin: 16px auto 0;
-  }
-  .gallery-scrollbar-thumb {
-    min-width: 24px;
-    height: 4px;
-  }
-  .gallery-scrollbar-thumb.dragging {
-    height: 6px;
-  }
-
-  .section {
-    padding: 68px 0;
-  }
-  .director-quote-text {
-    font-size: 17px;
-  }
-  .director-name {
-    font-size: 13px;
-  }
+  .comparison-handle { width: 42px; height: 42px; }
+  .comparison-control { width: 60px; height: 60px; touch-action: none; }
+  .gallery-scrollbar { width: 105px; height: 4px; margin: 16px auto 0; }
+  .gallery-scrollbar-thumb { min-width: 24px; height: 4px; }
+  .section { padding: 68px 0; }
+  .director-quote-text { font-size: 17px; }
+  .director-name { font-size: 13px; }
 }
-
 @media (max-width: 380px) {
-  .container {
-    width: calc(100% - 24px);
-  }
-  .hero-content {
-    width: calc(100% - 24px);
-  }
-  .nav {
-    width: calc(100% - 18px);
-  }
-  .logo img {
-    width: 42px;
-    height: 42px;
-  }
+  .container { width: calc(100% - 24px); }
+  .hero-content { width: calc(100% - 24px); }
+  .nav { width: calc(100% - 18px); }
+  .logo img { width: 42px; height: 42px; }
   select {
     padding: 15px 46px 15px 17px;
     background-position: right 16px center;
   }
-  .gallery {
-    width: calc(100% + 24px);
-    margin-left: -12px;
-    margin-right: -12px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .gallery-card {
-    flex-basis: calc(100vw - 24px);
-    min-width: calc(100vw - 24px);
-    max-width: calc(100vw - 24px);
-  }
-  .gallery-scrollbar {
-    width: 95px;
-  }
+  .gallery { width: calc(100% + 24px); margin-left: -12px; margin-right: -12px; padding-left: 12px; padding-right: 12px; }
+  .gallery-card { flex-basis: calc(100vw - 24px); min-width: calc(100vw - 24px); max-width: calc(100vw - 24px); }
+  .gallery-scrollbar { width: 95px; }
 }
