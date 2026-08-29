@@ -145,7 +145,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
 });
 
 /* =========================================================
-   CARRUSEL + BARRA INFERIOR
+   CARRUSEL + BARRA INFERIOR (Desbloqueo de scroll)
 ========================================================= */
 const gallery = document.querySelector("#gallery-track");
 const scrollbar = document.querySelector("#gallery-scrollbar");
