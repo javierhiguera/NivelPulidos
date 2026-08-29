@@ -14,13 +14,20 @@
     <!-- HERO (El Header va DENTRO para que no haya línea) -->
     <section class="hero">
       
-      <!-- MENÚ SIMPLE (Flotante sobre la imagen) -->
+      <!-- MENÚ SIMPLE (Flotante sobre la imagen, sin cápsula) -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
           </a>
-          <nav>
+          
+          <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav id="mobile-nav">
             <a href="#servicios">Servicios</a>
             <a href="#superficies">Superficies</a>
             <a href="#trabajos">Trabajos</a>
