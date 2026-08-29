@@ -15,7 +15,7 @@ button, input, select, textarea { font: inherit; }
 .logo img { width: 58px; height: 58px; display: block; object-fit: contain; }
 
 .nav nav { display: flex; align-items: center; gap: 30px; white-space: nowrap; }
-.nav nav a { color: #fff; opacity: .9; transition: opacity .25s ease; text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
+.nav nav a { color: #fff; opacity: .9; transition: opacity .25s ease; text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
 .nav nav a:hover { opacity: .55; }
 
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 20; }
@@ -31,10 +31,7 @@ button, input, select, textarea { font: inherit; }
 h1, h2 { background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 h1 { max-width: 900px; margin: 0; font-size: clamp(48px, 8vw, 92px); line-height: .96; letter-spacing: -4px; font-weight: 700; }
 h1 span { display: block; }
-
-/* Subtítulo con tipografía Georgia (igual a la cita) */
 .hero-text { max-width: 650px; margin: 30px 0; color: #d8dadd; font-size: 19px; line-height: 1.6; font-family: Georgia, "Times New Roman", serif; font-style: italic; }
-
 .buttons { display: flex; flex-wrap: wrap; gap: 14px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 25px; border: none; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; transition: transform .25s ease, filter .25s ease; }
 .button:hover { transform: translateY(-2px); filter: brightness(1.08); }
@@ -52,8 +49,6 @@ h2 { max-width: 800px; margin: 0 0 45px; font-size: clamp(36px, 5vw, 58px); line
 .card-content { padding: 24px 28px 30px; }
 .card h3 { margin: 15px 0 14px; font-size: 25px; }
 .card p { margin: 0; color: #d0d2d4; line-height: 1.7; }
-
-/* SUPERFICIES (4 en web) */
 .surface-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .surface-grid > div { position: relative; overflow: hidden; min-height: 260px; background: #292c2f; border: 1px solid #4c5054; border-radius: 18px; text-align: left; transition: transform .3s ease, border-color .3s ease; }
 .surface-grid > div:hover { transform: translateY(-5px); border-color: #73777b; }
@@ -63,7 +58,6 @@ h2 { max-width: 800px; margin: 0 0 45px; font-size: clamp(36px, 5vw, 58px); line
 .surface-grid strong, .surface-grid span { display: block; }
 .surface-grid strong { font-size: 20px; }
 .surface-grid span { margin-top: 6px; color: #c7c9cb; font-size: 13px; }
-
 .gallery-wrapper { width: 100%; overflow: visible; }
 .gallery { display: flex; gap: 18px; width: 100%; overflow-x: auto; overflow-y: visible !important; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; touch-action: pan-y; cursor: grab; }
 .gallery::-webkit-scrollbar { display: none; }
@@ -94,7 +88,6 @@ h2 { max-width: 800px; margin: 0 0 45px; font-size: clamp(36px, 5vw, 58px); line
 form { display: grid; gap: 18px; }
 label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
 
-/* INPUTS Y SELECTS CON EL MISMO DEGRADADO */
 input, select, textarea {
   width: 100%;
   padding: 15px 17px;
@@ -108,12 +101,11 @@ input, select, textarea {
 }
 input:focus, textarea:focus { border-color: rgba(255,255,255,.42); background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055)); box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18); }
 input::placeholder, textarea::placeholder { color: #979b9f; }
-textarea { resize: vertical; min-height: 130px; }
+textarea { resize: vertical; min-height: 130px; border-radius: 20px; }
 #metros { appearance: textfield; -moz-appearance: textfield; }
 #metros::-webkit-outer-spin-button, #metros::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .submit { width: 100%; margin-top: 5px; }
 
-/* Selects con flecha y degradado correcto (iguales a los inputs) */
 select {
   appearance: none;
   -webkit-appearance: none;
@@ -177,15 +169,20 @@ footer { padding: 40px 0 32px; background: #000000; }
   .hero-text { font-size: 17px; }
   .buttons { width: 100%; }
   .button { width: 100%; }
+  
+  /* MÓVIL: 2 Servicios por fila, sin descripciones */
   .cards { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .card h3 { font-size: 20px; }
-  .card p { font-size: 14px; line-height: 1.5; }
-  .card-content { padding: 18px; }
-  .card-image { height: 140px; }
-  .surface-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .surface-grid img { height: 140px; }
-  .surface-grid strong { font-size: 16px; }
-  .surface-grid span { font-size: 11px; }
+  .card-content { padding: 15px 12px; }
+  .card h3 { font-size: 18px; margin-bottom: 0; }
+  .card p { display: none; }
+  .card-image { height: 120px; }
+
+  /* MÓVIL: 4 Superficies por fila */
+  .surface-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .surface-grid img { height: 100px; }
+  .surface-grid strong { font-size: 13px; }
+  .surface-grid span { font-size: 9px; }
+
   select { width: 100%; min-width: 0; min-height: 52px; padding: 15px 48px 15px 18px; border-radius: 999px; background-position: right 17px center; background-size: 15px 15px; font-size: 16px; }
   .gallery-wrapper { width: 100%; overflow: visible; }
   .gallery { width: calc(100% + 32px); max-width: none; margin-left: -16px; margin-right: -16px; padding: 4px 16px 8px; gap: 12px; overflow-x: auto; overflow-y: visible; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; touch-action: pan-y; }
@@ -209,5 +206,6 @@ footer { padding: 40px 0 32px; background: #000000; }
   .gallery { width: calc(100% + 24px); margin-left: -12px; margin-right: -12px; padding-left: 12px; padding-right: 12px; }
   .gallery-card { flex-basis: calc(100vw - 24px); min-width: calc(100vw - 24px); max-width: calc(100vw - 24px); }
   .gallery-scrollbar { width: 95px; }
-  .surface-grid { grid-template-columns: repeat(2, 1fr); }
+  .surface-grid { grid-template-columns: repeat(4, 1fr); }
+  .surface-grid img { height: 80px; }
 }
