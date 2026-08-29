@@ -279,13 +279,5 @@ if (gallery && scrollbar && thumb) {
   gallery.addEventListener("pointerup", stopGalleryDrag);
   gallery.addEventListener("pointercancel", stopGalleryDrag);
 
-  // Rueda del mouse
-  gallery.addEventListener("wheel", (event) => {
-    if (Math.abs(event.deltaY) > Math.abs(event.deltaX) && getMaxScroll() > 0) {
-      event.preventDefault();
-      gallery.scrollLeft += event.deltaY;
-    }
-  }, { passive: false });
-
   requestAnimationFrame(syncScrollbar);
 }
