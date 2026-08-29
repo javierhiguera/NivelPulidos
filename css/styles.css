@@ -49,11 +49,11 @@ textarea {
   background: linear-gradient(180deg, #e6e7e8, #86898c);
 }
 
-/* ========================= HEADER (INTEGRADO, SIN LÍNEA) ========================= */
+/* ========================= HEADER (TRANSPARENTE E INTEGRADO, SIN LÍNEA) ========================= */
 .header {
   width: 100%;
   padding: 18px 0;
-  background-color: #686b6e;
+  background: transparent !important;
   border-bottom: none !important;
   box-shadow: none !important;
 }
@@ -553,63 +553,56 @@ label {
   font-weight: 600;
 }
 
+/* DESPLEGABLES Y CAMPOS CON REDONDEO FORZADO */
 input,
 select,
 textarea {
   width: 100%;
   padding: 15px 17px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 999px;
-  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
-  color: #fff;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035)) !important;
+  color: #fff !important;
   outline: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 7px 20px rgba(0,0,0,.16);
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
 
 textarea {
-  border-radius: 20px;
+  border-radius: 20px !important;
   resize: vertical;
   min-height: 130px;
 }
 
 select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: 999px;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
   padding: 15px 52px 15px 20px;
-  background-color: rgba(255,255,255,.055);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-position: right 18px center;
-  background-size: 16px 16px;
-  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d8dadd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-position: right 18px center !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
   cursor: pointer;
 }
-select:hover {
-  border-color: rgba(255,255,255,.32);
-  background-color: rgba(255,255,255,.075);
-}
-select:focus {
-  border-color: rgba(255,255,255,.42);
-  background-color: rgba(255,255,255,.09);
-  box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18);
-}
+
 select option {
-  background: #292c2f;
-  color: #fff;
-  border-radius: 10px;
-}
-select option:checked {
-  background: #3b3e41;
-  color: #fff;
-  border-radius: 10px;
+  background: #292c2f !important;
+  color: #fff !important;
+  border-radius: 10px !important;
 }
 
+select option:checked {
+  background: #3b3e41 !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+}
+
+select:focus,
 input:focus,
 textarea:focus {
-  border-color: rgba(255,255,255,.42);
-  background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055));
+  border-color: rgba(255,255,255,.42) !important;
+  background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.055)) !important;
   box-shadow: 0 0 0 3px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.15), 0 10px 24px rgba(0,0,0,.18);
 }
 
@@ -619,8 +612,8 @@ textarea::placeholder {
 }
 
 #metros {
-  appearance: textfield;
-  -moz-appearance: textfield;
+  appearance: textfield !important;
+  -moz-appearance: textfield !important;
 }
 #metros::-webkit-outer-spin-button,
 #metros::-webkit-inner-spin-button {
@@ -877,9 +870,9 @@ footer {
 
   select {
     padding: 15px 48px 15px 18px;
-    border-radius: 999px;
-    background-position: right 17px center;
-    background-size: 15px 15px;
+    border-radius: 999px !important;
+    background-position: right 17px center !important;
+    background-size: 15px 15px !important;
     font-size: 16px;
   }
 
