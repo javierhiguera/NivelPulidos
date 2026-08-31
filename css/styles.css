@@ -1,7 +1,6 @@
 /* ============================================================
    FUENTES
    ============================================================ */
-/* Whyte Ink Trap (debes alojar el archivo .woff2 en /fonts/) */
 @font-face {
   font-family: 'Whyte Ink Trap';
   src: url('../fonts/WhyteInkTrap.woff2') format('woff2'),
@@ -25,8 +24,8 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Fondo degradado: azul metalizado mate → gris metalizado mate oscuro */
-  background: linear-gradient(180deg, #0b1a2b 0%, #1a3347 30%, #2a4a62 60%, #3a5a72 80%, #4a6a82 100%) !important;
+  /* Fondo: azul muy oscuro metálico → gris metalizado oscuro */
+  background: linear-gradient(180deg, #0a1420 0%, #142433 30%, #1e3448 60%, #2a4058 80%, #3a4a5e 100%) !important;
   background-attachment: fixed;
 }
 
@@ -34,7 +33,6 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button, input, select, textarea { font: inherit; }
 
-/* Scrollbar personalizada */
 ::-webkit-scrollbar { width: 11px; }
 ::-webkit-scrollbar-track { background: #08090a; }
 ::-webkit-scrollbar-thumb {
@@ -52,7 +50,7 @@ button, input, select, textarea { font: inherit; }
 h1, h2, h3, h4, .button, .eyebrow, .surface-grid strong {
   font-family: 'Whyte Ink Trap', 'Inter', sans-serif;
   font-weight: 700;
-  color: #ffffff; /* blanco sólido */
+  color: #ffffff;
 }
 
 h1, h2 {
@@ -94,6 +92,25 @@ h3 {
 p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
   font-family: 'Montserrat', sans-serif;
   color: #fff;
+}
+
+/* ============================================================
+   TÍTULOS LATERALES CON DEGRADADO HORIZONTAL
+   ============================================================ */
+.section-title h2,
+.section-title .eyebrow {
+  background: linear-gradient(90deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.section-title .eyebrow {
+  background: linear-gradient(90deg, #a0c4e8, #d0dce8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ============================================================
@@ -240,6 +257,15 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
   background: linear-gradient(135deg, #39f477 0%, #19d96b 45%, #078c67 100%);
   box-shadow: 0 9px 28px rgba(18,217,107,.34);
 }
+.secondary {
+  color: #1a1e24;
+  background: linear-gradient(135deg, #d0d8e0 0%, #b0bcc8 50%, #8a9aa8 100%);
+  box-shadow: 0 9px 28px rgba(80,90,100,.3);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.secondary:hover {
+  filter: brightness(1.1);
+}
 .button-icon {
   width: 19px;
   height: 19px;
@@ -260,7 +286,7 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 }
 .section-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 60px;
   align-items: start;
 }
@@ -557,12 +583,12 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 .gallery-dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin-top: 20px;
 }
 .gallery-dots button {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: none;
   background: rgba(255,255,255,0.25);
@@ -573,7 +599,7 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 }
 .gallery-dots button.active {
   background: #fff;
-  transform: scale(1.3);
+  transform: scale(1.25);
 }
 
 /* ============================================================
@@ -857,7 +883,26 @@ footer {
   .surface-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .section { padding: 60px 0; }
   .gallery-card { flex-basis: 82vw; }
-  .gallery-controls { display: none; } /* en tablet/móvil se usan los dots y el arrastre */
+  /* En móvil las flechas se mantienen pero más pequeñas */
+  .gallery-controls { 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .gallery-prev,
+  .gallery-next {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+  }
 }
 
 @media (max-width: 600px) {
@@ -906,13 +951,11 @@ footer {
   .buttons { width: 100%; }
   .button { width: 100%; }
 
-  /* Móvil: servicios 1 col */
   .cards { grid-template-columns: 1fr; gap: 12px; }
   .card h3 { font-size: 22px; }
   .card-content { padding: 18px; }
   .card-image { height: 190px; }
 
-  /* Móvil: superficies 2 columnas 1:1 */
   .surface-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .surface-grid > div { min-height: 0; }
   .surface-grid img { aspect-ratio: 1 / 1; height: auto; }
@@ -920,7 +963,7 @@ footer {
   .surface-grid strong { font-size: 14px; }
   .surface-grid span { font-size: 10px; margin-top: 2px; }
 
-  /* Móvil: carrusel a pantalla completa */
+  /* Carrusel a pantalla completa con flechas más pequeñas */
   .gallery-wrapper { overflow: visible; }
   .gallery {
     width: calc(100% + 32px);
@@ -940,7 +983,16 @@ footer {
   .comparison { aspect-ratio: 4 / 3; }
   .comparison-handle { width: 42px; height: 42px; }
   .comparison-control { width: 60px; height: 60px; touch-action: none; }
-  .gallery-dots { margin-top: 16px; }
+  .gallery-dots { margin-top: 16px; gap: 10px; }
+  .gallery-dots button { width: 10px; height: 10px; }
+
+  .gallery-prev,
+  .gallery-next {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    background: rgba(0,0,0,0.5);
+  }
 
   .section { padding: 55px 0; }
   .director-quote-text { font-size: 17px; }
