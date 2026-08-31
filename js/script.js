@@ -1,188 +1,177 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* MENÚ RESPONSIVO */
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.nav nav');
 
-  // 1. Menú Hamburguesa Móvil
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
+menuToggle?.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+});
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+/* CERRAR MENÚ AL HACER CLICK EN UN ENLACE */
+document.querySelectorAll('#mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuToggle.classList.remove('active');
+    });
+});
+
+/* DESPLEGABLES PERSONALIZADOS (FORMULARIO) */
+document.querySelectorAll('.custom-select').forEach(customSelect => {
+    const trigger = customSelect.querySelector('.custom-select-trigger');
+    const options = customSelect.querySelectorAll('.custom-option');
+    const hiddenInput = customSelect.querySelector('input[type="hidden"]');
+    const selectedText = trigger.querySelector('.selected-text');
+
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.custom-select.open').forEach(select => {
+            if (select !== customSelect) select.classList.remove('open');
+        });
+        customSelect.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
     });
 
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
+    options.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedText.textContent = option.textContent;
+            hiddenInput.value = option.dataset.value;
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            customSelect.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        });
     });
+});
+
+document.addEventListener('click', () => {
+    document.querySelectorAll('.custom-select.open').forEach(select => {
+        select.classList.remove('open');
+        select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
+    });
+});
+
+/* FORMULARIO WHATSAPP */
+const form = document.querySelector("#quote-form");
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const getValue = (selector) => document.querySelector(selector)?.value.trim() || "";
+
+  const nombre = getValue("#nombre");
+  const telefono = getValue("#telefono");
+  const localidad = getValue("#localidad");
+  const superficie = getValue("#superficie");
+  const servicio = getValue("#servicio");
+  const metros = getValue("#metros");
+  const descripcion = getValue("#descripcion");
+
+  const mensaje = `Hola\n\nVengo de la página de Nivel Pulidos porque me encuentro interesado/a en renovar la imagen de mi piso.\n\n¿Me pueden brindar asesoramiento y presupuesto?\n\nNombre: ${nombre}\nWhatsApp: ${telefono}\nLocalidad: ${localidad}\nSuperficie: ${superficie}\nServicio: ${servicio}\nMetros cuadrados aproximados: ${metros || "No especificado"}\n\nDescripción:\n${descripcion || "Sin descripción adicional."}`;
+
+  const url = "https://wa.me/541124830787?text=" + encodeURIComponent(mensaje);
+  window.open(url, "_blank");
+});
+
+/* COMPARADORES DE ANTES Y DESPUÉS (OPTIMIZADO PARA TOUCH EN IOS/ANDROID) */
+document.querySelectorAll("[data-comparison]").forEach((comparison) => {
+  const before = comparison.querySelector(".comparison-before");
+  const divider = comparison.querySelector(".comparison-divider");
+  const handle = comparison.querySelector(".comparison-handle");
+  const control = comparison.querySelector(".comparison-control");
+
+  let dragging = false;
+
+  function updateComparison(clientX) {
+    const rect = comparison.getBoundingClientRect();
+    let x = clientX - rect.left;
+    x = Math.max(0, Math.min(x, rect.width));
+    const percentage = (x / rect.width) * 100;
+    
+    before.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    before.style.webkitClipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    divider.style.left = `${percentage}%`;
+    handle.style.left = `${percentage}%`;
   }
 
-  // 2. Desplegables Personalizados (Custom Select)
-  document.querySelectorAll('.custom-select').forEach(selectWrapper => {
-    const selected = selectWrapper.querySelector('.select-selected');
-    const items = selectWrapper.querySelector('.select-items');
-    const inputType = selectWrapper.getAttribute('data-select');
-    const hiddenInput = document.getElementById(`${inputType}Input`);
+  const startDrag = (e) => {
+    dragging = true;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    updateComparison(clientX);
+  };
 
-    if (selected && items) {
-      selected.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeAllSelects(items);
-        items.classList.toggle('select-hide');
-      });
+  const stopDrag = () => { dragging = false; };
 
-      items.querySelectorAll('div').forEach(item => {
-        item.addEventListener('click', () => {
-          selected.textContent = item.textContent;
-          if (hiddenInput) hiddenInput.value = item.getAttribute('data-value');
-          items.classList.add('select-hide');
-        });
-      });
-    }
+  const moveDrag = (e) => {
+    if (!dragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    updateComparison(clientX);
+  };
+
+  control.addEventListener("mousedown", startDrag);
+  control.addEventListener("touchstart", startDrag, { passive: true });
+
+  window.addEventListener("mouseup", stopDrag);
+  window.addEventListener("touchend", stopDrag);
+
+  window.addEventListener("mousemove", moveDrag);
+  window.addEventListener("touchmove", moveDrag, { passive: true });
+});
+
+/* CARRUSEL DE TRABAJOS CON FLECHAS Y PUNTOS INDICADORES */
+const track = document.getElementById("gallery-track");
+const prevBtn = document.getElementById("gallery-prev");
+const nextBtn = document.getElementById("gallery-next");
+const dotsContainer = document.getElementById("gallery-dots");
+
+if (track) {
+  const slides = Array.from(track.children);
+  
+  // Generar dots dinámicamente
+  slides.forEach((_, index) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => scrollToSlide(index));
+    dotsContainer.appendChild(dot);
   });
 
-  function closeAllSelects(except) {
-    document.querySelectorAll('.select-items').forEach(item => {
-      if (item !== except) item.classList.add('select-hide');
+  const dots = Array.from(dotsContainer.children);
+
+  function updateDots() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const activeIndex = Math.round(track.scrollLeft / slideWidth);
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === activeIndex);
     });
   }
 
-  document.addEventListener('click', () => closeAllSelects(null));
-
-  // 3. Formulario Presupuesto a WhatsApp
-  const whatsappForm = document.getElementById('whatsappForm');
-  if (whatsappForm) {
-    whatsappForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombre')?.value || '';
-      const telefono = document.getElementById('telefono')?.value || '';
-      const localidad = document.getElementById('localidad')?.value || '';
-      const superficie = document.getElementById('superficieInput')?.value || 'No especificada';
-      const servicio = document.getElementById('servicioInput')?.value || 'No especificado';
-      const metros = document.getElementById('metros')?.value || '';
-      const descripcion = document.getElementById('descripcion')?.value || '';
-
-      const mensaje = `Hola, solicito presupuesto:%0A` +
-        `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
-        `*Teléfono:* ${encodeURIComponent(telefono)}%0A` +
-        `*Localidad:* ${encodeURIComponent(localidad)}%0A` +
-        `*Superficie:* ${encodeURIComponent(superficie)}%0A` +
-        `*Servicio:* ${encodeURIComponent(servicio)}%0A` +
-        `*Metros²:* ${encodeURIComponent(metros)}%0A` +
-        `*Descripción:* ${encodeURIComponent(descripcion)}`;
-
-      window.open(`https://wa.me/123456789?text=${mensaje}`, '_blank');
-    });
+  function scrollToSlide(index) {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.scrollTo({ left: slideWidth * index, behavior: "smooth" });
   }
 
-  // 4. Comparador Deslizante (Antes y Después)
-  const baContainer = document.getElementById('beforeAfter');
-  const beforeWrapper = document.getElementById('beforeWrapper');
-  const sliderHandle = document.getElementById('sliderHandle');
+  nextBtn?.addEventListener("click", () => {
+    track.scrollBy({ left: track.clientWidth, behavior: "smooth" });
+  });
 
-  if (baContainer && beforeWrapper && sliderHandle) {
-    let isDraggingBA = false;
+  prevBtn?.addEventListener("click", () => {
+    track.scrollBy({ left: -track.clientWidth, behavior: "smooth" });
+  });
 
-    const updateSlider = (x) => {
-      const rect = baContainer.getBoundingClientRect();
-      let offsetX = x - rect.left;
-      if (offsetX < 0) offsetX = 0;
-      if (offsetX > rect.width) offsetX = rect.width;
-      const percentage = (offsetX / rect.width) * 100;
-      beforeWrapper.style.width = `${percentage}%`;
-      sliderHandle.style.left = `${percentage}%`;
-    };
+  track.addEventListener("scroll", updateDots, { passive: true });
+}
 
-    const onPointerMove = (e) => {
-      if (!isDraggingBA) return;
-      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-      if (clientX !== undefined) updateSlider(clientX);
-    };
+/* BOTÓN VOLVER ARRIBA */
+const backToTopBtn = document.getElementById("back-to-top");
 
-    baContainer.addEventListener('mousedown', (e) => { isDraggingBA = true; updateSlider(e.clientX); });
-    baContainer.addEventListener('touchstart', (e) => { isDraggingBA = true; updateSlider(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('mouseup', () => isDraggingBA = false);
-    window.addEventListener('touchend', () => isDraggingBA = false);
-    window.addEventListener('mousemove', onPointerMove);
-    window.addEventListener('touchmove', onPointerMove, { passive: true });
-
-    const beforeImg = beforeWrapper.querySelector('img');
-    if (beforeImg) {
-      const syncImageWidth = () => {
-        beforeImg.style.width = `${baContainer.offsetWidth}px`;
-      };
-      window.addEventListener('resize', syncImageWidth);
-      syncImageWidth();
-    }
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTopBtn?.classList.add("show");
+  } else {
+    backToTopBtn?.classList.remove("show");
   }
+});
 
-  // 5. Carrusel de Trabajos
-  const track = document.getElementById('carouselTrack');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  const dotsContainer = document.getElementById('carouselDots');
-  const carouselContainer = document.getElementById('carouselContainer');
-
-  if (track && prevBtn && nextBtn && dotsContainer && carouselContainer) {
-    const slides = Array.from(track.children);
-    let currentIndex = 0;
-
-    slides.forEach((_, idx) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (idx === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(idx));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = Array.from(dotsContainer.children);
-
-    const goToSlide = (index) => {
-      if (index < 0) index = slides.length - 1;
-      if (index >= slides.length) index = 0;
-      currentIndex = index;
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
-    };
-
-    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-    let startX = 0;
-    let isDraggingCarousel = false;
-
-    carouselContainer.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDraggingCarousel = true;
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchmove', (e) => {
-      if (!isDraggingCarousel) return;
-      const currentX = e.touches[0].clientX;
-      const diff = currentX - startX;
-      if (Math.abs(diff) > 50) {
-        if (diff < 0) goToSlide(currentIndex + 1);
-        else goToSlide(currentIndex - 1);
-        isDraggingCarousel = false;
-      }
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchend', () => { isDraggingCarousel = false; });
-  }
-
-  // 6. Botón Volver Arriba en Móviles
-  const backToTopBtn = document.getElementById('backToTop');
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.innerWidth <= 768 && window.scrollY > 300) {
-        backToTopBtn.style.display = 'flex';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
+backToTopBtn?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
