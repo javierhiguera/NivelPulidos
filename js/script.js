@@ -1,4 +1,3 @@
-// Toggle menú responsive
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
@@ -9,7 +8,6 @@ if (menuToggle && navMenu) {
   });
 }
 
-// Botón para volver arriba
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {
   window.addEventListener('scroll', () => {
@@ -25,7 +23,6 @@ if (backToTop) {
   });
 }
 
-// Lógica de interacción para el deslizador de comparación (punto y línea)
 document.querySelectorAll('.comparison').forEach(container => {
   const before = container.querySelector('.comparison-before');
   const divider = container.querySelector('.comparison-divider');
