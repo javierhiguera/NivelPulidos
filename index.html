@@ -7,12 +7,10 @@
   <meta name="description" content="Nivel Pulidos. Pulido, restauración y mantenimiento profesional de superficies. CABA / GBA." />
   <link rel="icon" href="assets/logo/logo.png" />
   
-  <!-- Google Font: Montserrat -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Google Font: Inter (fallback para Whyte Ink Trap) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
   <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -21,19 +19,16 @@
   <main>
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <!-- MENÚ SUPERIOR -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
           </a>
-          
           <button class="menu-toggle" aria-label="Abrir menú">
             <span></span>
             <span></span>
             <span></span>
           </button>
-
           <nav id="mobile-nav">
             <a href="#servicios">Servicios</a>
             <a href="#superficies">Superficies</a>
@@ -64,12 +59,11 @@
             </svg>
             WhatsApp
           </a>
-          <a href="#servicios" class="button secondary">Ver servicios</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== SERVICIOS ===== -->
+    <!-- ===== SERVICIOS (lista vertical, sin imágenes) ===== -->
     <section class="section services" id="servicios">
       <div class="container section-grid">
         <div class="section-title">
@@ -77,49 +71,31 @@
           <h2>Nos adaptamos a tus necesidades</h2>
         </div>
         <div class="section-content">
-          <div class="cards">
-            <article class="card">
-              <img class="card-image" src="assets/servicios/1.jpg" alt="Superficies" loading="lazy" />
-              <div class="card-content">
-                <h3>Superficies</h3>
-                <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado. Realizamos procesos de pulido, recuperación y terminación según las características de cada material.</p>
-              </div>
-            </article>
-            <article class="card">
-              <img class="card-image" src="assets/servicios/2.jpg" alt="Mesadas" loading="lazy" />
-              <div class="card-content">
-                <h3>Mesadas</h3>
-                <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
-              </div>
-            </article>
-            <article class="card">
-              <img class="card-image" src="assets/servicios/3.jpg" alt="Escaleras" loading="lazy" />
-              <div class="card-content">
-                <h3>Escaleras</h3>
-                <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras. El proceso se adapta tanto a superficies horizontales como verticales y a las características del material.</p>
-              </div>
-            </article>
-            <article class="card">
-              <img class="card-image" src="assets/servicios/4.jpg" alt="Balcones" loading="lazy" />
-              <div class="card-content">
-                <h3>Balcones</h3>
-                <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
-              </div>
-            </article>
-            <article class="card">
-              <img class="card-image" src="assets/servicios/5.jpg" alt="Restauración" loading="lazy" />
-              <div class="card-content">
-                <h3>Restauración</h3>
-                <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
-              </div>
-            </article>
-            <article class="card">
-              <img class="card-image" src="assets/servicios/6.jpg" alt="Mantenimiento" loading="lazy" />
-              <div class="card-content">
-                <h3>Mantenimiento</h3>
-                <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
-              </div>
-            </article>
+          <div class="services-list">
+            <div class="service-item">
+              <h3>Superficies</h3>
+              <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado. Realizamos procesos de pulido, recuperación y terminación según las características de cada material.</p>
+            </div>
+            <div class="service-item">
+              <h3>Mesadas</h3>
+              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
+            </div>
+            <div class="service-item">
+              <h3>Escaleras</h3>
+              <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras. El proceso se adapta tanto a superficies horizontales como verticales y a las características del material.</p>
+            </div>
+            <div class="service-item">
+              <h3>Balcones</h3>
+              <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
+            </div>
+            <div class="service-item">
+              <h3>Restauración</h3>
+              <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
+            </div>
+            <div class="service-item">
+              <h3>Mantenimiento</h3>
+              <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -360,12 +336,12 @@
       </div>
     </section>
 
-    <!-- ===== CONTACTO ===== -->
+    <!-- ===== CONTACTO (sin h2) ===== -->
     <section class="contact" id="contacto">
       <div class="container section-grid">
         <div class="section-title">
           <p class="eyebrow">CONTACTO</p>
-          <h2>Hablemos</h2>
+          <!-- No hay h2 aquí -->
         </div>
         <div class="section-content contact-content">
           <p>
