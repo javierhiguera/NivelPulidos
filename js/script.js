@@ -1,5 +1,5 @@
 /* ============================================================
-   MENÚ 
+   MENÚ HAMBURGUESA
    ============================================================ */
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('.nav nav');
@@ -40,7 +40,6 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
     });
 });
 
-/* Cerrar dropdowns al hacer clic fuera */
 document.addEventListener('click', () => {
     document.querySelectorAll('.custom-select.open').forEach(select => {
         select.classList.remove('open');
@@ -121,7 +120,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     return ((event.clientX - rect.left) / rect.width) * 100;
   }
 
-  // Mouse
   comparison.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "mouse") return;
     dragging = true;
@@ -148,7 +146,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     pointerId = null;
   });
 
-  // Touch (a través del control)
   control.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "touch") return;
     dragging = true;
@@ -208,9 +205,7 @@ if (gallery && dotsContainer) {
   const cards = gallery.querySelectorAll(".gallery-card");
   const totalCards = cards.length;
   let currentIndex = 0;
-  let autoScrollTimeout = null;
 
-  // Crear dots
   cards.forEach((_, i) => {
     const dot = document.createElement("button");
     dot.dataset.index = i;
@@ -223,7 +218,7 @@ if (gallery && dotsContainer) {
 
   function goTo(index) {
     currentIndex = Math.max(0, Math.min(index, totalCards - 1));
-    const cardWidth = cards[0].offsetWidth + 12; // 12 es el gap
+    const cardWidth = cards[0].offsetWidth + 12;
     gallery.scrollTo({
       left: cardWidth * currentIndex,
       behavior: "smooth"
@@ -231,11 +226,9 @@ if (gallery && dotsContainer) {
     dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
   }
 
-  // Eventos de flechas
   prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
   nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
 
-  // Sincronizar dots al hacer scroll manual
   gallery.addEventListener("scroll", () => {
     const cardWidth = cards[0]?.offsetWidth + 12 || 1;
     const scrollLeft = gallery.scrollLeft;
@@ -246,7 +239,6 @@ if (gallery && dotsContainer) {
     }
   }, { passive: true });
 
-  // Recalcular al redimensionar
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
@@ -255,7 +247,6 @@ if (gallery && dotsContainer) {
     }, 150);
   });
 
-  /* --- Arrastre táctil mejorado para móviles --- */
   let dragData = {
     active: false,
     pointerId: null,
