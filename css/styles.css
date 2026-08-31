@@ -41,6 +41,7 @@ body {
   overflow-x: hidden;
   color: #fff;
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #2c2f33 0%, #1c1e21 30%, #101214 65%, #000000 100%) !important;
@@ -105,7 +106,7 @@ button, input, select, textarea { font: inherit; }
   transition: opacity 0.25s ease;
   text-transform: uppercase;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 2px;
 }
 
@@ -192,6 +193,7 @@ h1, h2 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  font-weight: 700;
 }
 
 h1 {
@@ -215,13 +217,14 @@ h1 span {
   line-height: 1.6;
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
+  font-weight: 400;
 }
 
 .eyebrow {
   margin: 0 0 18px;
   color: #c5c8ca;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 4px;
   text-transform: uppercase;
 }
@@ -252,7 +255,7 @@ h2 {
   border: none;
   border-radius: 999px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: transform 0.25s ease, filter 0.25s ease;
 }
@@ -342,6 +345,7 @@ h2 {
   margin: 0;
   color: #d0d2d4;
   line-height: 1.7;
+  font-weight: 400;
 }
 
 /* ===== SUPERFICIES ===== */
@@ -402,6 +406,7 @@ h2 {
   margin-top: 5px;
   color: #c7c9cb;
   font-size: 12px;
+  font-weight: 400;
 }
 
 /* ===== GALERÍA / CARRUSEL ===== */
@@ -644,7 +649,7 @@ label {
   display: grid;
   gap: 8px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 input,
@@ -788,6 +793,7 @@ input:valid:not(:placeholder-shown) {
   color: #fff;
   cursor: pointer;
   transition: background 0.2s;
+  font-weight: 400;
 }
 
 .custom-option:hover {
@@ -796,7 +802,7 @@ input:valid:not(:placeholder-shown) {
 
 .custom-option.selected {
   background: #3b3e41;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* ===== NOSOTROS ===== */
@@ -811,6 +817,7 @@ input:valid:not(:placeholder-shown) {
   font-size: 17px;
   line-height: 1.8;
   text-align: left;
+  font-weight: 400;
 }
 
 .text p {
@@ -846,6 +853,7 @@ input:valid:not(:placeholder-shown) {
   font-style: italic;
   color: #d0d2d4;
   text-align: center;
+  font-weight: 400;
 }
 
 .director-name {
@@ -853,6 +861,7 @@ input:valid:not(:placeholder-shown) {
   color: #d0d2d4;
   text-align: center;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .director-name strong {
@@ -886,7 +895,7 @@ input:valid:not(:placeholder-shown) {
   line-height: 1.6;
   margin: 0;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .contact-content > div:first-child > p {
@@ -904,7 +913,7 @@ input:valid:not(:placeholder-shown) {
   justify-content: center;
   gap: 6px;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .contact-icon {
@@ -929,6 +938,7 @@ footer {
   color: #85898d;
   font-size: 12px;
   text-align: center;
+  font-weight: 400;
 }
 
 .footer-logo {
