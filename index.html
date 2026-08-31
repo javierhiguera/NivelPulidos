@@ -11,7 +11,9 @@
 <body id="inicio">
 
   <main>
+    <!-- HERO -->
     <section class="hero">
+      <!-- MENÚ CON HAMBURGUESA -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
@@ -58,8 +60,10 @@
       </div>
     </section>
 
+    <!-- SERVICIOS -->
     <section class="section services" id="servicios">
       <div class="container">
+        <p class="eyebrow">SERVICIOS</p>
         <h2>Nos adaptamos a tus necesidades</h2>
         <div class="cards">
           <article class="card">
@@ -108,8 +112,10 @@
       </div>
     </section>
 
+    <!-- SUPERFICIES -->
     <section class="section surfaces" id="superficies">
       <div class="container">
+        <p class="eyebrow">SUPERFICIES</p>
         <h2>Trabajamos diferentes materiales</h2>
         <div class="surface-grid">
           <div>
@@ -172,11 +178,12 @@
       </div>
     </section>
 
+    <!-- TRABAJOS -->
     <section class="section gallery-section" id="trabajos">
       <div class="container">
+        <p class="eyebrow">TRABAJOS</p>
         <h2>Resultados que hablan por nosotros</h2>
         <div class="gallery-wrapper">
-          <button class="gallery-nav prev" id="gallery-prev" aria-label="Anterior">&#10094;</button>
           <div class="gallery" id="gallery-track">
             <div class="gallery-card">
               <div class="comparison" data-comparison>
@@ -218,15 +225,18 @@
               </div>
             </div>
           </div>
-          <button class="gallery-nav next" id="gallery-next" aria-label="Siguiente">&#10095;</button>
-          <div class="gallery-dots" id="gallery-dots"></div>
+          <div class="gallery-scrollbar" id="gallery-scrollbar" aria-label="Cambiar trabajo">
+            <div class="gallery-scrollbar-thumb" id="gallery-scrollbar-thumb"></div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- PRESUPUESTO -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
+          <p class="eyebrow">PRESUPUESTO</p>
           <h2>Contanos qué trabajo necesitás</h2>
           <div class="schedule">
             <strong>Horario de atención</strong>
@@ -234,21 +244,21 @@
           </div>
         </div>
         <form id="quote-form">
-          <label for="nombre">
+          <label>
             Nombre
             <input id="nombre" type="text" placeholder="Tu nombre" required />
           </label>
-          <label for="telefono">
+          <label>
             WhatsApp
             <input id="telefono" type="tel" placeholder="Tu número" required />
           </label>
-          <label for="localidad">
+          <label>
             Localidad
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
           
-          <div>
-            <label>Tipo de superficie</label>
+          <label>
+            Tipo de superficie
             <div class="custom-select" id="custom-superficie">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text">Seleccionar</span>
@@ -264,12 +274,12 @@
                 <li class="custom-option" data-value="Travertino">Travertino</li>
                 <li class="custom-option" data-value="Otra">Otra</li>
               </ul>
-              <input type="hidden" id="superficie" name="superficie" value="" required />
+              <input type="hidden" id="superficie" name="superficie" value="" required>
             </div>
-          </div>
+          </label>
 
-          <div>
-            <label>Servicio</label>
+          <label>
+            Servicio
             <div class="custom-select" id="custom-servicio">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text">Seleccionar</span>
@@ -281,15 +291,15 @@
                 <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
                 <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
               </ul>
-              <input type="hidden" id="servicio" name="servicio" value="" required />
+              <input type="hidden" id="servicio" name="servicio" value="" required>
             </div>
-          </div>
+          </label>
 
-          <label for="metros">
+          <label>
             Metros cuadrados aproximados
             <input id="metros" type="number" min="1" placeholder="Ej. 50" />
           </label>
-          <label for="descripcion">
+          <label>
             Descripción
             <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
           </label>
@@ -304,9 +314,11 @@
       </div>
     </section>
 
+    <!-- NOSOTROS -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
         <div>
+          <p class="eyebrow">NOSOTROS</p>
           <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
         </div>
         <div class="text">
@@ -323,9 +335,11 @@
       </div>
     </section>
 
+    <!-- CONTACTO -->
     <section class="contact" id="contacto">
       <div class="container contact-content">
         <div>
+          <p class="eyebrow">CONTACTO</p>
           <p>
             <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
@@ -358,10 +372,6 @@
       <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creator">Created by Javier Higuera</a>
     </div>
   </footer>
-
-  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
-    &#8593;
-  </button>
 
   <script src="js/script.js" defer></script>
 </body>
