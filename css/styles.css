@@ -1,5 +1,5 @@
 /* ============================================================
-   FUENTES
+   FUENTES (cargadas desde /fonts/)
    ============================================================ */
 @font-face {
   font-family: 'Whyte Ink Trap';
@@ -24,7 +24,6 @@ body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Fondo: azul muy oscuro metálico → gris metalizado oscuro */
   background: linear-gradient(180deg, #0a1420 0%, #142433 30%, #1e3448 60%, #2a4058 80%, #3a4a5e 100%) !important;
   background-attachment: fixed;
 }
@@ -95,22 +94,69 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 }
 
 /* ============================================================
-   TÍTULOS LATERALES CON DEGRADADO HORIZONTAL
+   TÍTULOS LATERALES CON DEGRADADO HORIZONTAL Y ROTACIÓN
    ============================================================ */
-.section-title h2,
+.section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+}
+
 .section-title .eyebrow {
-  background: linear-gradient(90deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg); /* Para que se lea de arriba a abajo */
+  font-size: 14px;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  opacity: 0.8;
+}
+
+.section-title h2 {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin: 0;
+  background: linear-gradient(180deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: inline-block;
 }
 
-.section-title .eyebrow {
-  background: linear-gradient(90deg, #a0c4e8, #d0dce8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Ajuste para pantallas pequeñas: volver a horizontal */
+@media (max-width: 850px) {
+  .section-title {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .section-title .eyebrow,
+  .section-title h2 {
+    writing-mode: horizontal-tb;
+    transform: none;
+    background: linear-gradient(90deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .section-title h2 {
+    font-size: clamp(28px, 5vw, 40px);
+  }
+  .section-title .eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
 }
 
 /* ============================================================
@@ -257,15 +303,6 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
   background: linear-gradient(135deg, #39f477 0%, #19d96b 45%, #078c67 100%);
   box-shadow: 0 9px 28px rgba(18,217,107,.34);
 }
-.secondary {
-  color: #1a1e24;
-  background: linear-gradient(135deg, #d0d8e0 0%, #b0bcc8 50%, #8a9aa8 100%);
-  box-shadow: 0 9px 28px rgba(80,90,100,.3);
-  border: 1px solid rgba(255,255,255,0.2);
-}
-.secondary:hover {
-  filter: brightness(1.1);
-}
 .button-icon {
   width: 19px;
   height: 19px;
@@ -286,16 +323,45 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 }
 .section-grid {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 60px;
-  align-items: start;
+  grid-template-columns: 120px 1fr; /* Columna izquierda más estrecha para el texto rotado */
+  gap: 40px;
+  align-items: center; /* Centrar verticalmente el título rotado con el contenido */
 }
 .section-title {
-  position: sticky;
-  top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+.section-title .eyebrow {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 14px;
+  letter-spacing: 6px;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  opacity: 0.8;
 }
 .section-title h2 {
-  margin: 0 0 10px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin: 0;
+  background: linear-gradient(180deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 .schedule {
   margin-top: 30px;
@@ -310,49 +376,39 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
 }
 
 /* ============================================================
-   CARDS (Servicios) - Glassmorphism
+   SERVICIOS - LISTA VERTICAL (como en la imagen)
    ============================================================ */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-.card {
-  min-height: 250px;
-  overflow: hidden;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+.service-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 24px;
 }
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
-  border-color: rgba(255, 255, 255, 0.3);
+.service-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
-.card-image {
-  width: 100%;
-  height: 180px;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.card:hover .card-image { transform: scale(1.04); }
-.card-content {
-  padding: 20px 24px 25px;
-}
-.card p {
-  margin: 0;
-  line-height: 1.7;
+.service-item h3 {
+  font-family: 'Whyte Ink Trap', 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
   color: #fff;
-  opacity: 0.9;
+  letter-spacing: -0.5px;
+}
+.service-item p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
 }
 
 /* ============================================================
-   SUPERFICIES - Glassmorphism
+   SUPERFICIES - Grid
    ============================================================ */
 .surface-grid {
   display: grid;
@@ -478,8 +534,6 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
   height: 100%;
   object-fit: cover;
 }
-
-/* Comparador */
 .comparison {
   position: relative;
   width: 100%;
@@ -578,8 +632,6 @@ p, li, .hero-text, .text, .schedule, .surface-info span, .card p {
   cursor: ew-resize;
   touch-action: none;
 }
-
-/* Puntos del carrusel */
 .gallery-dots {
   display: flex;
   justify-content: center;
@@ -643,8 +695,6 @@ textarea {
 #metros::-webkit-outer-spin-button,
 #metros::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .submit { width: 100%; margin-top: 5px; }
-
-/* Custom Select */
 .custom-select {
   position: relative;
   width: 100%;
@@ -863,8 +913,8 @@ footer {
    ============================================================ */
 @media (max-width: 1024px) {
   .section-grid {
-    grid-template-columns: 220px 1fr;
-    gap: 40px;
+    grid-template-columns: 100px 1fr;
+    gap: 30px;
   }
   .cards { grid-template-columns: repeat(2, 1fr); }
   .surface-grid { grid-template-columns: repeat(3, 1fr); }
@@ -877,14 +927,37 @@ footer {
   }
   .section-title {
     position: static;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    text-align: left;
+    width: 100%;
+  }
+  .section-title .eyebrow,
+  .section-title h2 {
+    writing-mode: horizontal-tb;
+    transform: none;
+    background: linear-gradient(90deg, #8ab4d6 0%, #c0d0e0 50%, #e0e8f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  .section-title .eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 0;
+  }
+  .section-title h2 {
+    font-size: clamp(24px, 5vw, 36px);
   }
   .cards { grid-template-columns: 1fr; gap: 15px; }
   .card-image { height: 220px; }
   .surface-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .section { padding: 60px 0; }
   .gallery-card { flex-basis: 82vw; }
-  /* En móvil las flechas se mantienen pero más pequeñas */
-  .gallery-controls { 
+  .gallery-controls {
     position: absolute;
     top: 50%;
     left: 0;
@@ -963,7 +1036,6 @@ footer {
   .surface-grid strong { font-size: 14px; }
   .surface-grid span { font-size: 10px; margin-top: 2px; }
 
-  /* Carrusel a pantalla completa con flechas más pequeñas */
   .gallery-wrapper { overflow: visible; }
   .gallery {
     width: calc(100% + 32px);
@@ -985,7 +1057,6 @@ footer {
   .comparison-control { width: 60px; height: 60px; touch-action: none; }
   .gallery-dots { margin-top: 16px; gap: 10px; }
   .gallery-dots button { width: 10px; height: 10px; }
-
   .gallery-prev,
   .gallery-next {
     width: 36px;
