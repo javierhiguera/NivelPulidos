@@ -7,7 +7,7 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-// Cerrar menú al hacer clic en un enlace (MEJORA)
+// Cerrar menú al hacer clic en un enlace
 const navLinks = document.querySelectorAll('.nav nav a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -42,7 +42,6 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
             
-            // Disparar evento change para validación
             const changeEvent = new Event('change', { bubbles: true });
             hiddenInput.dispatchEvent(changeEvent);
         });
@@ -57,17 +56,15 @@ document.addEventListener('click', () => {
     });
 });
 
-/* ===== FORMULARIO WHATSAPP - MEJORADO ===== */
+/* ===== FORMULARIO WHATSAPP ===== */
 const form = document.querySelector("#quote-form");
 
 form?.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    // Función mejorada para obtener valores
     const getFieldValue = (id) => {
         const element = document.getElementById(id);
         if (!element) return '';
-        // Si es un input hidden de un custom select, devuelve su valor
         if (element.type === 'hidden') return element.value;
         return element.value.trim();
     };
@@ -80,7 +77,6 @@ form?.addEventListener("submit", (event) => {
     const metros = getFieldValue('metros');
     const descripcion = document.getElementById('descripcion')?.value.trim() || '';
 
-    // Validación mejorada
     let hasError = false;
     let errorMessage = 'Por favor, completá los siguientes campos:\n';
 
@@ -92,13 +88,6 @@ form?.addEventListener("submit", (event) => {
 
     if (hasError) {
         alert(errorMessage);
-        return;
-    }
-
-    // Validar formato de teléfono (opcional)
-    const phoneRegex = /^[0-9+\-\s()]{8,20}$/;
-    if (!phoneRegex.test(telefono)) {
-        alert('Por favor, ingresá un número de teléfono válido.');
         return;
     }
 
@@ -119,10 +108,7 @@ Metros cuadrados aproximados: ${metros || "No especificado"}
 Descripción:
 ${descripcion || "Sin descripción adicional."}`;
 
-    const url =
-        "https://wa.me/541124830787?text=" +
-        encodeURIComponent(mensaje);
-
+    const url = "https://wa.me/541124830787?text=" + encodeURIComponent(mensaje);
     window.open(url, "_blank");
 });
 
@@ -154,7 +140,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
         return ((event.clientX - rect.left) / rect.width) * 100;
     }
 
-    // Soporte para mouse
     comparison.addEventListener("pointerdown", (event) => {
         if (event.pointerType !== "mouse") return;
         dragging = true;
@@ -181,7 +166,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
         pointerId = null;
     });
 
-    // Soporte para touch
     control.addEventListener("pointerdown", (event) => {
         if (event.pointerType !== "touch") return;
         dragging = true;
@@ -226,7 +210,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     control.addEventListener("pointerup", stopMobileComparison);
     control.addEventListener("pointercancel", stopMobileComparison);
 
-    // Inicializar
     updateComparison(50);
 });
 
@@ -273,7 +256,6 @@ if (gallery && scrollbar && thumb) {
         gallery.scrollLeft = ratio * getMaxScroll();
     }
 
-    // Scrollbar dragging
     scrollbar.addEventListener("pointerdown", (event) => {
         event.preventDefault();
         draggingBar = true;
@@ -300,11 +282,9 @@ if (gallery && scrollbar && thumb) {
     scrollbar.addEventListener("pointerup", stopBarDrag);
     scrollbar.addEventListener("pointercancel", stopBarDrag);
 
-    // Gallery scroll sync
     gallery.addEventListener("scroll", syncScrollbar, { passive: true });
     window.addEventListener("resize", syncScrollbar);
 
-    // Gallery drag
     gallery.addEventListener("pointerdown", (event) => {
         if (event.target.closest(".comparison-control")) return;
         if (event.pointerType === "mouse" && event.button !== 0) return;
@@ -362,11 +342,10 @@ if (gallery && scrollbar && thumb) {
     gallery.addEventListener("pointerup", stopGalleryDrag);
     gallery.addEventListener("pointercancel", stopGalleryDrag);
 
-    // Inicializar
     requestAnimationFrame(syncScrollbar);
 }
 
-/* ===== MEJORA: Validación en tiempo real para selects ===== */
+/* ===== VALIDACIÓN EN TIEMPO REAL PARA SELECTS ===== */
 document.querySelectorAll('.custom-select input[type="hidden"]').forEach(hidden => {
     hidden.addEventListener('change', function() {
         const parent = this.closest('.custom-select');
@@ -376,7 +355,7 @@ document.querySelectorAll('.custom-select input[type="hidden"]').forEach(hidden 
     });
 });
 
-/* ===== MEJORA: Smooth scroll para enlaces internos ===== */
+/* ===== SMOOTH SCROLL PARA ENLACES INTERNOS ===== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
