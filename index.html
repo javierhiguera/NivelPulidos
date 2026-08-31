@@ -3,160 +3,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nivel Pulidos</title>
+  <title>Sitio Web</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <header class="header">
-    <div class="nav">
-      <a href="#" class="logo"><img src="assets/logo/logo.png" alt="Logo"></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="navMenu">
-        <a href="#servicios">Servicios</a>
-        <a href="#superficies">Superficies</a>
-        <a href="#galeria">Galería</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
+  <!-- Navegación -->
+  <header class="navbar">
+    <div class="logo">LOGO</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#servicios">Servicios</a>
+      <a href="#superficies">Superficies</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#presupuesto">Presupuesto</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
     <div class="hero-content">
-      <h1>NIVEL PULIDOS</h1>
-      <p class="hero-text">Restauración y tratamiento profesional de superficies.</p>
-      <div class="buttons">
-        <a href="#contacto" class="button primary">CONTACTAR</a>
-        <a href="https://wa.me/" class="button whatsapp" target="_blank" rel="noopener">WHATSAPP</a>
+      <h1>Servicios Profesionales de Aplicación y Restauración</h1>
+      <p>Especialistas en tratamiento de superficies y soluciones a medida.</p>
+      <div class="hero-buttons">
+        <a href="#presupuesto" class="btn btn-bordo">Solicitar Presupuesto</a>
+        <a href="#trabajos" class="btn btn-verde">Ver Trabajos</a>
       </div>
     </div>
   </section>
 
-  <section id="servicios" class="section">
-    <div class="container">
-      <div class="section-main-content">
-        <h2>SERVICIOS</h2>
-        <div class="cards">
-          <div class="card">
-            <img src="assets/servicios/card1.jpg" alt="Servicio 1" class="card-image">
-            <div class="card-content">
-              <h3>Pulido</h3>
-              <p>Tratamiento de alta precisión para restaurar el brillo original.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="assets/servicios/card2.jpg" alt="Servicio 2" class="card-image">
-            <div class="card-content">
-              <h3>Planchado</h3>
-              <p>Nivelación de superficies con tecnología de vanguardia.</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="assets/servicios/card3.jpg" alt="Servicio 3" class="card-image">
-            <div class="card-content">
-              <h3>Mantenimiento</h3>
-              <p>Protección duradera contra el desgaste continuo.</p>
-            </div>
-          </div>
+  <!-- Servicios (Sin título visible) -->
+  <section class="section" id="servicios">
+    <div class="grid-container">
+      <div class="card">
+        <p class="card-title">Aplicación Técnica</p>
+        <p>Soluciones especializadas para todo tipo de estructuras y revestimientos.</p>
+      </div>
+      <div class="card">
+        <p class="card-title">Restauración</p>
+        <p>Mantenimiento integral y recuperación de acabados técnicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Superficies (Sin título visible) -->
+  <section class="section" id="superficies">
+    <div class="grid-container">
+      <div class="card">
+        <p class="card-title">Hormigón y Madera</p>
+        <p>Tratamientos impermeables y de alta durabilidad.</p>
+      </div>
+      <div class="card">
+        <p class="card-title">Metal y Pisos</p>
+        <p>Protección contra la corrosión y desgaste mecánico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparador Antes y Después -->
+  <section class="section">
+    <div class="before-after-container" id="beforeAfter">
+      <img src="assets/despues.jpg" alt="Después" class="img-after">
+      <div class="img-before-wrapper" id="beforeWrapper">
+        <img src="assets/antes.jpg" alt="Antes" class="img-before">
+      </div>
+      <div class="slider-handle" id="sliderHandle">
+        <div class="handle-line"></div>
+        <div class="handle-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trabajos Carrusel (Sin título visible) -->
+  <section class="section" id="trabajos">
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow prev" id="carouselPrev" aria-label="Anterior">‹</button>
+      <div class="carousel-container" id="carouselContainer">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><img src="assets/trabajo1.jpg" alt="Trabajo 1"></div>
+          <div class="carousel-slide"><img src="assets/trabajo2.jpg" alt="Trabajo 2"></div>
+          <div class="carousel-slide"><img src="assets/trabajo3.jpg" alt="Trabajo 3"></div>
         </div>
       </div>
+      <button class="carousel-arrow next" id="carouselNext" aria-label="Siguiente">›</button>
     </div>
+    <div class="carousel-dots" id="carouselDots"></div>
   </section>
 
-  <section id="superficies" class="section">
-    <div class="container">
-      <div class="section-main-content">
-        <h2>SUPERFICIES</h2>
-        <div class="surface-grid">
-          <div>
-            <img src="assets/superficies/surf1.jpg" alt="Mármol">
-            <div class="surface-info">
-              <strong>Mármol</strong>
-              <span>Restauración y Brillo</span>
-            </div>
-          </div>
-          <div>
-            <img src="assets/superficies/surf2.jpg" alt="Granito">
-            <div class="surface-info">
-              <strong>Granito</strong>
-              <span>Sellado y Pulido</span>
-            </div>
-          </div>
-          <div>
-            <img src="assets/superficies/surf3.jpg" alt="Mosaico">
-            <div class="surface-info">
-              <strong>Mosaico</strong>
-              <span>Nivelación</span>
-            </div>
-          </div>
-          <div>
-            <img src="assets/superficies/surf4.jpg" alt="Hormigón">
-            <div class="surface-info">
-              <strong>Hormigón</strong>
-              <span>Tratamiento Industrial</span>
-            </div>
+  <!-- Presupuesto (Sin título visible) -->
+  <section class="section" id="presupuesto">
+    <form class="budget-form" id="whatsappForm">
+      <div class="form-group">
+        <input type="text" id="nombre" placeholder="Nombre completo" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" id="telefono" placeholder="Teléfono de contacto" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="localidad" placeholder="Localidad" required>
+      </div>
+      <div class="form-group">
+        <div class="custom-select" data-select="superficie">
+          <div class="select-selected">Seleccionar Superficie</div>
+          <div class="select-items select-hide">
+            <div data-value="Hormigón">Hormigón</div>
+            <div data-value="Madera">Madera</div>
+            <div data-value="Metal">Metal</div>
           </div>
         </div>
+        <input type="hidden" name="superficie" id="superficieInput">
       </div>
-    </div>
-  </section>
-
-  <section id="galeria" class="section">
-    <div class="container">
-      <div class="section-main-content">
-        <h2>GALERÍA</h2>
-        <div class="gallery-wrapper">
-          <button class="gallery-arrow prev" id="prevBtn">&#10094;</button>
-          <div class="gallery" id="galleryContainer">
-            <div class="gallery-card">
-              <div class="comparison">
-                <div class="comparison-after">
-                  <img src="assets/trabajos/after1.jpg" alt="Después">
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/before1.jpg" alt="Antes">
-                </div>
-                <div class="comparison-divider"></div>
-                <div class="comparison-handle"></div>
-                <button class="comparison-control" aria-label="Deslizar comparación"></button>
-              </div>
-            </div>
+      <div class="form-group">
+        <div class="custom-select" data-select="servicio">
+          <div class="select-selected">Seleccionar Servicio</div>
+          <div class="select-items select-hide">
+            <div data-value="Aplicación">Aplicación</div>
+            <div data-value="Restauración">Restauración</div>
+            <div data-value="Mantenimiento">Mantenimiento</div>
           </div>
-          <button class="gallery-arrow next" id="nextBtn">&#10095;</button>
         </div>
-        <div class="gallery-dots" id="galleryDots"></div>
+        <input type="hidden" name="servicio" id="servicioInput">
       </div>
+      <div class="form-group">
+        <input type="text" id="metros" placeholder="Metros cuadrados approx. (m²)" required>
+      </div>
+      <div class="form-group">
+        <textarea id="descripcion" placeholder="Descripción del trabajo..." rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-verde btn-block">Enviar Presupuesto vía WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- Nosotros (Sin título visible) -->
+  <section class="section" id="nosotros">
+    <div class="card">
+      <p>Somos una empresa con trayectoria dedicada a la protección y embellecimiento de superficies comerciales y residenciales con materiales de alta gama.</p>
     </div>
   </section>
 
-  <section id="contacto" class="contact section">
-    <div class="container">
-      <div class="contact-title">CONTACTO</div>
-      <div class="contact-content">
-        <div>
-          <p>Ubicación CABA / GBA</p>
-          <a href="mailto:nivelpulidos@gmail.com">nivelpulidos@gmail.com</a>
-          <a href="tel:1124830787">11 2483-0787</a>
-        </div>
-      </div>
+  <!-- Contacto (Sin título visible) -->
+  <section class="section" id="contacto">
+    <div class="card text-center">
+      <p>Envíanos un mensaje o llámanos para asesoramiento directo.</p>
+      <a href="https://wa.me/123456789" class="btn btn-bordo">Contactar por WhatsApp</a>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-content">
-      <img src="assets/logo/logo.png" alt="Logo Footer" class="footer-logo">
-      <p>Copyright © 2026 Nivel Pulidos All rights reserved.</p>
-      <span class="creator">Created by Javier Higuera</span>
-    </div>
-  </footer>
-
-  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
+  <!-- Botón Volver Arriba -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
 
   <script src="js/script.js"></script>
 </body>
