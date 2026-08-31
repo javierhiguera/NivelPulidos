@@ -2,33 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nivel Pulidos | Pulido y restauración de superficies</title>
   <meta name="description" content="Nivel Pulidos. Pulido, restauración y mantenimiento profesional de superficies. CABA / GBA." />
   <link rel="icon" href="assets/logo/logo.png" />
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body id="inicio">
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
           </a>
+          
           <button class="menu-toggle" aria-label="Abrir menú">
             <span></span>
             <span></span>
             <span></span>
           </button>
+
           <nav id="mobile-nav">
             <a href="#servicios">Servicios</a>
             <a href="#superficies">Superficies</a>
@@ -36,6 +34,7 @@
             <a href="#presupuesto">Presupuesto</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
+            <a href="#presupuesto" class="button secondary-metallic nav-btn">Consultar</a>
           </nav>
         </div>
       </header>
@@ -63,104 +62,120 @@
       </div>
     </section>
 
-    <!-- SERVICIOS (lista vertical sin imágenes) -->
     <section class="section services" id="servicios">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">SERVICIOS</p>
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">SERVICIOS</p>
+        </aside>
+        <div class="section-main-content">
           <h2>Nos adaptamos a tus necesidades</h2>
-        </div>
-        <div class="section-content">
-          <div class="services-list">
-            <div class="service-item">
-              <h3>Superficies</h3>
-              <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado. Realizamos procesos de pulido, recuperación y terminación según las características de cada material.</p>
-            </div>
-            <div class="service-item">
-              <h3>Mesadas</h3>
-              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
-            </div>
-            <div class="service-item">
-              <h3>Escaleras</h3>
-              <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras. El proceso se adapta tanto a superficies horizontales como verticales y a las características del material.</p>
-            </div>
-            <div class="service-item">
-              <h3>Balcones</h3>
-              <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
-            </div>
-            <div class="service-item">
-              <h3>Restauración</h3>
-              <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
-            </div>
-            <div class="service-item">
-              <h3>Mantenimiento</h3>
-              <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
-            </div>
+          <div class="cards">
+            <article class="card">
+              <img class="card-image" src="assets/servicios/1.jpg" alt="Superficies" />
+              <div class="card-content">
+                <h3>Superficies</h3>
+                <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado. Realizamos procesos de pulido, recuperación y terminación según las características de cada material.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-image" src="assets/servicios/2.jpg" alt="Mesadas" />
+              <div class="card-content">
+                <h3>Mesadas</h3>
+                <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-image" src="assets/servicios/3.jpg" alt="Escaleras" />
+              <div class="card-content">
+                <h3>Escaleras</h3>
+                <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras. El proceso se adapta tanto a superficies horizontales como verticales y a las características del material.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-image" src="assets/servicios/4.jpg" alt="Balcones" />
+              <div class="card-content">
+                <h3>Balcones</h3>
+                <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-image" src="assets/servicios/5.jpg" alt="Restauración" />
+              <div class="card-content">
+                <h3>Restauración</h3>
+                <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
+              </div>
+            </article>
+            <article class="card">
+              <img class="card-image" src="assets/servicios/6.jpg" alt="Mantenimiento" />
+              <div class="card-content">
+                <h3>Mantenimiento</h3>
+                <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SUPERFICIES -->
     <section class="section surfaces" id="superficies">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">SUPERFICIES</p>
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">SUPERFICIES</p>
+        </aside>
+        <div class="section-main-content">
           <h2>Trabajamos diferentes materiales</h2>
-        </div>
-        <div class="section-content">
           <div class="surface-grid">
             <div>
-              <img src="assets/superficies/marmol.jpg" alt="Mármol" loading="lazy" />
+              <img src="assets/superficies/marmol.jpg" alt="Mármol" />
               <div class="surface-info">
                 <strong>Mármol</strong>
                 <span>Pulido y restauración</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/mosaico.jpg" alt="Mosaico" loading="lazy" />
+              <img src="assets/superficies/mosaico.jpg" alt="Mosaico" />
               <div class="surface-info">
                 <strong>Mosaico</strong>
                 <span>Pulido y mantenimiento</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/granito.jpg" alt="Granito" loading="lazy" />
+              <img src="assets/superficies/granito.jpg" alt="Granito" />
               <div class="surface-info">
                 <strong>Granito</strong>
                 <span>Pulido y terminación</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/hormigon.jpg" alt="Hormigón" loading="lazy" />
+              <img src="assets/superficies/hormigon.jpg" alt="Hormigón" />
               <div class="surface-info">
                 <strong>Hormigón</strong>
                 <span>Pulido de superficies</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" loading="lazy" />
+              <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" />
               <div class="surface-info">
                 <strong>Calcáreo</strong>
                 <span>Restauración y pulido</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/travertino.jpg" alt="Travertino" loading="lazy" />
+              <img src="assets/superficies/travertino.jpg" alt="Travertino" />
               <div class="surface-info">
                 <strong>Travertino</strong>
                 <span>Tratamiento de superficie</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/parquet.jpg" alt="Parquet" loading="lazy" />
+              <img src="assets/superficies/parquet.jpg" alt="Parquet" />
               <div class="surface-info">
                 <strong>Parquet</strong>
                 <span>Tratamiento de madera</span>
               </div>
             </div>
             <div>
-              <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" loading="lazy" />
+              <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" />
               <div class="surface-info">
                 <strong>Otras superficies</strong>
                 <span>Consultar</span>
@@ -171,27 +186,23 @@
       </div>
     </section>
 
-    <!-- TRABAJOS -->
     <section class="section gallery-section" id="trabajos">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">TRABAJOS</p>
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">TRABAJOS</p>
+        </aside>
+        <div class="section-main-content">
           <h2>Resultados que hablan por nosotros</h2>
-        </div>
-        <div class="section-content">
           <div class="gallery-wrapper">
-            <div class="gallery-controls">
-              <button class="gallery-prev" aria-label="Anterior">‹</button>
-              <button class="gallery-next" aria-label="Siguiente">›</button>
-            </div>
+            <button class="gallery-arrow prev" id="gallery-prev" aria-label="Anterior">&#10094;</button>
             <div class="gallery" id="gallery-track">
               <div class="gallery-card">
                 <div class="comparison" data-comparison>
                   <div class="comparison-after">
-                    <img src="assets/trabajos/hormigondespues.jpg" alt="Hormigón después del pulido" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/hormigondespues.jpg" alt="Hormigón después del pulido" draggable="false" />
                   </div>
                   <div class="comparison-before">
-                    <img src="assets/trabajos/hormigonantes.jpg" alt="Hormigón antes del pulido" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/hormigonantes.jpg" alt="Hormigón antes del pulido" draggable="false" />
                   </div>
                   <div class="comparison-divider"></div>
                   <div class="comparison-handle" aria-hidden="true"></div>
@@ -201,10 +212,10 @@
               <div class="gallery-card">
                 <div class="comparison" data-comparison>
                   <div class="comparison-after">
-                    <img src="assets/trabajos/granitodespues.jpg" alt="Granito después del pulido" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/granitodespues.jpg" alt="Granito después del pulido" draggable="false" />
                   </div>
                   <div class="comparison-before">
-                    <img src="assets/trabajos/granitoantes.jpg" alt="Granito antes del pulido" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/granitoantes.jpg" alt="Granito antes del pulido" draggable="false" />
                   </div>
                   <div class="comparison-divider"></div>
                   <div class="comparison-handle" aria-hidden="true"></div>
@@ -214,10 +225,10 @@
               <div class="gallery-card">
                 <div class="comparison" data-comparison>
                   <div class="comparison-after">
-                    <img src="assets/trabajos/parquetdespues.jpg" alt="Parquet después del tratamiento" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/parquetdespues.jpg" alt="Parquet después del tratamiento" draggable="false" />
                   </div>
                   <div class="comparison-before">
-                    <img src="assets/trabajos/parquetantes.jpg" alt="Parquet antes del tratamiento" draggable="false" loading="lazy" />
+                    <img src="assets/trabajos/parquetantes.jpg" alt="Parquet antes del tratamiento" draggable="false" />
                   </div>
                   <div class="comparison-divider"></div>
                   <div class="comparison-handle" aria-hidden="true"></div>
@@ -225,161 +236,175 @@
                 </div>
               </div>
             </div>
-            <div class="gallery-dots" id="gallery-dots"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRESUPUESTO -->
-    <section class="section quote" id="presupuesto">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">PRESUPUESTO</p>
-          <h2>Contanos qué trabajo necesitás</h2>
-          <div class="schedule">
-            <strong>Horario de atención</strong>
-            Lunes a Sábado de 7 a 19 hs
-          </div>
-        </div>
-        <div class="section-content">
-          <form id="quote-form">
-            <label>
-              Nombre
-              <input id="nombre" type="text" placeholder="Tu nombre" required autocomplete="name" />
-            </label>
-            <label>
-              WhatsApp
-              <input id="telefono" type="tel" placeholder="Tu número" required autocomplete="tel" />
-            </label>
-            <label>
-              Localidad
-              <input id="localidad" type="text" placeholder="Ej. Adrogué" required autocomplete="address-level2" />
-            </label>
+            <button class="gallery-arrow next" id="gallery-next" aria-label="Siguiente">&#10095;</button>
             
-            <label>
-              Tipo de superficie
-              <div class="custom-select" id="custom-superficie">
-                <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="selected-text">Seleccionar</span>
-                  <span class="arrow"></span>
-                </button>
-                <ul class="custom-options" role="listbox">
-                  <li class="custom-option" data-value="Mármol">Mármol</li>
-                  <li class="custom-option" data-value="Mosaico">Mosaico</li>
-                  <li class="custom-option" data-value="Parquet">Parquet</li>
-                  <li class="custom-option" data-value="Granito">Granito</li>
-                  <li class="custom-option" data-value="Hormigón">Hormigón</li>
-                  <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
-                  <li class="custom-option" data-value="Travertino">Travertino</li>
-                  <li class="custom-option" data-value="Otra">Otra</li>
-                </ul>
-                <input type="hidden" id="superficie" name="superficie" value="" required>
-              </div>
-            </label>
+            <div class="gallery-dots" id="gallery-dots"></div>
 
-            <label>
-              Servicio
-              <div class="custom-select" id="custom-servicio">
-                <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="selected-text">Seleccionar</span>
-                  <span class="arrow"></span>
-                </button>
-                <ul class="custom-options" role="listbox">
-                  <li class="custom-option" data-value="Pulido">Pulido</li>
-                  <li class="custom-option" data-value="Restauración">Restauración</li>
-                  <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
-                  <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
-                </ul>
-                <input type="hidden" id="servicio" name="servicio" value="" required>
-              </div>
-            </label>
-
-            <label>
-              Metros cuadrados aproximados
-              <input id="metros" type="number" min="1" placeholder="Ej. 50" />
-            </label>
-            <label>
-              Descripción
-              <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
-            </label>
-            <button type="submit" class="button primary submit">
-              <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 2 11 13" />
-                <path d="m22 2-7 20-4-9-9-4Z" />
-              </svg>
-              Enviar consulta por WhatsApp
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- NOSOTROS -->
-    <section class="section introduction" id="nosotros">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">NOSOTROS</p>
-          <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
-        </div>
-        <div class="section-content text">
-          <p>En Nivel Pulidos llevamos más de tres años trabajando en el pulido, restauración y mantenimiento de superficies.</p>
-          <p>Nuestro trabajo comienza con una evaluación de la superficie. Analizamos su material, estado, desgaste y características para determinar el tratamiento correspondiente.</p>
-          <p>Durante el proceso aplicamos las técnicas y procedimientos adecuados para cada superficie, buscando una terminación acorde al material y al resultado esperado.</p>
-          <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
-          <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
-          <div class="director-quote">
-            <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
-            <p class="director-name"><strong>Adriel Salvador</strong> — Founder</p>
+            <div class="gallery-scrollbar" id="gallery-scrollbar" aria-label="Cambiar trabajo">
+              <div class="gallery-scrollbar-thumb" id="gallery-scrollbar-thumb"></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section class="contact" id="contacto">
-      <div class="container section-grid">
-        <div class="section-title">
-          <p class="eyebrow">CONTACTO</p>
-        </div>
-        <div class="section-content contact-content">
-          <p>
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
-            Ubicación CABA / GBA
-          </p>
-          <a href="mailto:nivelpulidos@gmail.com">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-            nivelpulidos@gmail.com
-          </a>
-          <a href="tel:+541124830787">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
-            </svg>
-            11 2483-0787
-          </a>
+    <section class="section quote" id="presupuesto">
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">PRESUPUESTO</p>
+        </aside>
+        <div class="section-main-content">
+          <div class="form-layout">
+            <div class="form-info">
+              <h2>Contanos qué trabajo necesitás</h2>
+              <div class="schedule">
+                <strong>Horario de atención</strong>
+                Lunes a Sábado de 7 a 19 hs
+              </div>
+            </div>
+            <form id="quote-form">
+              <label>
+                Nombre
+                <input id="nombre" type="text" placeholder="Tu nombre" required />
+              </label>
+              <label>
+                WhatsApp
+                <input id="telefono" type="tel" placeholder="Tu número" required />
+              </label>
+              <label>
+                Localidad
+                <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
+              </label>
+              
+              <label>
+                Tipo de superficie
+                <div class="custom-select" id="custom-superficie">
+                  <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="selected-text">Seleccionar</span>
+                    <span class="arrow"></span>
+                  </button>
+                  <ul class="custom-options" role="listbox">
+                    <li class="custom-option" data-value="Mármol">Mármol</li>
+                    <li class="custom-option" data-value="Mosaico">Mosaico</li>
+                    <li class="custom-option" data-value="Parquet">Parquet</li>
+                    <li class="custom-option" data-value="Granito">Granito</li>
+                    <li class="custom-option" data-value="Hormigón">Hormigón</li>
+                    <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
+                    <li class="custom-option" data-value="Travertino">Travertino</li>
+                    <li class="custom-option" data-value="Otra">Otra</li>
+                  </ul>
+                  <input type="hidden" id="superficie" name="superficie" value="" required>
+                </div>
+              </label>
+
+              <label>
+                Servicio
+                <div class="custom-select" id="custom-servicio">
+                  <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="selected-text">Seleccionar</span>
+                    <span class="arrow"></span>
+                  </button>
+                  <ul class="custom-options" role="listbox">
+                    <li class="custom-option" data-value="Pulido">Pulido</li>
+                    <li class="custom-option" data-value="Restauración">Restauración</li>
+                    <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
+                    <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
+                  </ul>
+                  <input type="hidden" id="servicio" name="servicio" value="" required>
+                </div>
+              </label>
+
+              <label>
+                Metros cuadrados aproximados
+                <input id="metros" type="number" min="1" placeholder="Ej. 50" />
+              </label>
+              <label>
+                Descripción
+                <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
+              </label>
+              <button type="submit" class="button primary submit">
+                <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 2 11 13" />
+                  <path d="m22 2-7 20-4-9-9-4Z" />
+                </svg>
+                Enviar consulta por WhatsApp
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- BOTÓN VOLVER ARRIBA -->
-    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 19V5" />
-        <path d="M5 12l7-7 7 7" />
-      </svg>
-    </button>
+    <section class="section introduction" id="nosotros">
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">NOSOTROS</p>
+        </aside>
+        <div class="section-main-content">
+          <div class="two-columns">
+            <div>
+              <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
+            </div>
+            <div class="text">
+              <p>En Nivel Pulidos llevamos más de tres años trabajando en el pulido, restauración y mantenimiento de superficies.</p>
+              <p>Nuestro trabajo comienza con una evaluación de la superficie. Analizamos su material, estado, desgaste y características para determinar el tratamiento correspondiente.</p>
+              <p>Durante el proceso aplicamos las técnicas y procedimientos adecuados para cada superficie, buscando una terminación acorde al material y al resultado esperado.</p>
+              <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
+              <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
+              <div class="director-quote">
+                <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
+                <p class="director-name"><strong>Adriel Salvador</strong> — Founder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container section-layout">
+        <aside class="sidebar-title">
+          <p class="eyebrow rotated-text">CONTACTO</p>
+        </aside>
+        <div class="section-main-content">
+          <div class="contact-content">
+            <div>
+              <p>
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                Ubicación CABA / GBA
+              </p>
+              <a href="mailto:nivelpulidos@gmail.com">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+                nivelpulidos@gmail.com
+              </a>
+              <a href="tel:+541124830787">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
+                </svg>
+                11 2483-0787
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
+  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
   <footer>
     <div class="container footer-content">
-      <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo" loading="lazy" />
+      <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo" />
       <span>Copyright © 2026 Nivel Pulidos All rights reserved.</span>
       <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creator">Created by Javier Higuera</a>
     </div>
