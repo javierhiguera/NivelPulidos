@@ -1,6 +1,14 @@
 @font-face {
-  font-family: 'Whyte Ink Trap';
-  src: local('Whyte Ink Trap'), local('WhyteInkTrap-Bold'), url('../assets/fonts/WhyteInkTrap-Bold.woff2') format('woff2');
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'WhyteInktrap';
+  src: url('./fonts/WhyteInktrap-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -33,7 +41,7 @@ button, input, select, textarea { font: inherit; }
 .nav { width: min(1150px, 90%); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
 .logo { display: flex; align-items: center; flex-shrink: 0; }
 .logo img { width: 58px; height: 58px; display: block; object-fit: contain; }
-.nav nav { display: flex; align-items: center; gap: 24px; white-space: nowrap; font-family: 'Whyte Ink Trap', sans-serif; }
+.nav nav { display: flex; align-items: center; gap: 24px; white-space: nowrap; font-family: 'WhyteInktrap', sans-serif; }
 .nav nav a:not(.button) { color: #fff; opacity: .9; transition: opacity .25s ease; text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; }
 .nav nav a:not(.button):hover { opacity: .55; }
 
@@ -49,7 +57,7 @@ button, input, select, textarea { font: inherit; }
 .hero-content { position: relative; z-index: 2; width: min(1150px, 90%); margin: 0 auto; padding-top: 110px; display: flex; flex-direction: column; align-items: center; }
 
 h1, h2 { 
-  font-family: 'Whyte Ink Trap', sans-serif;
+  font-family: 'WhyteInktrap', sans-serif;
   background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%); 
   -webkit-background-clip: text; 
   background-clip: text; 
@@ -68,7 +76,7 @@ h1 { max-width: 1100px; margin: 0 auto; font-size: clamp(64px, 10vw, 120px); lin
   font-weight: 700; 
   letter-spacing: 5px; 
   text-transform: uppercase; 
-  font-family: 'Whyte Ink Trap', sans-serif;
+  font-family: 'WhyteInktrap', sans-serif;
 }
 
 .rotated-text {
@@ -95,7 +103,7 @@ h2 { max-width: 800px; margin: 0 0 35px; font-size: clamp(36px, 5vw, 58px); line
   color: #111;
   background: linear-gradient(135deg, #ffffff 0%, #d8dcdd 30%, #8a9094 70%, #f0f2f3 100%);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
-  font-family: 'Whyte Ink Trap', sans-serif !important;
+  font-family: 'WhyteInktrap', sans-serif !important;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -113,7 +121,7 @@ h2 { max-width: 800px; margin: 0 0 35px; font-size: clamp(36px, 5vw, 58px); line
 .card-image { width: 100%; height: 180px; display: block; object-fit: cover; transition: transform .5s ease; }
 .card:hover .card-image { transform: scale(1.04); }
 .card-content { padding: 20px 24px 25px; }
-.card h3 { margin: 12px 0 10px; font-size: 24px; font-family: 'Whyte Ink Trap', sans-serif; }
+.card h3 { margin: 12px 0 10px; font-size: 24px; font-family: 'WhyteInktrap', sans-serif; }
 .card p { margin: 0; color: #d0d2d4; line-height: 1.7; font-size: 14px; }
 
 .surface-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
@@ -123,7 +131,7 @@ h2 { max-width: 800px; margin: 0 0 35px; font-size: clamp(36px, 5vw, 58px); line
 .surface-grid > div:hover img { transform: scale(1.04); }
 .surface-info { position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 18px 18px; background: linear-gradient(180deg, transparent 0%, rgba(15,16,17,.82) 55%, rgba(15,16,17,.96) 100%); }
 .surface-grid strong, .surface-grid span { display: block; }
-.surface-grid strong { font-size: 19px; font-family: 'Whyte Ink Trap', sans-serif; }
+.surface-grid strong { font-size: 19px; font-family: 'WhyteInktrap', sans-serif; }
 .surface-grid span { margin-top: 5px; color: #c7c9cb; font-size: 12px; }
 
 .gallery-wrapper { position: relative; width: 100%; }
@@ -159,7 +167,7 @@ h2 { max-width: 800px; margin: 0 0 35px; font-size: clamp(36px, 5vw, 58px); line
 
 .form-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
 .schedule { margin-top: 38px; color: #d0d2d4; font-size: 14px; line-height: 1.7; }
-.schedule strong { display: block; margin-bottom: 5px; color: #fff; font-family: 'Whyte Ink Trap', sans-serif; }
+.schedule strong { display: block; margin-bottom: 5px; color: #fff; font-family: 'WhyteInktrap', sans-serif; }
 form { display: grid; gap: 18px; }
 label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
 
