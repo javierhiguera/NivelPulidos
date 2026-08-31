@@ -1,4 +1,6 @@
-/* MENÚ */
+/* ============================================================
+   MENÚ 
+   ============================================================ */
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('.nav nav');
 
@@ -7,7 +9,9 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* DESPLEGABLES PERSONALIZADOS (FORMULARIO) */
+/* ============================================================
+   DESPLEGABLES PERSONALIZADOS (FORMULARIO)
+   ============================================================ */
 document.querySelectorAll('.custom-select').forEach(customSelect => {
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
@@ -44,7 +48,9 @@ document.addEventListener('click', () => {
     });
 });
 
-/* FORMULARIO WHATSAPP */
+/* ============================================================
+   FORMULARIO → WHATSAPP
+   ============================================================ */
 const form = document.querySelector("#quote-form");
 
 form?.addEventListener("submit", (event) => {
@@ -85,7 +91,9 @@ ${descripcion || "Sin descripción adicional."}`;
   window.open(url, "_blank");
 });
 
-/* COMPARADORES */
+/* ============================================================
+   COMPARADORES (Antes / Después)
+   ============================================================ */
 document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   const before = comparison.querySelector(".comparison-before");
   const divider = comparison.querySelector(".comparison-divider");
@@ -113,6 +121,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     return ((event.clientX - rect.left) / rect.width) * 100;
   }
 
+  // Mouse
   comparison.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "mouse") return;
     dragging = true;
@@ -139,6 +148,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     pointerId = null;
   });
 
+  // Touch (a través del control)
   control.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "touch") return;
     dragging = true;
@@ -155,14 +165,14 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     const deltaX = Math.abs(event.clientX - startX);
     const deltaY = Math.abs(event.clientY - startY);
 
-    if (!horizontalConfirmed && deltaY > deltaX && deltaY > 8) {
+    if (!horizontalConfirmed && deltaY > deltaX && deltaY > 12) {
       dragging = false;
       control.releasePointerCapture?.(event.pointerId);
       pointerId = null;
       return;
     }
 
-    if (!horizontalConfirmed && deltaX > deltaY && deltaX > 5) {
+    if (!horizontalConfirmed && deltaX > deltaY && deltaX > 8) {
       horizontalConfirmed = true;
     }
 
@@ -186,88 +196,85 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* CARRUSEL */
+/* ============================================================
+   CARRUSEL (con flechas, dots y arrastre táctil)
+   ============================================================ */
 const gallery = document.querySelector("#gallery-track");
-const scrollbar = document.querySelector("#gallery-scrollbar");
-const thumb = document.querySelector("#gallery-scrollbar-thumb");
+const prevBtn = document.querySelector(".gallery-prev");
+const nextBtn = document.querySelector(".gallery-next");
+const dotsContainer = document.querySelector("#gallery-dots");
 
-if (gallery && scrollbar && thumb) {
-  let draggingBar = false;
-  let barPointerId = null;
-  let draggingGallery = false;
-  let galleryPointerId = null;
-  let galleryStartX = 0;
-  let galleryStartY = 0;
-  let galleryStartScroll = 0;
-  let galleryHorizontal = false;
+if (gallery && dotsContainer) {
+  const cards = gallery.querySelectorAll(".gallery-card");
+  const totalCards = cards.length;
+  let currentIndex = 0;
+  let autoScrollTimeout = null;
 
-  function getMaxScroll() {
-    return Math.max(0, gallery.scrollWidth - gallery.clientWidth);
+  // Crear dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.dataset.index = i;
+    dot.setAttribute("aria-label", `Ir al trabajo ${i+1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+  const dots = dotsContainer.querySelectorAll("button");
+  if (dots.length) dots[0].classList.add("active");
+
+  function goTo(index) {
+    currentIndex = Math.max(0, Math.min(index, totalCards - 1));
+    const cardWidth = cards[0].offsetWidth + 12; // 12 es el gap
+    gallery.scrollTo({
+      left: cardWidth * currentIndex,
+      behavior: "smooth"
+    });
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
   }
 
-  function syncScrollbar() {
-    const maxScroll = getMaxScroll();
-    if (maxScroll <= 0) {
-      thumb.style.width = "100%";
-      thumb.style.left = "0";
-      return;
+  // Eventos de flechas
+  prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
+  nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
+
+  // Sincronizar dots al hacer scroll manual
+  gallery.addEventListener("scroll", () => {
+    const cardWidth = cards[0]?.offsetWidth + 12 || 1;
+    const scrollLeft = gallery.scrollLeft;
+    const index = Math.round(scrollLeft / cardWidth);
+    if (index !== currentIndex && index >= 0 && index < totalCards) {
+      currentIndex = index;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
     }
-    const visibleRatio = gallery.clientWidth / gallery.scrollWidth;
-    const thumbWidth = Math.max(25, scrollbar.clientWidth * visibleRatio);
-    const available = Math.max(0, scrollbar.clientWidth - thumbWidth);
-    const ratio = gallery.scrollLeft / maxScroll;
-    thumb.style.width = thumbWidth + "px";
-    thumb.style.left = available * ratio + "px";
-  }
+  }, { passive: true });
 
-  function moveFromBar(clientX) {
-    const rect = scrollbar.getBoundingClientRect();
-    const thumbWidth = thumb.offsetWidth;
-    const available = Math.max(0, rect.width - thumbWidth);
-    const x = Math.max(0, Math.min(available, clientX - rect.left - thumbWidth / 2));
-    const ratio = available > 0 ? x / available : 0;
-    gallery.scrollLeft = ratio * getMaxScroll();
-  }
-
-  scrollbar.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
-    draggingBar = true;
-    barPointerId = event.pointerId;
-    thumb.classList.add("dragging");
-    scrollbar.setPointerCapture?.(event.pointerId);
-    moveFromBar(event.clientX);
+  // Recalcular al redimensionar
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      goTo(currentIndex);
+    }, 150);
   });
 
-  scrollbar.addEventListener("pointermove", (event) => {
-    if (!draggingBar || event.pointerId !== barPointerId) return;
-    event.preventDefault();
-    moveFromBar(event.clientX);
-  });
-
-  function stopBarDrag(event) {
-    if (event.pointerId !== barPointerId) return;
-    draggingBar = false;
-    thumb.classList.remove("dragging");
-    scrollbar.releasePointerCapture?.(event.pointerId);
-    barPointerId = null;
-  }
-
-  scrollbar.addEventListener("pointerup", stopBarDrag);
-  scrollbar.addEventListener("pointercancel", stopBarDrag);
-
-  gallery.addEventListener("scroll", syncScrollbar, { passive: true });
-  window.addEventListener("resize", syncScrollbar);
+  /* --- Arrastre táctil mejorado para móviles --- */
+  let dragData = {
+    active: false,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    startScroll: 0,
+    horizontal: false
+  };
 
   gallery.addEventListener("pointerdown", (event) => {
     if (event.target.closest(".comparison-control")) return;
     if (event.pointerType === "mouse" && event.button !== 0) return;
 
-    draggingGallery = true;
-    galleryPointerId = event.pointerId;
-    galleryStartX = event.clientX;
-    galleryStartY = event.clientY;
-    galleryStartScroll = gallery.scrollLeft;
-    galleryHorizontal = event.pointerType === "mouse";
+    dragData.active = true;
+    dragData.pointerId = event.pointerId;
+    dragData.startX = event.clientX;
+    dragData.startY = event.clientY;
+    dragData.startScroll = gallery.scrollLeft;
+    dragData.horizontal = event.pointerType === "mouse";
 
     if (event.pointerType === "mouse") {
       gallery.setPointerCapture?.(event.pointerId);
@@ -275,45 +282,60 @@ if (gallery && scrollbar && thumb) {
   });
 
   gallery.addEventListener("pointermove", (event) => {
-    if (!draggingGallery || event.pointerId !== galleryPointerId) return;
+    if (!dragData.active || event.pointerId !== dragData.pointerId) return;
 
-    const deltaX = event.clientX - galleryStartX;
-    const deltaY = event.clientY - galleryStartY;
+    const deltaX = event.clientX - dragData.startX;
+    const deltaY = event.clientY - dragData.startY;
 
-    if (event.pointerType === "touch" && !galleryHorizontal) {
+    if (event.pointerType === "touch" && !dragData.horizontal) {
       const absX = Math.abs(deltaX);
       const absY = Math.abs(deltaY);
-      if (absY > absX && absY > 8) {
-        draggingGallery = false;
-        galleryPointerId = null;
+      if (absY > absX && absY > 12) {
+        dragData.active = false;
+        dragData.pointerId = null;
         return;
       }
       if (absX > absY && absX > 8) {
-        galleryHorizontal = true;
+        dragData.horizontal = true;
       }
     }
 
-    if (!galleryHorizontal) return;
+    if (!dragData.horizontal) return;
 
-    gallery.scrollLeft = galleryStartScroll - deltaX;
+    gallery.scrollLeft = dragData.startScroll - deltaX;
 
     if (event.pointerType === "touch") {
       event.preventDefault();
     }
   }, { passive: false });
 
-  function stopGalleryDrag(event) {
-    if (event.pointerId !== galleryPointerId) return;
-    draggingGallery = false;
-    galleryHorizontal = false;
+  function stopDrag(event) {
+    if (event.pointerId !== dragData.pointerId) return;
+    dragData.active = false;
+    dragData.horizontal = false;
     if (event.pointerType === "mouse") {
       gallery.releasePointerCapture?.(event.pointerId);
     }
-    galleryPointerId = null;
+    dragData.pointerId = null;
   }
 
-  gallery.addEventListener("pointerup", stopGalleryDrag);
-  gallery.addEventListener("pointercancel", stopGalleryDrag);
-
-  requestAnimationFrame(syncScrollbar);
+  gallery.addEventListener("pointerup", stopDrag);
+  gallery.addEventListener("pointercancel", stopDrag);
 }
+
+/* ============================================================
+   BOTÓN VOLVER ARRIBA
+   ============================================================ */
+const backBtn = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("visible");
+  } else {
+    backBtn.classList.remove("visible");
+  }
+}, { passive: true });
+
+backBtn?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
