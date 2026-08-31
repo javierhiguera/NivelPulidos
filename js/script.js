@@ -1,4 +1,4 @@
-/* MENÚ HAMBURGUESA */
+/* MENÚ */
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('.nav nav');
 
