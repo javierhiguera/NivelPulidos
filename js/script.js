@@ -1,6 +1,4 @@
-/* ============================================================
-   MENÚ HAMBURGUESA
-   ============================================================ */
+/* MENÚ RESPONSIVE */
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('.nav nav');
 
@@ -9,9 +7,7 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* ============================================================
-   DESPLEGABLES PERSONALIZADOS (FORMULARIO)
-   ============================================================ */
+/* DESPLEGABLES PERSONALIZADOS (FORMULARIO) */
 document.querySelectorAll('.custom-select').forEach(customSelect => {
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
@@ -47,16 +43,11 @@ document.addEventListener('click', () => {
     });
 });
 
-/* ============================================================
-   FORMULARIO → WHATSAPP
-   ============================================================ */
+/* ENVÍO POR WHATSAPP */
 const form = document.querySelector("#quote-form");
-
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const getValue = (selector) =>
-    document.querySelector(selector)?.value.trim() || "";
+  const getValue = (selector) => document.querySelector(selector)?.value.trim() || "";
 
   const nombre = getValue("#nombre");
   const telefono = getValue("#telefono");
@@ -66,33 +57,13 @@ form?.addEventListener("submit", (event) => {
   const metros = getValue("#metros");
   const descripcion = getValue("#descripcion");
 
-  const mensaje =
-`Hola
+  const mensaje = `Hola\n\nVengo de la página de Nivel Pulidos porque me encuentro interesado/a en renovar la imagen de mi piso.\n\n¿Me pueden brindar asesoramiento y presupuesto?\n\nNombre: ${nombre}\nWhatsApp: ${telefono}\nLocalidad: ${localidad}\nSuperficie: ${superficie}\nServicio: ${servicio}\nMetros cuadrados aproximados: ${metros || "No especificado"}\n\nDescripción:\n${descripcion || "Sin descripción adicional."}`;
 
-Vengo de la página de Nivel Pulidos porque me encuentro interesado/a en renovar la imagen de mi piso.
-
-¿Me pueden brindar asesoramiento y presupuesto?
-
-Nombre: ${nombre}
-WhatsApp: ${telefono}
-Localidad: ${localidad}
-Superficie: ${superficie}
-Servicio: ${servicio}
-Metros cuadrados aproximados: ${metros || "No especificado"}
-
-Descripción:
-${descripcion || "Sin descripción adicional."}`;
-
-  const url =
-    "https://wa.me/541124830787?text=" +
-    encodeURIComponent(mensaje);
-
+  const url = "https://wa.me/541124830787?text=" + encodeURIComponent(mensaje);
   window.open(url, "_blank");
 });
 
-/* ============================================================
-   COMPARADORES (Antes / Después)
-   ============================================================ */
+/* CONTROLADOR COMPARADOR DE IMÁGENES */
 document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   const before = comparison.querySelector(".comparison-before");
   const divider = comparison.querySelector(".comparison-divider");
@@ -102,9 +73,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   let position = 50;
   let dragging = false;
   let pointerId = null;
-  let startX = 0;
-  let startY = 0;
-  let horizontalConfirmed = false;
 
   function updateComparison(value) {
     position = Math.max(0, Math.min(100, Number(value)));
@@ -121,12 +89,10 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   }
 
   comparison.addEventListener("pointerdown", (event) => {
-    if (event.pointerType !== "mouse") return;
     dragging = true;
     pointerId = event.pointerId;
     comparison.setPointerCapture?.(event.pointerId);
     updateComparison(positionFromEvent(event));
-    event.preventDefault();
   });
 
   comparison.addEventListener("pointermove", (event) => {
@@ -134,199 +100,69 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     updateComparison(positionFromEvent(event));
   });
 
-  comparison.addEventListener("pointerup", (event) => {
+  function stopDrag(event) {
     if (event.pointerId !== pointerId) return;
     dragging = false;
-    pointerId = null;
-  });
-
-  comparison.addEventListener("pointercancel", (event) => {
-    if (event.pointerId !== pointerId) return;
-    dragging = false;
-    pointerId = null;
-  });
-
-  control.addEventListener("pointerdown", (event) => {
-    if (event.pointerType !== "touch") return;
-    dragging = true;
-    pointerId = event.pointerId;
-    startX = event.clientX;
-    startY = event.clientY;
-    horizontalConfirmed = false;
-    control.setPointerCapture?.(event.pointerId);
-  });
-
-  control.addEventListener("pointermove", (event) => {
-    if (!dragging || event.pointerId !== pointerId) return;
-
-    const deltaX = Math.abs(event.clientX - startX);
-    const deltaY = Math.abs(event.clientY - startY);
-
-    if (!horizontalConfirmed && deltaY > deltaX && deltaY > 12) {
-      dragging = false;
-      control.releasePointerCapture?.(event.pointerId);
-      pointerId = null;
-      return;
-    }
-
-    if (!horizontalConfirmed && deltaX > deltaY && deltaX > 8) {
-      horizontalConfirmed = true;
-    }
-
-    if (!horizontalConfirmed) return;
-
-    updateComparison(positionFromEvent(event));
-    event.preventDefault();
-  }, { passive: false });
-
-  function stopMobileComparison(event) {
-    if (event.pointerId !== pointerId) return;
-    dragging = false;
-    horizontalConfirmed = false;
-    control.releasePointerCapture?.(event.pointerId);
+    comparison.releasePointerCapture?.(event.pointerId);
     pointerId = null;
   }
 
-  control.addEventListener("pointerup", stopMobileComparison);
-  control.addEventListener("pointercancel", stopMobileComparison);
-
+  comparison.addEventListener("pointerup", stopDrag);
+  comparison.addEventListener("pointercancel", stopDrag);
   updateComparison(50);
 });
 
-/* ============================================================
-   CARRUSEL (con flechas, dots y arrastre táctil)
-   ============================================================ */
+/* CARRUSEL Y NAVEGACIÓN */
 const gallery = document.querySelector("#gallery-track");
-const prevBtn = document.querySelector(".gallery-prev");
-const nextBtn = document.querySelector(".gallery-next");
+const prevBtn = document.querySelector("#gallery-prev");
+const nextBtn = document.querySelector("#gallery-next");
 const dotsContainer = document.querySelector("#gallery-dots");
+const cards = document.querySelectorAll(".gallery-card");
 
-if (gallery && dotsContainer) {
-  const cards = gallery.querySelectorAll(".gallery-card");
-  const totalCards = cards.length;
-  let currentIndex = 0;
-
-  cards.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.dataset.index = i;
-    dot.setAttribute("aria-label", `Ir al trabajo ${i+1}`);
-    dot.addEventListener("click", () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
-  const dots = dotsContainer.querySelectorAll("button");
-  if (dots.length) dots[0].classList.add("active");
-
-  function goTo(index) {
-    currentIndex = Math.max(0, Math.min(index, totalCards - 1));
-    const cardWidth = cards[0].offsetWidth + 12;
-    gallery.scrollTo({
-      left: cardWidth * currentIndex,
-      behavior: "smooth"
+if (gallery) {
+  cards.forEach((_, index) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (index === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      const cardWidth = cards[0].offsetWidth + 18;
+      gallery.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
     });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
-  }
-
-  prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
-  nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
-
-  gallery.addEventListener("scroll", () => {
-    const cardWidth = cards[0]?.offsetWidth + 12 || 1;
-    const scrollLeft = gallery.scrollLeft;
-    const index = Math.round(scrollLeft / cardWidth);
-    if (index !== currentIndex && index >= 0 && index < totalCards) {
-      currentIndex = index;
-      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
-    }
-  }, { passive: true });
-
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      goTo(currentIndex);
-    }, 150);
+    dotsContainer?.appendChild(dot);
   });
 
-  let dragData = {
-    active: false,
-    pointerId: null,
-    startX: 0,
-    startY: 0,
-    startScroll: 0,
-    horizontal: false
+  const updateDots = () => {
+    const cardWidth = cards[0].offsetWidth + 18;
+    const activeIndex = Math.round(gallery.scrollLeft / cardWidth);
+    document.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === activeIndex);
+    });
   };
 
-  gallery.addEventListener("pointerdown", (event) => {
-    if (event.target.closest(".comparison-control")) return;
-    if (event.pointerType === "mouse" && event.button !== 0) return;
+  gallery.addEventListener("scroll", updateDots, { passive: true });
 
-    dragData.active = true;
-    dragData.pointerId = event.pointerId;
-    dragData.startX = event.clientX;
-    dragData.startY = event.clientY;
-    dragData.startScroll = gallery.scrollLeft;
-    dragData.horizontal = event.pointerType === "mouse";
-
-    if (event.pointerType === "mouse") {
-      gallery.setPointerCapture?.(event.pointerId);
-    }
+  prevBtn?.addEventListener("click", () => {
+    const cardWidth = cards[0].offsetWidth + 18;
+    gallery.scrollBy({ left: -cardWidth, behavior: 'smooth' });
   });
 
-  gallery.addEventListener("pointermove", (event) => {
-    if (!dragData.active || event.pointerId !== dragData.pointerId) return;
-
-    const deltaX = event.clientX - dragData.startX;
-    const deltaY = event.clientY - dragData.startY;
-
-    if (event.pointerType === "touch" && !dragData.horizontal) {
-      const absX = Math.abs(deltaX);
-      const absY = Math.abs(deltaY);
-      if (absY > absX && absY > 12) {
-        dragData.active = false;
-        dragData.pointerId = null;
-        return;
-      }
-      if (absX > absY && absX > 8) {
-        dragData.horizontal = true;
-      }
-    }
-
-    if (!dragData.horizontal) return;
-
-    gallery.scrollLeft = dragData.startScroll - deltaX;
-
-    if (event.pointerType === "touch") {
-      event.preventDefault();
-    }
-  }, { passive: false });
-
-  function stopDrag(event) {
-    if (event.pointerId !== dragData.pointerId) return;
-    dragData.active = false;
-    dragData.horizontal = false;
-    if (event.pointerType === "mouse") {
-      gallery.releasePointerCapture?.(event.pointerId);
-    }
-    dragData.pointerId = null;
-  }
-
-  gallery.addEventListener("pointerup", stopDrag);
-  gallery.addEventListener("pointercancel", stopDrag);
+  nextBtn?.addEventListener("click", () => {
+    const cardWidth = cards[0].offsetWidth + 18;
+    gallery.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  });
 }
 
-/* ============================================================
-   BOTÓN VOLVER ARRIBA
-   ============================================================ */
-const backBtn = document.getElementById("back-to-top");
+/* BOTÓN VOLVER ARRIBA */
+const backToTopBtn = document.getElementById("back-to-top");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
-    backBtn.classList.add("visible");
+    backToTopBtn?.classList.add("show");
   } else {
-    backBtn.classList.remove("visible");
+    backToTopBtn?.classList.remove("show");
   }
-}, { passive: true });
+});
 
-backBtn?.addEventListener("click", () => {
+backToTopBtn?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
