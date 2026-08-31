@@ -234,21 +234,21 @@
           </div>
         </div>
         <form id="quote-form">
-          <label>
+          <label for="nombre">
             Nombre
             <input id="nombre" type="text" placeholder="Tu nombre" required />
           </label>
-          <label>
+          <label for="telefono">
             WhatsApp
             <input id="telefono" type="tel" placeholder="Tu número" required />
           </label>
-          <label>
+          <label for="localidad">
             Localidad
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
           
-          <label>
-            Tipo de superficie
+          <div>
+            <label>Tipo de superficie</label>
             <div class="custom-select" id="custom-superficie">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text">Seleccionar</span>
@@ -264,12 +264,12 @@
                 <li class="custom-option" data-value="Travertino">Travertino</li>
                 <li class="custom-option" data-value="Otra">Otra</li>
               </ul>
-              <input type="hidden" id="superficie" name="superficie" value="" required>
+              <input type="hidden" id="superficie" name="superficie" value="" required />
             </div>
-          </label>
+          </div>
 
-          <label>
-            Servicio
+          <div>
+            <label>Servicio</label>
             <div class="custom-select" id="custom-servicio">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text">Seleccionar</span>
@@ -281,15 +281,15 @@
                 <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
                 <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
               </ul>
-              <input type="hidden" id="servicio" name="servicio" value="" required>
+              <input type="hidden" id="servicio" name="servicio" value="" required />
             </div>
-          </label>
+          </div>
 
-          <label>
+          <label for="metros">
             Metros cuadrados aproximados
             <input id="metros" type="number" min="1" placeholder="Ej. 50" />
           </label>
-          <label>
+          <label for="descripcion">
             Descripción
             <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
           </label>
