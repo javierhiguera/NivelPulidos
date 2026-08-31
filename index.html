@@ -11,21 +11,16 @@
 <body id="inicio">
 
   <main>
-    <!-- HERO -->
+    <!-- HERO (mantiene su imagen con máscara) -->
     <section class="hero">
-      <!-- MENÚ CON HAMBURGUESA -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
           </a>
-          
           <button class="menu-toggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
           </button>
-
           <nav id="mobile-nav">
             <a href="#servicios">Servicios</a>
             <a href="#superficies">Superficies</a>
@@ -60,7 +55,7 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS (sin fondo imagen) -->
     <section class="section services" id="servicios">
       <div class="container">
         <p class="eyebrow">SERVICIOS</p>
@@ -112,8 +107,8 @@
       </div>
     </section>
 
-    <!-- SUPERFICIES -->
-    <section class="section surfaces" id="superficies">
+    <!-- SUPERFICIES (con fondo imagen) -->
+    <section class="section surfaces section-bg" id="superficies">
       <div class="container">
         <p class="eyebrow">SUPERFICIES</p>
         <h2>Trabajamos diferentes materiales</h2>
@@ -178,8 +173,8 @@
       </div>
     </section>
 
-    <!-- TRABAJOS -->
-    <section class="section gallery-section" id="trabajos">
+    <!-- TRABAJOS (con fondo imagen) -->
+    <section class="section gallery-section section-bg" id="trabajos">
       <div class="container">
         <p class="eyebrow">TRABAJOS</p>
         <h2>Resultados que hablan por nosotros</h2>
@@ -232,8 +227,8 @@
       </div>
     </section>
 
-    <!-- PRESUPUESTO -->
-    <section class="section quote" id="presupuesto">
+    <!-- PRESUPUESTO (con fondo imagen) -->
+    <section class="section quote section-bg" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
           <p class="eyebrow">PRESUPUESTO</p>
@@ -256,7 +251,6 @@
             Localidad
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
-          
           <label>
             Tipo de superficie
             <div class="custom-select" id="custom-superficie">
@@ -277,7 +271,6 @@
               <input type="hidden" id="superficie" name="superficie" value="" required>
             </div>
           </label>
-
           <label>
             Servicio
             <div class="custom-select" id="custom-servicio">
@@ -294,7 +287,6 @@
               <input type="hidden" id="servicio" name="servicio" value="" required>
             </div>
           </label>
-
           <label>
             Metros cuadrados aproximados
             <input id="metros" type="number" min="1" placeholder="Ej. 50" />
@@ -314,8 +306,8 @@
       </div>
     </section>
 
-    <!-- NOSOTROS -->
-    <section class="section introduction" id="nosotros">
+    <!-- NOSOTROS (con fondo imagen) -->
+    <section class="section introduction section-bg" id="nosotros">
       <div class="container two-columns">
         <div>
           <p class="eyebrow">NOSOTROS</p>
@@ -335,7 +327,7 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (sin fondo imagen) -->
     <section class="contact" id="contacto">
       <div class="container contact-content">
         <div>
