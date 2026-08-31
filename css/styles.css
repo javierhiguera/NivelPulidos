@@ -36,7 +36,6 @@ html {
 body {
   font-family: var(--font-text);
   color: #ffffff;
-  /* Fondo azul degradado continuo e ininterrumpido hasta oscurecerse */
   background: linear-gradient(180deg, #0a2540 0%, #051329 40%, #020b18 80%, #00040a 100%);
   background-attachment: fixed;
   min-height: 100vh;
@@ -188,6 +187,10 @@ h1, h2, h3, .card-title, .logo {
 .card-title {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* Comparador Antes y Después */
