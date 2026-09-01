@@ -188,108 +188,103 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* ===== GALERÍA CON BOTONES LATERALES ===== */
+/* ===== GALERÍA CON SWIPE NATIVO (MÓVIL) Y BOTONES (ESCRITORIO) ===== */
 const gallery = document.querySelector("#gallery-track");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 
-if (gallery && prevBtn && nextBtn) {
-  let scrollAmount = 0;
-
-  function getCardWidth() {
-    const card = gallery.querySelector(".gallery-card");
-    if (!card) return 0;
-    const gap = 18;
-    return card.offsetWidth + gap;
-  }
-
-  function scrollGallery(direction) {
-    const cardWidth = getCardWidth();
-    if (cardWidth === 0) return;
-    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-    const target = gallery.scrollLeft + direction * cardWidth;
-    gallery.scrollTo({
-      left: Math.max(0, Math.min(target, maxScroll)),
-      behavior: "smooth"
-    });
-  }
-
-  prevBtn.addEventListener("click", () => scrollGallery(-1));
-  nextBtn.addEventListener("click", () => scrollGallery(1));
-
-  // Actualizar estado de botones al hacer scroll
-  function updateButtons() {
-    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-    prevBtn.style.opacity = gallery.scrollLeft <= 1 ? "0.3" : "1";
-    nextBtn.style.opacity = gallery.scrollLeft >= maxScroll - 1 ? "0.3" : "1";
-  }
-
-  gallery.addEventListener("scroll", updateButtons);
-  window.addEventListener("resize", updateButtons);
-  setTimeout(updateButtons, 200);
-
-  // Touch/drag para móviles
-  let draggingGallery = false;
-  let galleryPointerId = null;
-  let galleryStartX = 0;
-  let galleryStartY = 0;
-  let galleryStartScroll = 0;
-  let galleryHorizontal = false;
-
-  gallery.addEventListener("pointerdown", (event) => {
-    if (event.target.closest(".comparison-control")) return;
-    if (event.pointerType === "mouse" && event.button !== 0) return;
-
-    draggingGallery = true;
-    galleryPointerId = event.pointerId;
-    galleryStartX = event.clientX;
-    galleryStartY = event.clientY;
-    galleryStartScroll = gallery.scrollLeft;
-    galleryHorizontal = event.pointerType === "mouse";
-
-    if (event.pointerType === "mouse") {
-      gallery.setPointerCapture?.(event.pointerId);
+if (gallery) {
+  // Lógica de flechas (Solo aplica en escritorio, ya que en móvil están ocultas por CSS)
+  if (prevBtn && nextBtn) {
+    function getCardWidth() {
+      const card = gallery.querySelector(".gallery-card");
+      if (!card) return 0;
+      const gap = 18;
+      return card.offsetWidth + gap;
     }
+
+    function scrollGallery(direction) {
+      const cardWidth = getCardWidth();
+      if (cardWidth === 0) return;
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+      const target = gallery.scrollLeft + direction * cardWidth;
+      gallery.scrollTo({
+        left: Math.max(0, Math.min(target, maxScroll)),
+        behavior: "smooth"
+      });
+    }
+
+    prevBtn.addEventListener("click", () => scrollGallery(-1));
+    nextBtn.addEventListener("click", () => scrollGallery(1));
+
+    // Actualizar estado de botones al hacer scroll
+    function updateButtons() {
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+      prevBtn.style.opacity = gallery.scrollLeft <= 1 ? "0.3" : "1";
+      nextBtn.style.opacity = gallery.scrollLeft >= maxScroll - 1 ? "0.3" : "1";
+    }
+
+    gallery.addEventListener("scroll", updateButtons);
+    window.addEventListener("resize", updateButtons);
+    setTimeout(updateButtons, 200);
+  }
+
+  /* --- DESBLOQUEO DEL SWIPE TÁCTIL (Solución definitiva anti-bloqueo) --- */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isHorizontal = false;
+
+  // Guardamos la posición inicial del dedo
+  gallery.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isHorizontal = false;
+  }, { passive: true });
+
+  // Detectamos hacia dónde va el dedo
+  gallery.addEventListener("touchmove", (e) => {
+    if (!touchStartX || !touchStartY) return;
+
+    const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
+    const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
+
+    // Si el movimiento horizontal es mayor que el vertical (> 45 grados)
+    if (deltaX > deltaY) {
+      isHorizontal = true;
+      // Bloqueamos el scroll de la página SOLO cuando deslizas la galería
+      e.preventDefault(); 
+    }
+  }, { passive: false }); // Importante: passive: false para poder usar preventDefault
+
+  // Limpiamos los valores al soltar el dedo
+  gallery.addEventListener("touchend", () => {
+    touchStartX = 0;
+    touchStartY = 0;
+    isHorizontal = false;
+  }, { passive: true });
+
+  /* --- Soporte para Mouse (Escritorio) --- */
+  let isMouseDown = false;
+  let mouseStartX = 0;
+  let mouseStartScroll = 0;
+
+  gallery.addEventListener("mousedown", (e) => {
+    // No interferir con el control del comparador (Before/After)
+    if (e.target.closest(".comparison-control")) return;
+    isMouseDown = true;
+    mouseStartX = e.clientX;
+    mouseStartScroll = gallery.scrollLeft;
+    gallery.style.cursor = "grabbing";
   });
 
-  gallery.addEventListener("pointermove", (event) => {
-    if (!draggingGallery || event.pointerId !== galleryPointerId) return;
+  window.addEventListener("mousemove", (e) => {
+    if (!isMouseDown) return;
+    const walk = e.clientX - mouseStartX;
+    gallery.scrollLeft = mouseStartScroll - walk;
+  });
 
-    const deltaX = event.clientX - galleryStartX;
-    const deltaY = event.clientY - galleryStartY;
-
-    if (event.pointerType === "touch" && !galleryHorizontal) {
-      const absX = Math.abs(deltaX);
-      const absY = Math.abs(deltaY);
-      if (absY > absX && absY > 8) {
-        draggingGallery = false;
-        galleryPointerId = null;
-        return;
-      }
-      if (absX > absY && absX > 8) {
-        galleryHorizontal = true;
-      }
-    }
-
-    if (!galleryHorizontal) return;
-
-    gallery.scrollLeft = galleryStartScroll - deltaX;
-
-    if (event.pointerType === "touch") {
-      event.preventDefault();
-    }
-  }, { passive: false });
-
-  function stopGalleryDrag(event) {
-    if (event.pointerId !== galleryPointerId) return;
-    draggingGallery = false;
-    galleryHorizontal = false;
-    if (event.pointerType === "mouse") {
-      gallery.releasePointerCapture?.(event.pointerId);
-    }
-    galleryPointerId = null;
-  }
-
-  gallery.addEventListener("pointerup", stopGalleryDrag);
-  gallery.addEventListener("pointercancel", stopGalleryDrag);
+  window.addEventListener("mouseup", () => {
+    isMouseDown = false;
+    gallery.style.cursor = "grab";
+  });
 }
