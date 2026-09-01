@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivel Pulidos - Servicios y Contacto</title>
+    <title>Nivel Pulidos</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,131 +11,196 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
-        /* ===== RESET Y FONDO GENERAL ===== */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Fondo general */
         body {
+            background-color: #0a0f1a;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
-            min-height: 100vh;
-            color: #fff;
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(180deg, #050d1a 0%, #0a1a30 25%, #0d1f3c 50%, #081425 75%, #03080f 100%) !important;
         }
-        a { color: inherit; text-decoration: none; }
-        
-        /* ===== HEADER Y MENÚ (Como en tu captura) ===== */
+
+        /* HEADER EXACTO COMO EN TU FOTO */
         .header {
-            position: absolute;
-            top: 0; left: 0; width: 100%;
-            z-index: 10;
-            padding: 18px 0;
-            background: transparent !important;
-        }
-        .nav {
-            width: min(1150px, 90%);
-            margin: 0 auto;
+            background-color: #05080f;
+            padding: 15px 40px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
             gap: 30px;
         }
-        .logo { font-size: 24px; font-weight: 900; color: #fff; }
-        .nav nav { display: flex; align-items: center; gap: 30px; white-space: nowrap; }
-        .nav nav a {
-            color: #fff; opacity: .9; transition: opacity .25s ease;
-            text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px;
-        }
-        .nav nav a:hover { opacity: .55; }
 
-        /* ===== FLECHAS CARRUSEL (MÓVIL Y PC) ===== */
-        .carousel-control-prev, .carousel-control-next {
-            width: 50px; height: 50px; top: 50%; transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.6); border-radius: 50%;
-            opacity: 1; margin: 0 15px; z-index: 10; border: 1px solid rgba(255, 255, 255, 0.2);
+        .nav-links a {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            opacity: 0.9;
         }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Menú móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            margin: 5px 0;
+            background-color: #fff;
+        }
+
+        /* CARRUSEL (Pegado arriba, sin bordes) */
+        .carousel-item {
+            height: 500px;
+            background-color: #1e3a5f;
+        }
+
+        /* FLECHAS DEL CARRUSEL */
+        .carousel-control-prev, 
+        .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 50%;
+            opacity: 1;
+            margin: 0 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
         @media (max-width: 768px) {
-            .carousel-control-prev, .carousel-control-next {
-                width: 60px; height: 60px; background-color: rgba(0, 0, 0, 0.9); margin: 0 10px;
+            .carousel-item { height: 300px; }
+            .carousel-control-prev, 
+            .carousel-control-next {
+                width: 50px;
+                height: 50px;
+                margin: 0 10px;
             }
-            .carousel-control-prev-icon, .carousel-control-next-icon { width: 2rem; height: 2rem; background-size: 100%, 100%; }
         }
 
-        /* ===== TARJETAS AZULES CUADRADAS ===== */
-        .tarjeta-azul {
-            background-color: #1a2433;
+        /* TARJETAS EXACTAS A TU FOTO (Gris oscuro / Azul) */
+        .card-personalizada {
+            background-color: #1a2433; /* Azul petróleo oscuro */
             border-radius: 0 !important;
             border: 1px solid #2a3b52;
-            color: #ffffff;
-            overflow: hidden;
+            color: #fff;
             transition: transform 0.3s ease;
         }
-        .tarjeta-azul:hover {
+
+        .card-personalizada:hover {
             transform: translateY(-5px);
             border-color: #3b5580;
         }
-        .tarjeta-azul .card-title { color: #ffffff; font-weight: 700; letter-spacing: 0.5px; }
-        .tarjeta-azul .card-text { color: #d1d5db; line-height: 1.6; }
 
-        /* ===== FOOTER ===== */
-        .footer-contacto {
+        .card-personalizada h5 {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .card-personalizada p {
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* FOOTER EXACTO A TU FOTO */
+        .footer {
             background-color: #05080f;
-            padding: 60px 0 30px 0;
+            padding: 50px 0 30px 0;
             text-align: center;
-            border-top: 1px solid #1a2433;
         }
+
         .contacto-item {
-            font-size: 1.2rem; margin-bottom: 20px;
-            display: flex; justify-content: center; align-items: center; gap: 12px;
-            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
-        .contacto-item i { font-size: 1.4rem; color: #ffffff; }
-        
+
+        .contacto-item i {
+            font-size: 1.5rem;
+        }
+
+        /* Logo N1 con degradado */
         .logo-n1 {
-            font-family: 'Arial Black', Impact, sans-serif;
-            font-size: 4.5rem; font-weight: 900;
-            margin: 50px 0 20px 0;
-            display: inline-flex; align-items: center; justify-content: center;
-            letter-spacing: -6px; user-select: none;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 40px 0 20px 0;
+            letter-spacing: -5px;
+            display: inline-block;
         }
+
         .logo-n {
-            background: linear-gradient(135deg, #a0a0a0 0%, #ffffff 50%, #808080 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            background: linear-gradient(to right, #e0e0e0, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         .logo-1 {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 15px rgba(0, 242, 254, 0.4);
+            background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-left: 5px;
         }
-        .copyright { color: #8b95a5; font-size: 0.95rem; margin-top: 30px; }
-        .creado-por { color: #e74c3c; font-size: 0.95rem; font-weight: 500; }
 
-        /* ===== MENÚ MÓVIL (Hamburguesa) ===== */
-        .menu-toggle {
-            display: none; background: none; border: none; cursor: pointer; padding: 10px; z-index: 20;
+        .copyright {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 20px;
         }
-        .menu-toggle span {
-            display: block; width: 24px; height: 2px; margin: 5px auto;
-            background-color: rgba(255,255,255,.65); border-radius: 2px; transition: all .3s ease-in-out;
-        }
-        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        @media (max-width: 600px) {
-            .header { padding: 12px 0; }
-            .nav { width: calc(100% - 20px); }
-            .menu-toggle { display: block; }
-            .nav nav {
-                display: none; position: absolute; top: 64px; left: 10px; right: 10px;
-                background: rgba(8,20,40,0.92); backdrop-filter: blur(16px);
-                flex-direction: column; align-items: center; padding: 20px; gap: 14px;
-                border: 1px solid rgba(60,120,200,0.15); border-radius: 18px;
-                box-shadow: 0 15px 40px rgba(0,0,0,0.5); z-index: 100;
+        .creado-por {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* MÓVIL */
+        @media (max-width: 768px) {
+            .header { padding: 15px 20px; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #05080f;
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                text-align: center;
             }
-            .nav nav.open { display: flex; }
-            .contacto-item { font-size: 1rem; flex-direction: column; gap: 5px; }
-            .logo-n1 { font-size: 3.5rem; }
+            .nav-links.open { display: flex; }
+            .menu-toggle { display: block; }
+            .contacto-item { font-size: 1rem; }
         }
     </style>
 </head>
@@ -143,29 +208,29 @@
 
     <!-- HEADER -->
     <header class="header">
-        <div class="nav">
-            <a href="#" class="logo">N1</a>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#galeria">Galería</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-            <button class="menu-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-        </div>
+        <a href="#" class="logo">N1</a>
+        <nav class="nav-links" id="navLinks">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
     <!-- CARRUSEL -->
-    <div id="miCarrusel" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div style="height: 350px; background-color: #2a3b52; display: flex; align-items: center; justify-content: center;">
-                    <h2>Imagen o Banner 1</h2>
+                <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <h1 style="font-weight: 300; letter-spacing: 1px;">Imagen o Banner 1</h1>
                 </div>
             </div>
             <div class="carousel-item">
-                <div style="height: 350px; background-color: #34495e; display: flex; align-items: center; justify-content: center;">
-                    <h2>Imagen o Banner 2</h2>
+                <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <h1 style="font-weight: 300; letter-spacing: 1px;">Imagen o Banner 2</h1>
                 </div>
             </div>
         </div>
@@ -181,18 +246,18 @@
     <div class="container mt-5 mb-5" id="servicios">
         <div class="row g-4">
             <div class="col-md-6">
-                <div class="card h-100 tarjeta-azul">
+                <div class="card card-personalizada">
                     <div class="card-body">
-                        <h5 class="card-title">Balcones</h5>
-                        <p class="card-text">Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
+                        <h5>Balcones</h5>
+                        <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card h-100 tarjeta-azul">
+                <div class="card card-personalizada">
                     <div class="card-body">
-                        <h5 class="card-title">Restauración</h5>
-                        <p class="card-text">Intervenimos superficies opacas o deterioradas destinados a recuperar su terminación original y protegerlas contra futuros daños.</p>
+                        <h5>Restauración</h5>
+                        <p>Intervenimos superficies opacas o deterioradas destinados a recuperar su terminación original y protegerlas contra futuros daños.</p>
                     </div>
                 </div>
             </div>
@@ -200,7 +265,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer-contacto" id="contacto">
+    <footer class="footer" id="contacto">
         <div class="container">
             <div class="contacto-item"><i class="bi bi-geo-alt-fill"></i><span>Ubicación CABA / GBA</span></div>
             <div class="contacto-item"><i class="bi bi-envelope-fill"></i><span>nivelpulidos@gmail.com</span></div>
@@ -209,13 +274,21 @@
             <div class="logo-n1"><span class="logo-n">N</span><span class="logo-1">1</span></div>
             
             <div class="copyright">Copyright © 2026 Nivel Pulidos All rights reserved.</div>
-            <div class="creado-por mt-2">Created by Javier Higuera</div>
+            <div class="creado-por">Created by Javier Higuera</div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Tu JS -->
-    <script src="script.js"></script>
+
+    <!-- JS DEL MENÚ MÓVIL -->
+    <script>
+        const menuToggle = document.querySelector('#menuToggle');
+        const navLinks = document.querySelector('#navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
