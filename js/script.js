@@ -24,14 +24,19 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
     });
 
     options.forEach(option => {
-        option.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selectedText.textContent = option.textContent;
-            hiddenInput.value = option.dataset.value;
-            options.forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
-            customSelect.classList.remove('open');
-            trigger.setAttribute('aria-expanded', 'false');
+    option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectedText.textContent = option.textContent;
+        hiddenInput.value = option.dataset.value;
+        options.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        // FORZAR CIERRE COMPLETO
+        customSelect.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        // CIERRA TODOS LOS DROPDOWNS ABIERTOS
+        document.querySelectorAll('.custom-select.open').forEach(select => {
+            select.classList.remove('open');
+            select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
         });
     });
 });
