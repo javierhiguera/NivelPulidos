@@ -77,10 +77,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   max-width: 1100px;
-  margin: 0;
-  font-size: clamp(32px, 5vw, 48px);
+  margin: 0 auto 20px auto;
+  font-size: clamp(38px, 6vw, 58px); /* 20% más grande que antes */
   line-height: 1.1;
   letter-spacing: -1px;
+  text-align: center;
   background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -172,6 +173,7 @@ h3 {
   min-height: 92vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
   background: transparent;
 }
@@ -191,16 +193,18 @@ h3 {
   width: min(1150px, 90%);
   margin: auto;
   padding-top: 110px;
+  text-align: center;
 }
 
 .hero-text {
-  max-width: 650px;
-  margin: 20px 0;
+  max-width: 750px;
+  margin: 0 auto 30px auto;
   color: #d8dadd;
-  font-size: 16px;
+  font-size: 17.6px; /* 10% más grande que 16px */
   line-height: 1.6;
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
+  text-align: center;
 }
 
 .eyebrow {
@@ -217,6 +221,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  justify-content: center;
 }
 
 /* ===== BOTONES ===== */
@@ -644,7 +649,7 @@ textarea {
   .hero-content { width: calc(100% - 28px); padding-top: 100px; }
   
   h1 {
-    font-size: clamp(28px, 7vw, 36px);
+    font-size: clamp(34px, 8vw, 42px);
     letter-spacing: -0.5px;
   }
   
@@ -659,11 +664,11 @@ textarea {
   }
   
   .hero-text {
-    font-size: 15px;
-    margin: 15px 0;
+    font-size: 16px;
+    margin: 15px auto;
   }
   
-  .buttons { width: 100%; flex-direction: column; }
+  .buttons { width: 100%; flex-direction: column; align-items: center; }
   .button {
     width: 100%; justify-content: center;
     font-size: 15px;
@@ -704,11 +709,3 @@ textarea {
     overscroll-behavior-x: contain;
     touch-action: pan-y;
   }
-  .gallery-card {
-    flex: 0 0 calc(100vw - 28px);
-    width: calc(100vw - 28px);
-    min-width: calc(100vw - 28px);
-    max-width: calc(100vw - 28px);
-    border-radius: 18px;
-  }
-  .comparison { aspect-ratio: 4 / 3; border
