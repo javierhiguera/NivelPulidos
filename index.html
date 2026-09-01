@@ -27,6 +27,31 @@
       }
     }
 
+    /* ===== AJUSTE PARA EL TEXTO DE NOSOTROS A LA DERECHA ===== */
+    .two-columns {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 850px) {
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== CITA EN CURSIVA (Como el hero-text) ===== */
+    .director-quote-text {
+      font-family: "SF Pro Display", Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #d8dadd;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
     /* ===== FOOTER DE CONTACTO (Compacto) ===== */
     .footer-grande {
       background-color: #000000;
@@ -102,7 +127,6 @@
             <a href="#superficies">Superficies</a>
             <a href="#trabajos">Trabajos</a>
             <a href="#presupuesto">Presupuesto</a>
-            <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
           </nav>
         </div>
@@ -390,7 +414,7 @@
       </div>
     </section>
 
-    <!-- NOSOTROS -->
+    <!-- NOSOTROS (Texto a la derecha, sin menú) -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
         <div>
