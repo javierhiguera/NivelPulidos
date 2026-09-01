@@ -12,26 +12,46 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    /* ===== NUEVA FUENTE: NORTHWELL ===== */
+    /* ===== NUEVA FUENTE: LIBERTIAN SIGNATURE ===== */
     @font-face {
-      font-family: "Northwell";
-      src: url("fonts/Northwell.otf") format("opentype");
+      font-family: "Libertian Signature";
+      src: url("fonts/libertian-signature.otf") format("opentype");
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
 
-    /* ===== FRASE DEL DIRECTOR ===== */
+    /* ===== FRASE DEL HERO (SF Pro Display) ===== */
+    .hero-text {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #d8dadd;
+      text-align: left;
+      margin: 30px 0;
+      max-width: 650px;
+    }
+
+    /* ===== FRASE DEL DIRECTOR (Libertian Signature, más pequeña) ===== */
     .director-quote-text {
-      font-family: "Northwell", "SF Pro Display", cursive;
+      font-family: "Libertian Signature", "SF Pro Display", cursive;
       font-style: normal;
       font-weight: normal;
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 1.4;
       color: #ffffff;
       margin-bottom: 15px;
     }
 
+    /* ===== TEXTO DE NOSOTROS MÁS ESPACIADO ===== */
+    .introduction .text p {
+      line-height: 2;
+      margin-bottom: 15px;
+    }
+
+    /* ===== NOMBRE Y FOUNDER DE LADO ===== */
     .director-name {
       display: inline-flex;
       align-items: center;
@@ -41,6 +61,7 @@
       font-weight: bold;
     }
 
+    /* ===== AJUSTE PARA DEJAR EL FORMULARIO A UN LADO ===== */
     .form-layout {
       display: grid;
       grid-template-columns: .8fr 1.2fr;
@@ -55,6 +76,7 @@
       }
     }
 
+    /* ===== AJUSTE PARA EL TEXTO DE NOSOTROS A LA DERECHA ===== */
     .two-columns {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
@@ -67,6 +89,57 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ===== FOOTER DE CONTACTO (Compacto y pequeño) ===== */
+    .footer-grande {
+      background-color: #000000;
+      padding: 25px 0 15px 0;
+      text-align: center;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-item {
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      font-weight: 400;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .footer-item i { 
+      font-size: 0.9rem; 
+      color: #ffffff; 
+    }
+
+    .footer-logo-grande {
+      width: 40px;
+      height: auto;
+      margin: 20px auto 8px auto;
+      display: block;
+    }
+
+    .copyright {
+      color: #9ba0a8;
+      font-size: 0.65rem;
+      font-weight: 400;
+      margin-top: 5px;
+    }
+
+    .creado-por {
+      font-family: "Asus Rog", "OCR A Extended", monospace;
+      color: #dc3545;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+      text-decoration: none;
+      display: inline-block;
+    }
   </style>
 </head>
 <body id="inicio">
@@ -74,9 +147,6 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <!-- IMAGEN DE FONDO DIRECTAMENTE EN HTML (CORREGIDO) -->
-      <img src="assets/hero/hero.jpg" alt="Fondo de Nivel Pulidos" class="hero-bg" />
-
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
@@ -102,7 +172,7 @@
 
       <div class="hero-content">
         <h1>Nivel Pulidos, llevamos cada Superficie a otro nivel.</h1>
-        <p class="hero-text" style="text-align:center;">Pulido, restauración y mantenimiento profesional de superficies.</p>
+        <p class="hero-text">Pulido, restauración y mantenimiento profesional de superficies.</p>
         <div class="buttons">
           <a href="#presupuesto" class="button primary">
             <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -141,7 +211,7 @@
             <img class="card-image" src="assets/servicios/2.jpg" alt="Mesadas" />
             <div class="card-content">
               <h3>Mesadas</h3>
-              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Revisamos el estado general y evaluamos las condiciones de la superficie antes de definir el proceso.</p>
+              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
             </div>
           </article>
           <article class="card">
@@ -301,7 +371,7 @@
       </div>
     </section>
 
-    <!-- PRESUPUESTO -->
+    <!-- PRESUPUESTO (Formulario a un lado) -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
@@ -323,28 +393,40 @@
           
           <label>
             Tipo de superficie
-            <select id="superficie" name="superficie" required>
-              <option value="">Seleccionar</option>
-              <option value="Mármol">Mármol</option>
-              <option value="Mosaico">Mosaico</option>
-              <option value="Parquet">Parquet</option>
-              <option value="Granito">Granito</option>
-              <option value="Hormigón">Hormigón</option>
-              <option value="Calcáreo">Calcáreo</option>
-              <option value="Travertino">Travertino</option>
-              <option value="Otra">Otra</option>
-            </select>
+            <div class="custom-select" id="custom-superficie">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Mármol">Mármol</li>
+                <li class="custom-option" data-value="Mosaico">Mosaico</li>
+                <li class="custom-option" data-value="Parquet">Parquet</li>
+                <li class="custom-option" data-value="Granito">Granito</li>
+                <li class="custom-option" data-value="Hormigón">Hormigón</li>
+                <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
+                <li class="custom-option" data-value="Travertino">Travertino</li>
+                <li class="custom-option" data-value="Otra">Otra</li>
+              </ul>
+              <input type="hidden" id="superficie" name="superficie" value="" required>
+            </div>
           </label>
 
           <label>
             Servicio
-            <select id="servicio" name="servicio" required>
-              <option value="">Seleccionar</option>
-              <option value="Pulido">Pulido</option>
-              <option value="Restauración">Restauración</option>
-              <option value="Mantenimiento">Mantenimiento</option>
-              <option value="No estoy seguro">No estoy seguro</option>
-            </select>
+            <div class="custom-select" id="custom-servicio">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Pulido">Pulido</li>
+                <li class="custom-option" data-value="Restauración">Restauración</li>
+                <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
+                <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
+              </ul>
+              <input type="hidden" id="servicio" name="servicio" value="" required>
+            </div>
           </label>
 
           <label>
@@ -366,7 +448,7 @@
       </div>
     </section>
 
-    <!-- NOSOTROS -->
+    <!-- NOSOTROS (Al final de todo) -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
         <div>
@@ -379,7 +461,7 @@
           <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
           <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
           <div class="director-quote">
-            <p class="director-quote-text">"Gracias por confiar en nosotros y dejar su imagen en nuestras manos."</p>
+            <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
             <p class="director-name"><strong>Adriel Salvador</strong> <span>— Founder</span></p>
           </div>
         </div>
@@ -387,9 +469,10 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER DE CONTACTO (Ahora con id="contacto" para el menú) -->
   <footer class="footer-grande" id="contacto">
     <div class="container">
+      
       <div class="footer-item">
         <strong>Horario de atención</strong>
       </div>
@@ -401,13 +484,11 @@
       <div class="footer-item"><i class="bi bi-envelope-fill"></i><span>nivelpulidos@gmail.com</span></div>
       <div class="footer-item"><i class="bi bi-telephone-fill"></i><span>11 2483-0787</span></div>
       
+      <!-- Tu logo real -->
       <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo-grande" />
       
       <div class="copyright">Copyright © 2026 Nivel Pulidos All rights reserved.</div>
-      
-      <div class="creado-por">
-        <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer">Created by Javier Higuera</a>
-      </div>
+      <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creado-por">Created by Javier Higuera</a>
     </div>
   </footer>
 
