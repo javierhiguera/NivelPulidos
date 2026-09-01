@@ -7,6 +7,60 @@
   <meta name="description" content="Nivel Pulidos. Pulido, restauración y mantenimiento profesional de superficies. CABA / GBA." />
   <link rel="icon" href="assets/logo/logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
+  
+  <!-- Bootstrap Icons (Para los iconos del footer) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- ESTILO EXTRA SOLO PARA EL NUEVO FOOTER -->
+  <style>
+    .footer-grande {
+      background-color: #000000;
+      padding: 60px 0 30px 0;
+      text-align: center;
+      color: #fff;
+    }
+    .contacto-item {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      color: #ffffff;
+    }
+    .contacto-item i { font-size: 1.5rem; color: #fff; }
+    
+    .logo-n1 {
+      font-family: 'Arial Black', Impact, sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin: 50px 0 20px 0;
+      display: inline-block;
+      letter-spacing: -6px;
+    }
+    .logo-n {
+      background: linear-gradient(to right, #e0e0e0, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-1 {
+      background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 5px;
+    }
+    .copyright {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+    .creado-por {
+      color: #dc3545;
+      font-size: 0.95rem;
+      margin-top: 5px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body id="inicio">
 
@@ -322,11 +376,17 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-content">
-      <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo" />
-      <span>Copyright © 2026 Nivel Pulidos All rights reserved.</span>
-      <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creator">Created by Javier Higuera</a>
+  <!-- NUEVO FOOTER (Como en la foto) -->
+  <footer class="footer-grande">
+    <div class="container">
+      <div class="contacto-item"><i class="bi bi-geo-alt-fill"></i><span>Ubicación CABA / GBA</span></div>
+      <div class="contacto-item"><i class="bi bi-envelope-fill"></i><span>nivelpulidos@gmail.com</span></div>
+      <div class="contacto-item"><i class="bi bi-telephone-fill"></i><span>11 2483-0787</span></div>
+      
+      <div class="logo-n1"><span class="logo-n">N</span><span class="logo-1">1</span></div>
+      
+      <div class="copyright">Copyright © 2026 Nivel Pulidos All rights reserved.</div>
+      <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creado-por">Created by Javier Higuera</a>
     </div>
   </footer>
 
