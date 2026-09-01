@@ -30,8 +30,6 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
             hiddenInput.value = option.dataset.value;
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
-            
-            /* --- MEJORA MÓVIL: Cierra el dropdown al seleccionar --- */
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -190,95 +188,108 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* ===== GALERÍA CON SWIPE NATIVO (MÓVIL) Y BOTONES (ESCRITORIO) ===== */
+/* ===== GALERÍA CON BOTONES LATERALES ===== */
 const gallery = document.querySelector("#gallery-track");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 
-if (gallery) {
-  // Lógica de flechas (Solo aplica en escritorio)
-  if (prevBtn && nextBtn) {
-    function getCardWidth() {
-      const card = gallery.querySelector(".gallery-card");
-      if (!card) return 0;
-      const gap = 18;
-      return card.offsetWidth + gap;
-    }
+if (gallery && prevBtn && nextBtn) {
+  let scrollAmount = 0;
 
-    function scrollGallery(direction) {
-      const cardWidth = getCardWidth();
-      if (cardWidth === 0) return;
-      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-      const target = gallery.scrollLeft + direction * cardWidth;
-      gallery.scrollTo({
-        left: Math.max(0, Math.min(target, maxScroll)),
-        behavior: "smooth"
-      });
-    }
-
-    prevBtn.addEventListener("click", () => scrollGallery(-1));
-    nextBtn.addEventListener("click", () => scrollGallery(1));
-
-    function updateButtons() {
-      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
-      prevBtn.style.opacity = gallery.scrollLeft <= 1 ? "0.3" : "1";
-      nextBtn.style.opacity = gallery.scrollLeft >= maxScroll - 1 ? "0.3" : "1";
-    }
-
-    gallery.addEventListener("scroll", updateButtons);
-    window.addEventListener("resize", updateButtons);
-    setTimeout(updateButtons, 200);
+  function getCardWidth() {
+    const card = gallery.querySelector(".gallery-card");
+    if (!card) return 0;
+    const gap = 18;
+    return card.offsetWidth + gap;
   }
 
-  /* --- DESBLOQUEO DEL SWIPE TÁCTIL --- */
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let isHorizontal = false;
+  function scrollGallery(direction) {
+    const cardWidth = getCardWidth();
+    if (cardWidth === 0) return;
+    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+    const target = gallery.scrollLeft + direction * cardWidth;
+    gallery.scrollTo({
+      left: Math.max(0, Math.min(target, maxScroll)),
+      behavior: "smooth"
+    });
+  }
 
-  gallery.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    isHorizontal = false;
-  }, { passive: true });
+  prevBtn.addEventListener("click", () => scrollGallery(-1));
+  nextBtn.addEventListener("click", () => scrollGallery(1));
 
-  gallery.addEventListener("touchmove", (e) => {
-    if (!touchStartX || !touchStartY) return;
-    const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
-    const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
+  // Actualizar estado de botones al hacer scroll
+  function updateButtons() {
+    const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+    prevBtn.style.opacity = gallery.scrollLeft <= 1 ? "0.3" : "1";
+    nextBtn.style.opacity = gallery.scrollLeft >= maxScroll - 1 ? "0.3" : "1";
+  }
 
-    if (deltaX > deltaY) {
-      isHorizontal = true;
-      e.preventDefault(); 
+  gallery.addEventListener("scroll", updateButtons);
+  window.addEventListener("resize", updateButtons);
+  setTimeout(updateButtons, 200);
+
+  // Touch/drag para móviles
+  let draggingGallery = false;
+  let galleryPointerId = null;
+  let galleryStartX = 0;
+  let galleryStartY = 0;
+  let galleryStartScroll = 0;
+  let galleryHorizontal = false;
+
+  gallery.addEventListener("pointerdown", (event) => {
+    if (event.target.closest(".comparison-control")) return;
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    draggingGallery = true;
+    galleryPointerId = event.pointerId;
+    galleryStartX = event.clientX;
+    galleryStartY = event.clientY;
+    galleryStartScroll = gallery.scrollLeft;
+    galleryHorizontal = event.pointerType === "mouse";
+
+    if (event.pointerType === "mouse") {
+      gallery.setPointerCapture?.(event.pointerId);
+    }
+  });
+
+  gallery.addEventListener("pointermove", (event) => {
+    if (!draggingGallery || event.pointerId !== galleryPointerId) return;
+
+    const deltaX = event.clientX - galleryStartX;
+    const deltaY = event.clientY - galleryStartY;
+
+    if (event.pointerType === "touch" && !galleryHorizontal) {
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+      if (absY > absX && absY > 8) {
+        draggingGallery = false;
+        galleryPointerId = null;
+        return;
+      }
+      if (absX > absY && absX > 8) {
+        galleryHorizontal = true;
+      }
+    }
+
+    if (!galleryHorizontal) return;
+
+    gallery.scrollLeft = galleryStartScroll - deltaX;
+
+    if (event.pointerType === "touch") {
+      event.preventDefault();
     }
   }, { passive: false });
 
-  gallery.addEventListener("touchend", () => {
-    touchStartX = 0;
-    touchStartY = 0;
-    isHorizontal = false;
-  }, { passive: true });
+  function stopGalleryDrag(event) {
+    if (event.pointerId !== galleryPointerId) return;
+    draggingGallery = false;
+    galleryHorizontal = false;
+    if (event.pointerType === "mouse") {
+      gallery.releasePointerCapture?.(event.pointerId);
+    }
+    galleryPointerId = null;
+  }
 
-  /* --- Soporte para Mouse (Escritorio) --- */
-  let isMouseDown = false;
-  let mouseStartX = 0;
-  let mouseStartScroll = 0;
-
-  gallery.addEventListener("mousedown", (e) => {
-    if (e.target.closest(".comparison-control")) return;
-    isMouseDown = true;
-    mouseStartX = e.clientX;
-    mouseStartScroll = gallery.scrollLeft;
-    gallery.style.cursor = "grabbing";
-  });
-
-  window.addEventListener("mousemove", (e) => {
-    if (!isMouseDown) return;
-    const walk = e.clientX - mouseStartX;
-    gallery.scrollLeft = mouseStartScroll - walk;
-  });
-
-  window.addEventListener("mouseup", () => {
-    isMouseDown = false;
-    gallery.style.cursor = "grab";
-  });
+  gallery.addEventListener("pointerup", stopGalleryDrag);
+  gallery.addEventListener("pointercancel", stopGalleryDrag);
 }
