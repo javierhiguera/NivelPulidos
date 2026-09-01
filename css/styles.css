@@ -32,7 +32,7 @@
 }
 
 @font-face {
-  font-family: "Krousta-Regular";
+  font-family: "Krousta";
   src: url("../fonts/krousta-regular.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
@@ -58,6 +58,7 @@ body {
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   background: linear-gradient(180deg, #020812 0%, #061830 25%, #0a2045 50%, #061830 75%, #020812 100%) !important;
 }
@@ -76,9 +77,9 @@ body, p, span, li, a, input, textarea, button, label {
   line-height: 1.6;
 }
 
-/* ===== TÍTULOS CON KROUSTA ===== */
-h1, h2, h3 {
-  font-family: "Krousta-Regular", "SF Pro Display", sans-serif;
+/* ===== TÍTULOS CON KROUSTA (NEGRILLA) ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Krousta", "SF Pro Display", sans-serif;
   font-weight: 700;
 }
 
@@ -146,6 +147,7 @@ h3 {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .nav nav a:hover { opacity: .55; }
 
@@ -230,7 +232,7 @@ h3 {
   color: #fff;
   border-radius: 20px;
   background-size: 100% auto;
-  font-family: inherit;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   padding: 0.6em 1.5em;
   display: inline-flex;
@@ -295,6 +297,8 @@ h3 {
   color: #d0dce8;
   line-height: 1.7; 
   font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
 }
 
 /* ===== SUPERFICIES - AZUL OSCURO PROFUNDO ===== */
@@ -315,6 +319,7 @@ h3 {
   font-size: 16px; 
   color: #ffffff;
   font-weight: 700;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .surface-info span { 
   display: block; 
@@ -322,6 +327,7 @@ h3 {
   color: #b0c8e0; 
   font-size: 14px;
   font-weight: 400;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ===== GALERÍA - AZUL OSCURO PROFUNDO ===== */
@@ -390,6 +396,7 @@ label {
   font-size: 16px; 
   font-weight: 600; 
   color: #d0dce8;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 input, textarea {
   width: 100%; 
@@ -399,6 +406,8 @@ input, textarea {
   background: linear-gradient(145deg, rgba(6,21,48,0.7), rgba(2,8,18,0.5));
   color: #ffffff;
   font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
   outline: none; 
   box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 7px 20px rgba(0,0,0,.25);
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
@@ -406,6 +415,8 @@ input, textarea {
 input::placeholder, textarea::placeholder { 
   color: #5a7a9a; 
   font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
 }
 input:focus, textarea:focus { 
   border-color: rgba(60,140,255,0.4); 
@@ -429,6 +440,8 @@ textarea {
   background: linear-gradient(145deg, rgba(6,21,48,0.7), rgba(2,8,18,0.5));
   backdrop-filter: blur(10px); color: #ffffff;
   font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
   cursor: pointer; user-select: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 7px 20px rgba(0,0,0,0.3);
   transition: border-color .2s ease, background .2s ease;
@@ -445,7 +458,9 @@ textarea {
   color: #d0dce8; 
   cursor: pointer; 
   transition: all .2s ease; 
-  font-size: 16px; 
+  font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
   list-style: none; 
 }
 .custom-option:hover { background: rgba(60,140,255,0.15); color: #fff; }
@@ -465,9 +480,11 @@ textarea {
   margin-bottom: 15px;
   color: #c8d8e8;
   font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
 }
 
-/* ===== FRASE DEL DIRECTOR CON CATHALIA ===== */
+/* ===== FRASE DEL DIRECTOR CON CATHALIA (EXCLUSIVO) ===== */
 .director-quote-text {
   font-family: "Cathalia", "SF Pro Display", cursive;
   font-style: normal;
@@ -485,6 +502,7 @@ textarea {
   font-size: 16px;
   color: #ffffff;
   font-weight: bold;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 .director-name span {
@@ -510,6 +528,7 @@ textarea {
   gap: 6px;
   color: #c8d8e8;
   font-weight: 400;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 .footer-item i { 
@@ -529,6 +548,7 @@ textarea {
   font-size: 14px;
   font-weight: 400;
   margin-top: 5px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 .creado-por {
@@ -552,6 +572,8 @@ textarea {
   color: #c8d8e8; 
   font-size: 16px; 
   line-height: 1.7; 
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
 }
 .schedule strong { 
   display: block; 
@@ -569,6 +591,7 @@ textarea {
   gap: 8px; 
   transition: color .2s ease; 
   margin: 0; 
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .contact-items a:hover { color: #4a8abe; }
 .contact-icon { width: 18px; height: 18px; display: block; flex-shrink: 0; }
@@ -693,65 +716,4 @@ textarea {
     width: calc(100vw - 28px);
     min-width: calc(100vw - 28px);
     max-width: calc(100vw - 28px);
-    border-radius: 18px;
-  }
-  .comparison { aspect-ratio: 4 / 3; border-radius: 18px; }
-  .comparison-handle { width: 38px; height: 38px; }
-  .comparison-control { width: 54px; height: 54px; }
-  .gallery-btn { display: none !important; }
-  
-  .section { padding: 40px 0; }
-  .contact { padding: 40px 0 50px; }
-  .contact h2 { margin: 0 0 30px; }
-  .contact-grid { gap: 30px; }
-  .schedule { font-size: 15px; }
-  .schedule strong { font-size: 15px; }
-  .contact-items p, .contact-items a { font-size: 15px; }
-  .contact-items { gap: 8px; }
-  
-  input, textarea { padding: 13px 15px; font-size: 15px; }
-  textarea { min-height: 100px; }
-  
-  .footer-item { font-size: 15px; }
-  .copyright { font-size: 13px; }
-  .creado-por { font-size: 13px; }
-  
-  .introduction .text p { font-size: 15px; }
-  .director-quote-text { font-size: 18px; }
-  .director-name { font-size: 15px; }
-  
-  .form-layout {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .two-columns {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 380px) {
-  .container { width: calc(100% - 20px); }
-  .hero-content { width: calc(100% - 20px); }
-  .nav { width: calc(100% - 16px); }
-  .logo img { width: 36px; height: 36px; }
-  
-  body, p, span, li, a, input, textarea, button, label {
-    font-size: 14px;
-  }
-  
-  h1 {
-    font-size: clamp(24px, 6vw, 30px);
-  }
-  
-  h2 {
-    font-size: clamp(20px, 4.5vw, 26px);
-  }
-  
-  .button {
-    font-size: 14px;
-    padding: 0.4em 1em;
-    min-height: 40px;
-  }
-  
-  .gallery {
-    width: calc(100%
+    border-radius
