@@ -188,7 +188,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* ===== GALERÍA CON BOTONES LATERALES ===== */
+/* ===== GALERÍA CON BOTONES LATERALES Y DRAG ===== */
 const gallery = document.querySelector("#gallery-track");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
