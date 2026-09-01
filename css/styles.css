@@ -637,3 +637,34 @@ textarea {
   h1 { font-size: clamp(30px, 9vw, 42px); }
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
 }
+/* ===== CENTRAR TODO EL HERO ===== */
+.hero-content {
+  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content .hero-text {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.hero-content .buttons {
+  justify-content: center !important;
+}
+
+/* ===== CENTRAR TÍTULOS DE SECCIONES ===== */
+.services .section-header,
+.services .section-header h2,
+.surfaces h2,
+.section-header {
+  text-align: center !important;
+}
+
+.services .section-header h2,
+.surfaces h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
