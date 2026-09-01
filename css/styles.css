@@ -77,8 +77,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   max-width: 1100px;
-  margin: 0 auto 20px auto;
-  font-size: clamp(64px, 12vw, 120px); /* EL DOBLE: 120px (era 60px) */
+  margin: 0 auto 15px auto;
+  font-size: clamp(40px, 8vw, 76px); /* MÁS PEQUEÑO: 76px en lugar de 120px */
   line-height: 1.1;
   letter-spacing: -1px;
   text-align: center;
@@ -167,10 +167,10 @@ h3 {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ===== HERO ===== */
+/* ===== HERO - MÁS COMPACTO ===== */
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 82vh; /* ANTES: 92vh - AHORA MÁS COMPACTO */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,15 +192,16 @@ h3 {
   z-index: 2;
   width: min(1150px, 90%);
   margin: auto;
-  padding-top: 110px;
+  padding-top: 90px; /* ANTES: 110px - AHORA MÁS COMPACTO */
+  padding-bottom: 20px;
   text-align: center;
 }
 
 .hero-text {
   max-width: 850px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 25px auto; /* ANTES: 30px - AHORA MÁS COMPACTO */
   color: #d8dadd;
-  font-size: 32px; /* EL DOBLE: 32px (era 16px) */
+  font-size: 22px; /* ANTES: 32px - AHORA MÁS PEQUEÑO */
   line-height: 1.5;
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
@@ -645,12 +646,13 @@ textarea {
   }
   .nav nav.open { display: flex; }
   .container { width: calc(100% - 28px); }
-  .hero { min-height: 100svh; }
-  .hero-content { width: calc(100% - 28px); padding-top: 100px; }
+  .hero { min-height: 75vh; }
+  .hero-content { width: calc(100% - 28px); padding-top: 80px; }
   
   h1 {
-    font-size: clamp(48px, 12vw, 72px);
+    font-size: clamp(32px, 8vw, 48px);
     letter-spacing: -0.5px;
+    margin: 0 auto 10px auto;
   }
   
   h2 {
@@ -664,8 +666,8 @@ textarea {
   }
   
   .hero-text {
-    font-size: 24px;
-    margin: 15px auto;
+    font-size: 18px;
+    margin: 10px auto 20px auto;
   }
   
   .buttons { width: 100%; flex-direction: column; align-items: center; }
@@ -703,13 +705,4 @@ textarea {
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    touch-action: pan-y;
-  }
-  .gallery-card {
-    flex: 0 0 calc(100vw - 28px);
-    width: calc(100vw - 28px);
-    min-width: calc(100vw - 28px);
+   
