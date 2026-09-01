@@ -77,8 +77,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   max-width: 1100px;
-  margin: 0 auto 15px auto;
-  font-size: clamp(40px, 8vw, 76px); /* MÁS PEQUEÑO: 76px en lugar de 120px */
+  margin: 0 auto 20px auto;
+  font-size: clamp(38px, 6vw, 58px);
   line-height: 1.1;
   letter-spacing: -1px;
   text-align: center;
@@ -167,10 +167,10 @@ h3 {
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ===== HERO - MÁS COMPACTO ===== */
+/* ===== HERO ===== */
 .hero {
   position: relative;
-  min-height: 82vh; /* ANTES: 92vh - AHORA MÁS COMPACTO */
+  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,17 +192,17 @@ h3 {
   z-index: 2;
   width: min(1150px, 90%);
   margin: auto;
-  padding-top: 90px; /* ANTES: 110px - AHORA MÁS COMPACTO */
-  padding-bottom: 20px;
+  padding-top: 110px;
   text-align: center;
 }
 
+/* CORRECCIÓN 1: Hero-text centrado */
 .hero-text {
-  max-width: 850px;
-  margin: 0 auto 25px auto; /* ANTES: 30px - AHORA MÁS COMPACTO */
+  max-width: 750px;
+  margin: 0 auto 30px auto;
   color: #d8dadd;
-  font-size: 22px; /* ANTES: 32px - AHORA MÁS PEQUEÑO */
-  line-height: 1.5;
+  font-size: 17.6px;
+  line-height: 1.6;
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   text-align: center;
@@ -272,7 +272,7 @@ h3 {
 .section { padding: 60px 0; background: transparent; }
 .container { width: min(1150px, 90%); margin: auto; }
 
-/* ===== CARDS ===== */
+/* ===== CARDS - CORRECCIÓN 2: Textos centrados ===== */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .card {
   min-height: 250px;
@@ -282,6 +282,7 @@ h3 {
   border: 1px solid #1a3055;
   border-radius: 22px;
   transition: transform .3s ease, border-color .3s ease, background .3s ease;
+  text-align: center;
 }
 .card:hover {
   transform: translateY(-6px);
@@ -298,6 +299,7 @@ h3 {
   font-size: 16px;
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
+  text-align: center;
 }
 
 /* ===== SUPERFICIES ===== */
@@ -483,12 +485,12 @@ textarea {
   font-weight: 400;
 }
 
-/* ===== FRASE DEL DIRECTOR CON NORTHWELL (EXCLUSIVO) ===== */
+/* ===== FRASE DEL DIRECTOR - CORRECCIÓN 7: Más grande ===== */
 .director-quote-text {
-  font-family: "Northwell", "SF Pro Display", cursive !important;
+  font-family: "Libertian Signature", "SF Pro Display", cursive;
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: normal;
+  font-size: 2rem;
   line-height: 1.4;
   color: #ffffff;
   margin-bottom: 15px;
@@ -509,7 +511,7 @@ textarea {
   color: #8ab4d6;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER - CORRECCIÓN 8: Todos los textos del mismo tamaño ===== */
 .footer-grande {
   background-color: #020812;
   padding: 25px 0 15px 0;
@@ -646,13 +648,12 @@ textarea {
   }
   .nav nav.open { display: flex; }
   .container { width: calc(100% - 28px); }
-  .hero { min-height: 75vh; }
-  .hero-content { width: calc(100% - 28px); padding-top: 80px; }
+  .hero { min-height: 100svh; }
+  .hero-content { width: calc(100% - 28px); padding-top: 100px; }
   
   h1 {
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(34px, 8vw, 42px);
     letter-spacing: -0.5px;
-    margin: 0 auto 10px auto;
   }
   
   h2 {
@@ -666,8 +667,8 @@ textarea {
   }
   
   .hero-text {
-    font-size: 18px;
-    margin: 10px auto 20px auto;
+    font-size: 16px;
+    margin: 15px auto;
   }
   
   .buttons { width: 100%; flex-direction: column; align-items: center; }
@@ -692,17 +693,4 @@ textarea {
   
   .custom-select-trigger { padding: 13px 16px; border-radius: 999px !important; font-size: 15px; }
   .custom-options { border-radius: 16px; padding: 6px; }
-  .custom-option { padding: 10px 14px; font-size: 15px; }
-  
-  .gallery-wrapper { width: 100%; overflow: visible; }
-  .gallery {
-    width: calc(100% + 28px);
-    max-width: none;
-    margin-left: -14px;
-    margin-right: -14px;
-    padding: 4px 14px 8px;
-    gap: 10px;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-   
+ 
