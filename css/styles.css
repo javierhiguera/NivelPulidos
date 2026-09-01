@@ -693,4 +693,28 @@ textarea {
   
   .custom-select-trigger { padding: 13px 16px; border-radius: 999px !important; font-size: 15px; }
   .custom-options { border-radius: 16px; padding: 6px; }
- 
+  .custom-option { padding: 10px 14px; font-size: 15px; }
+  
+  .gallery-wrapper { width: 100%; overflow: visible; }
+  .gallery {
+    width: calc(100% + 28px);
+    max-width: none;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding: 4px 14px 8px;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-y;
+  }
+  .gallery-card { flex: 0 0 calc(100vw - 48px); border-radius: 18px; }
+  .gallery-btn { width: 32px; height: 32px; }
+  .gallery-btn svg { width: 18px; height: 18px; }
+  .prev-btn { left: 4px; }
+  .next-btn { right: 4px; }
+}
