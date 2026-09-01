@@ -5,19 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nivel Pulidos | Pulido y restauración de superficies</title>
   <meta name="description" content="Nivel Pulidos. Pulido, restauración y mantenimiento profesional de superficies. CABA / GBA." />
-  <link rel="icon" href="assets/logo/logo.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* FALLBACK PARA QUE FUNCIONE SIN IMÁGENES */
+    .hero::before {
+      background: linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.62) 34%, rgba(0,0,0,.24) 68%, rgba(0,0,0,.02) 100%),
+                  radial-gradient(ellipse at center, #1a3a6a, #0a1628) !important;
+    }
+    .card-image, .surface-grid img, .comparison img {
+      background: linear-gradient(135deg, #1a2a4a, #0d1f3c);
+      min-height: 180px;
+    }
+  </style>
 </head>
 <body id="inicio">
 
   <main>
     <!-- HERO -->
     <section class="hero">
-      <!-- MENÚ CON HAMBURGUESA -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
-            <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
+            <img src="logo.png" alt="Nivel Pulidos" />
           </a>
           
           <button class="menu-toggle" aria-label="Abrir menú">
@@ -69,63 +79,51 @@
         </div>
         <div class="cards-grid">
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/1.jpg" alt="Superficies" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">📐</div>
             <div class="card-content">
               <h3>Superficies</h3>
-              <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado. Realizamos procesos de pulido, recuperación y terminación según las características de cada material.</p>
+              <p>Evaluamos el material y estado de la superficie para determinar el tratamiento adecuado.</p>
             </div>
           </article>
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/2.jpg" alt="Mesadas" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">🧱</div>
             <div class="card-content">
               <h3>Mesadas</h3>
-              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación. Evaluamos desgaste, manchas, marcas y estado general antes de definir el proceso.</p>
+              <p>Trabajamos sobre mesadas para recuperar su apariencia y mejorar su terminación.</p>
             </div>
           </article>
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/3.jpg" alt="Escaleras" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">🪜</div>
             <div class="card-content">
               <h3>Escaleras</h3>
-              <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras. El proceso se adapta tanto a superficies horizontales como verticales y a las características del material.</p>
+              <p>Realizamos trabajos de recuperación, pulido y terminación en escaleras.</p>
             </div>
           </article>
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/4.jpg" alt="Balcones" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">🏗️</div>
             <div class="card-content">
               <h3>Balcones</h3>
-              <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
+              <p>Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales.</p>
             </div>
           </article>
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/5.jpg" alt="Restauración" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">🔧</div>
             <div class="card-content">
               <h3>Restauración</h3>
-              <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
+              <p>Intervenimos superficies desgastadas, opacas o deterioradas para recuperar su aspecto.</p>
             </div>
           </article>
           <article class="card-item">
-            <div class="card-bg">
-              <div class="card-blob"></div>
-            </div>
-            <img class="card-image" src="assets/servicios/6.jpg" alt="Mantenimiento" />
+            <div class="card-bg"><div class="card-blob"></div></div>
+            <div class="card-image-placeholder">🛡️</div>
             <div class="card-content">
               <h3>Mantenimiento</h3>
-              <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
+              <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas.</p>
             </div>
           </article>
         </div>
@@ -138,62 +136,14 @@
         <p class="eyebrow">SUPERFICIES</p>
         <h2>Trabajamos diferentes materiales</h2>
         <div class="surface-grid">
-          <div class="surface-card">
-            <img src="assets/superficies/marmol.jpg" alt="Mármol" />
-            <div class="surface-info">
-              <strong>Mármol</strong>
-              <span>Pulido y restauración</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/mosaico.jpg" alt="Mosaico" />
-            <div class="surface-info">
-              <strong>Mosaico</strong>
-              <span>Pulido y mantenimiento</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/granito.jpg" alt="Granito" />
-            <div class="surface-info">
-              <strong>Granito</strong>
-              <span>Pulido y terminación</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/hormigon.jpg" alt="Hormigón" />
-            <div class="surface-info">
-              <strong>Hormigón</strong>
-              <span>Pulido de superficies</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" />
-            <div class="surface-info">
-              <strong>Calcáreo</strong>
-              <span>Restauración y pulido</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/travertino.jpg" alt="Travertino" />
-            <div class="surface-info">
-              <strong>Travertino</strong>
-              <span>Tratamiento de superficie</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/parquet.jpg" alt="Parquet" />
-            <div class="surface-info">
-              <strong>Parquet</strong>
-              <span>Tratamiento de madera</span>
-            </div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" />
-            <div class="surface-info">
-              <strong>Otras superficies</strong>
-              <span>Consultar</span>
-            </div>
-          </div>
+          <div class="surface-card"><div class="surface-icon">⬜</div><div class="surface-info"><strong>Mármol</strong><span>Pulido y restauración</span></div></div>
+          <div class="surface-card"><div class="surface-icon">▦</div><div class="surface-info"><strong>Mosaico</strong><span>Pulido y mantenimiento</span></div></div>
+          <div class="surface-card"><div class="surface-icon">⬛</div><div class="surface-info"><strong>Granito</strong><span>Pulido y terminación</span></div></div>
+          <div class="surface-card"><div class="surface-icon">🏛️</div><div class="surface-info"><strong>Hormigón</strong><span>Pulido de superficies</span></div></div>
+          <div class="surface-card"><div class="surface-icon">🧊</div><div class="surface-info"><strong>Calcáreo</strong><span>Restauración y pulido</span></div></div>
+          <div class="surface-card"><div class="surface-icon">🏔️</div><div class="surface-info"><strong>Travertino</strong><span>Tratamiento de superficie</span></div></div>
+          <div class="surface-card"><div class="surface-icon">🪵</div><div class="surface-info"><strong>Parquet</strong><span>Tratamiento de madera</span></div></div>
+          <div class="surface-card"><div class="surface-icon">❓</div><div class="surface-info"><strong>Otras</strong><span>Consultar</span></div></div>
         </div>
       </div>
     </section>
@@ -212,42 +162,33 @@
           <div class="gallery" id="gallery-track">
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/hormigondespues.jpg" alt="Hormigón después del pulido" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/hormigonantes.jpg" alt="Hormigón antes del pulido" draggable="false" />
-                </div>
+                <div class="comparison-after"><div class="comparison-placeholder after">✨ Después</div></div>
+                <div class="comparison-before"><div class="comparison-placeholder before">🔴 Antes</div></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
-                <button type="button" class="comparison-control" aria-label="Mover comparación de hormigón"></button>
+                <button type="button" class="comparison-control" aria-label="Mover comparación"></button>
               </div>
+              <p style="text-align:center;margin-top:12px;color:#8ab4d6;font-size:14px;font-weight:600;">Hormigón</p>
             </div>
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/granitodespues.jpg" alt="Granito después del pulido" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/granitoantes.jpg" alt="Granito antes del pulido" draggable="false" />
-                </div>
+                <div class="comparison-after"><div class="comparison-placeholder after">✨ Después</div></div>
+                <div class="comparison-before"><div class="comparison-placeholder before">🔴 Antes</div></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
-                <button type="button" class="comparison-control" aria-label="Mover comparación de granito"></button>
+                <button type="button" class="comparison-control" aria-label="Mover comparación"></button>
               </div>
+              <p style="text-align:center;margin-top:12px;color:#8ab4d6;font-size:14px;font-weight:600;">Granito</p>
             </div>
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/parquetdespues.jpg" alt="Parquet después del tratamiento" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/parquetantes.jpg" alt="Parquet antes del tratamiento" draggable="false" />
-                </div>
+                <div class="comparison-after"><div class="comparison-placeholder after">✨ Después</div></div>
+                <div class="comparison-before"><div class="comparison-placeholder before">🔴 Antes</div></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
-                <button type="button" class="comparison-control" aria-label="Mover comparación de parquet"></button>
+                <button type="button" class="comparison-control" aria-label="Mover comparación"></button>
               </div>
+              <p style="text-align:center;margin-top:12px;color:#8ab4d6;font-size:14px;font-weight:600;">Parquet</p>
             </div>
           </div>
           <button class="gallery-btn next-btn" aria-label="Siguiente">
@@ -271,18 +212,9 @@
           </div>
         </div>
         <form id="quote-form">
-          <label>
-            Nombre
-            <input id="nombre" type="text" placeholder="Tu nombre" required />
-          </label>
-          <label>
-            WhatsApp
-            <input id="telefono" type="tel" placeholder="Tu número" required />
-          </label>
-          <label>
-            Localidad
-            <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
-          </label>
+          <label>Nombre <input id="nombre" type="text" placeholder="Tu nombre" required /></label>
+          <label>WhatsApp <input id="telefono" type="tel" placeholder="Tu número" required /></label>
+          <label>Localidad <input id="localidad" type="text" placeholder="Ej. Adrogué" required /></label>
           
           <label>
             Tipo de superficie
@@ -322,14 +254,8 @@
             </div>
           </label>
 
-          <label>
-            Metros cuadrados aproximados
-            <input id="metros" type="number" min="1" placeholder="Ej. 50" />
-          </label>
-          <label>
-            Descripción
-            <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
-          </label>
+          <label>Metros cuadrados <input id="metros" type="number" min="1" placeholder="Ej. 50" /></label>
+          <label>Descripción <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea></label>
           <button type="submit" class="btn primary-btn submit-btn">
             <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 2 11 13" />
@@ -367,26 +293,9 @@
       <div class="container contact-content">
         <div>
           <p class="eyebrow">CONTACTO</p>
-          <p>
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
-            Ubicación CABA / GBA
-          </p>
-          <a href="mailto:nivelpulidos@gmail.com">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-            nivelpulidos@gmail.com
-          </a>
-          <a href="tel:+541124830787">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
-            </svg>
-            11 2483-0787
-          </a>
+          <p>📍 Ubicación CABA / GBA</p>
+          <a href="mailto:nivelpulidos@gmail.com">✉️ nivelpulidos@gmail.com</a>
+          <a href="tel:+541124830787">📞 11 2483-0787</a>
         </div>
       </div>
     </section>
@@ -394,12 +303,12 @@
 
   <footer>
     <div class="container footer-content">
-      <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo" />
+      <img src="logo.png" alt="Nivel Pulidos" class="footer-logo" />
       <span>Copyright © 2026 Nivel Pulidos All rights reserved.</span>
       <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creator">Created by Javier Higuera</a>
     </div>
   </footer>
 
-  <script src="js/script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
