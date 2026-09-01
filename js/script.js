@@ -1,5 +1,5 @@
 // ============================================
-// 1. MENÚ 
+// 1. MENÚ MÓVIL
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   const menuToggle = document.querySelector('.menu-toggle');
@@ -24,77 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// 2. SELECTORES PERSONALIZADOS - CORREGIDOS
-// ============================================
-document.addEventListener('DOMContentLoaded', function() {
-  const customSelects = document.querySelectorAll('.custom-select');
-
-  customSelects.forEach(function(select) {
-    const trigger = select.querySelector('.custom-select-trigger');
-    const options = select.querySelector('.custom-options');
-    const hiddenInput = select.querySelector('input[type="hidden"]');
-    const selectedText = select.querySelector('.selected-text');
-
-    if (!trigger || !options) return;
-
-    // Abrir/cerrar al hacer clic en el trigger
-    trigger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      
-      // Cerrar otros selects abiertos
-      customSelects.forEach(function(otherSelect) {
-        if (otherSelect !== select && otherSelect.classList.contains('open')) {
-          otherSelect.classList.remove('open');
-          otherSelect.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      select.classList.toggle('open');
-      const isOpen = select.classList.contains('open');
-      trigger.setAttribute('aria-expanded', isOpen);
-    });
-
-    // Seleccionar opción
-    options.addEventListener('click', function(e) {
-      const option = e.target.closest('.custom-option');
-      if (!option) return;
-
-      const value = option.getAttribute('data-value');
-      const text = option.textContent.trim();
-
-      // Actualizar texto mostrado
-      if (selectedText) {
-        selectedText.textContent = text;
-      }
-
-      // Actualizar input oculto
-      if (hiddenInput) {
-        hiddenInput.value = value;
-      }
-
-      // Marcar opción seleccionada
-      options.querySelectorAll('.custom-option').forEach(function(opt) {
-        opt.classList.remove('selected');
-      });
-      option.classList.add('selected');
-
-      // Cerrar el select
-      select.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-    });
-
-    // Cerrar al hacer clic fuera
-    document.addEventListener('click', function(e) {
-      if (!select.contains(e.target)) {
-        select.classList.remove('open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-});
-
-// ============================================
-// 3. GALERÍA CON DESLIZAMIENTO - CORREGIDA
+// 2. GALERÍA CON DESLIZAMIENTO
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   const gallery = document.getElementById('gallery-track');
@@ -102,10 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextBtn = document.querySelector('.next-btn');
 
   if (gallery && prevBtn && nextBtn) {
-    // Función para desplazar la galería
     function scrollGallery(direction) {
       const cardWidth = gallery.querySelector('.gallery-card')?.offsetWidth || 0;
-      const gap = 18; // gap entre cards
+      const gap = 18; 
       const scrollAmount = cardWidth + gap;
       
       if (direction === 'next') {
@@ -125,18 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
       scrollGallery('next');
     });
 
-    // Soporte para teclado
-    gallery.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        scrollGallery('prev');
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        scrollGallery('next');
-      }
-    });
-
-    // Habilitar arrastre con mouse/touch
+    // Arrastre con mouse
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
@@ -165,26 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const walk = (x - startX) * 2;
       gallery.scrollLeft = scrollLeft - walk;
     });
-
-    // Soporte para touch
-    let touchStartX = 0;
-    let touchScrollLeft = 0;
-
-    gallery.addEventListener('touchstart', function(e) {
-      touchStartX = e.touches[0].pageX - gallery.offsetLeft;
-      touchScrollLeft = gallery.scrollLeft;
-    }, { passive: true });
-
-    gallery.addEventListener('touchmove', function(e) {
-      const x = e.touches[0].pageX - gallery.offsetLeft;
-      const walk = (x - touchStartX) * 2;
-      gallery.scrollLeft = touchScrollLeft - walk;
-    }, { passive: true });
   }
 });
 
 // ============================================
-// 4. COMPARADORES (ANTES / DESPUÉS) - CORREGIDOS
+// 3. COMPARADORES (ANTES / DESPUÉS)
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   const comparators = document.querySelectorAll('[data-comparison]');
@@ -203,25 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const rect = container.getBoundingClientRect();
       let x = clientX - rect.left;
       
-      // Limitar entre 0 y el ancho del contenedor
       x = Math.max(0, Math.min(x, rect.width));
       
       const percent = (x / rect.width) * 100;
       
-      // Actualizar clip-path del antes
       before.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
       before.style.webkitClipPath = `inset(0 ${100 - percent}% 0 0)`;
       
-      // Mover divisor y manija
-      if (divider) {
-        divider.style.left = `${percent}%`;
-      }
-      if (handle) {
-        handle.style.left = `${percent}%`;
-      }
+      if (divider) divider.style.left = `${percent}%`;
+      if (handle) handle.style.left = `${percent}%`;
     }
 
-    // Eventos para mouse
+    // Mouse
     control.addEventListener('mousedown', function(e) {
       e.preventDefault();
       isDragging = true;
@@ -241,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Eventos para touch
+    // Touch
     control.addEventListener('touchstart', function(e) {
       e.preventDefault();
       isDragging = true;
@@ -270,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============================================
-// 5. FORMULARIO - ENVÍO POR WHATSAPP
+// 4. FORMULARIO - ENVÍO POR WHATSAPP
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('quote-form');
@@ -279,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
+      // Obtener valores de los <select> nativos
       const nombre = document.getElementById('nombre')?.value.trim() || '';
       const telefono = document.getElementById('telefono')?.value.trim() || '';
       const localidad = document.getElementById('localidad')?.value.trim() || '';
