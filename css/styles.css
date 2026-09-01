@@ -661,3 +661,63 @@ textarea {
   h1 { font-size: clamp(30px, 9vw, 42px); }
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
 }
+/* ===== CENTRAR VERTICAL Y HORIZONTALMENTE LOS TÍTULOS ===== */
+
+/* 1. Título del formulario - centrado en su columna */
+.quote .form-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.quote .form-info h2 {
+  text-align: center;
+  margin: 0;
+}
+
+/* 2. Título de Nosotros - centrado en su columna */
+.introduction > .container > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.introduction h2 {
+  text-align: center;
+  margin: 0;
+}
+
+/* ===== CENTRAR VERTICAL Y HORIZONTALMENTE TEXTOS DE CARDS ===== */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 180px;
+}
+
+.card-content h3,
+.card-content p {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* Asegurar que las cards tengan altura suficiente para centrar */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
