@@ -6,15 +6,6 @@
   font-style: normal;
   font-display: swap;
 }
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url("../fonts/sf-pro-display.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @font-face {
   font-family: "Asus Rog";
   src: url("../fonts/asusrog.ttf") format("truetype");
@@ -22,20 +13,11 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Alturea";
   src: url("../fonts/alturea.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Northwell";
-  src: url("../fonts/Northwell.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
   font-display: swap;
 }
 
@@ -48,9 +30,6 @@ body {
   overflow-x: hidden;
   color: #fff;
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   background: linear-gradient(180deg, #020812 0%, #061830 25%, #0a2045 50%, #061830 75%, #020812 100%) !important;
 }
@@ -62,50 +41,6 @@ button, input, select, textarea { font: inherit; }
 ::-webkit-scrollbar-track { background: #020812; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #0a2a6a, #051835); border: 2px solid #020812; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #1a3a7a, #0a2a5a); }
-
-/* ===== TAMAÑOS DE TEXTO UNIFORMES ===== */
-body, p, span, li, a, input, textarea, button, label {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* ===== TÍTULOS EN NEGRITA (SF Pro Display) ===== */
-h1, h2, h3, h4, h5, h6 {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
-}
-
-h1 {
-  max-width: 1100px;
-  margin: 0 auto 20px auto;
-  font-size: clamp(38px, 6vw, 58px); /* 20% más grande que antes */
-  line-height: 1.1;
-  letter-spacing: -1px;
-  text-align: center;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-h2 {
-  max-width: 800px;
-  margin: 0 0 35px;
-  font-size: clamp(28px, 4vw, 36px);
-  line-height: 1.1;
-  letter-spacing: -1px;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-h3 {
-  font-size: 20px;
-  color: #ffffff;
-  margin: 12px 0 10px;
-  font-weight: 700;
-}
 
 /* ===== HEADER ===== */
 .header {
@@ -141,7 +76,6 @@ h3 {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .nav nav a:hover { opacity: .55; }
 
@@ -173,7 +107,6 @@ h3 {
   min-height: 92vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   background: transparent;
 }
@@ -193,18 +126,33 @@ h3 {
   width: min(1150px, 90%);
   margin: auto;
   padding-top: 110px;
-  text-align: center;
 }
 
+h1, h2 {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+h1 {
+  max-width: 1100px;
+  margin: 0;
+  font-size: clamp(64px, 10vw, 120px);
+  line-height: 1;
+  letter-spacing: -4px;
+  font-weight: 700;
+}
+h1 span { display: block; }
+
 .hero-text {
-  max-width: 750px;
-  margin: 0 auto 30px auto;
+  max-width: 650px;
+  margin: 30px 0;
   color: #d8dadd;
-  font-size: 17.6px; /* 10% más grande que 16px */
+  font-size: 19px;
   line-height: 1.6;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Alturea", "SF Pro Display", Georgia, "Times New Roman", serif;
+  font-style: italic;
   font-weight: 400;
-  text-align: center;
 }
 
 .eyebrow {
@@ -214,14 +162,20 @@ h3 {
   font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+h2 {
+  max-width: 800px;
+  margin: 0 0 35px;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1;
+  letter-spacing: -2px;
+  font-weight: 700;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  justify-content: center;
 }
 
 /* ===== BOTONES ===== */
@@ -230,14 +184,14 @@ h3 {
   color: #fff;
   border-radius: 20px;
   background-size: 100% auto;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
+  font-family: inherit;
+  font-size: 17px;
   padding: 0.6em 1.5em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 48px;
+  min-height: 52px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
@@ -265,13 +219,13 @@ h3 {
   background-image: linear-gradient(30deg, #640d28, #d12d50, #9a1939);
   box-shadow: 0 4px 15px rgba(154, 25, 57, 0.4);
 }
-.button-icon { width: 18px; height: 18px; display: block; flex-shrink: 0; }
+.button-icon { width: 19px; height: 19px; display: block; flex-shrink: 0; }
 
 /* ===== SECCIONES ===== */
-.section { padding: 60px 0; background: transparent; }
+.section { padding: 70px 0; background: transparent; }
 .container { width: min(1150px, 90%); margin: auto; }
 
-/* ===== CARDS ===== */
+/* ===== CARDS - AZUL OSCURO PROFUNDO ===== */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .card {
   min-height: 250px;
@@ -290,16 +244,20 @@ h3 {
 .card-image { width: 100%; height: 180px; display: block; object-fit: cover; transition: transform .5s ease; }
 .card:hover .card-image { transform: scale(1.04); }
 .card-content { padding: 20px 24px 25px; }
+.card h3 { 
+  margin: 12px 0 10px; 
+  font-size: 22px; 
+  font-weight: 700; 
+  color: #ffffff;
+}
 .card p { 
   margin: 0; 
   color: #d0dce8;
   line-height: 1.7; 
   font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
 }
 
-/* ===== SUPERFICIES ===== */
+/* ===== SUPERFICIES - AZUL OSCURO PROFUNDO ===== */
 .surface-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
 .surface-card {
   position: relative; overflow: hidden; min-height: 220px;
@@ -317,7 +275,6 @@ h3 {
   font-size: 16px; 
   color: #ffffff;
   font-weight: 700;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .surface-info span { 
   display: block; 
@@ -325,10 +282,9 @@ h3 {
   color: #b0c8e0; 
   font-size: 14px;
   font-weight: 400;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ===== GALERÍA ===== */
+/* ===== GALERÍA - AZUL OSCURO PROFUNDO ===== */
 .gallery-wrapper { position: relative; width: 100%; overflow: visible; }
 .gallery {
   display: flex; gap: 18px; width: 100%;
@@ -380,13 +336,7 @@ h3 {
 .comparison-handle::after { right: 10px; transform: translateY(-50%) rotate(135deg); }
 .comparison-control { position: absolute; top: 50%; left: 50%; width: 62px; height: 62px; padding: 0; border: none; background: transparent; transform: translate(-50%, -50%); z-index: 10; cursor: ew-resize; touch-action: none; }
 
-/* ===== FORMULARIO ===== */
-.form-layout {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 50px;
-  align-items: start;
-}
+/* ===== FORMULARIO - TODOS LOS TEXTOS DEL MISMO TAMAÑO ===== */
 form { display: grid; gap: 18px; }
 label { 
   display: grid; 
@@ -394,7 +344,6 @@ label {
   font-size: 16px; 
   font-weight: 600; 
   color: #d0dce8;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 input, textarea {
   width: 100%; 
@@ -404,8 +353,6 @@ input, textarea {
   background: linear-gradient(145deg, rgba(6,21,48,0.7), rgba(2,8,18,0.5));
   color: #ffffff;
   font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
   outline: none; 
   box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 7px 20px rgba(0,0,0,.25);
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
@@ -413,8 +360,6 @@ input, textarea {
 input::placeholder, textarea::placeholder { 
   color: #5a7a9a; 
   font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
 }
 input:focus, textarea:focus { 
   border-color: rgba(60,140,255,0.4); 
@@ -430,7 +375,7 @@ textarea {
 #metros { appearance: textfield; -moz-appearance: textfield; }
 #metros::-webkit-outer-spin-button, #metros::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-/* ===== SELECTS ===== */
+/* ===== SELECTS - AZUL OSCURO ===== */
 .custom-select { position: relative; width: 100%; }
 .custom-select-trigger {
   display: flex; align-items: center; justify-content: space-between; width: 100%;
@@ -438,8 +383,6 @@ textarea {
   background: linear-gradient(145deg, rgba(6,21,48,0.7), rgba(2,8,18,0.5));
   backdrop-filter: blur(10px); color: #ffffff;
   font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
   cursor: pointer; user-select: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 7px 20px rgba(0,0,0,0.3);
   transition: border-color .2s ease, background .2s ease;
@@ -456,69 +399,24 @@ textarea {
   color: #d0dce8; 
   cursor: pointer; 
   transition: all .2s ease; 
-  font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
+  font-size: 16px; 
   list-style: none; 
 }
 .custom-option:hover { background: rgba(60,140,255,0.15); color: #fff; }
 .custom-option.selected { background: rgba(60,140,255,0.2); color: #fff; font-weight: 600; }
 
-/* ===== TWO COLUMNS ===== */
-.two-columns {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
-  align-items: start;
-}
-
-/* ===== NOSOTROS ===== */
-.introduction .text p {
-  line-height: 1.8;
-  margin-bottom: 15px;
-  color: #c8d8e8;
-  font-size: 16px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
-}
-
-/* ===== FRASE DEL DIRECTOR CON NORTHWELL (EXCLUSIVO) ===== */
-.director-quote-text {
-  font-family: "Northwell", "SF Pro Display", cursive;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.4;
-  color: #ffffff;
-  margin-bottom: 15px;
-}
-
-.director-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 16px;
-  color: #ffffff;
-  font-weight: 400;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-}
-
-.director-name span {
-  font-weight: 400;
-  color: #8ab4d6;
-}
-
-/* ===== FOOTER (SIN MODIFICAR) ===== */
+/* ===== FOOTER ===== */
 .footer-grande {
   background-color: #020812;
   padding: 25px 0 15px 0;
   text-align: center;
   color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
   border-top: 1px solid #0a1a35;
 }
 
 .footer-item {
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 8px;
   display: flex;
   justify-content: center;
@@ -526,7 +424,7 @@ textarea {
   gap: 6px;
   color: #c8d8e8;
   font-weight: 400;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-item i { 
@@ -543,21 +441,52 @@ textarea {
 
 .copyright {
   color: #4a6a8a;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   margin-top: 5px;
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 .creado-por {
   font-family: "Asus Rog", "OCR A Extended", monospace;
   color: #dc3545;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   margin-top: 3px;
   text-decoration: none;
   display: inline-block;
+}
+
+/* ===== NOSOTROS - TEXTO UNIFORME ===== */
+.introduction .text p {
+  line-height: 2;
+  margin-bottom: 15px;
+  color: #c8d8e8;
+  font-size: 16px;
+}
+
+.director-quote-text {
+  font-family: "Libertian Signature", "SF Pro Display", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.director-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.director-name span {
+  font-weight: 400;
+  color: #8ab4d6;
 }
 
 /* ===== CONTACTO ===== */
@@ -570,8 +499,6 @@ textarea {
   color: #c8d8e8; 
   font-size: 16px; 
   line-height: 1.7; 
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 400;
 }
 .schedule strong { 
   display: block; 
@@ -583,13 +510,12 @@ textarea {
 .contact-items p, .contact-items a { 
   color: #c8d8e8; 
   font-size: 16px; 
-  font-weight: 400; 
+  font-weight: 500; 
   display: inline-flex; 
   align-items: center; 
   gap: 8px; 
   transition: color .2s ease; 
   margin: 0; 
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 .contact-items a:hover { color: #4a8abe; }
 .contact-icon { width: 18px; height: 18px; display: block; flex-shrink: 0; }
@@ -607,22 +533,10 @@ textarea {
   .prev-btn { left: -12px; }
   .next-btn { right: -12px; }
   .contact { padding: 50px 0 60px; }
-  .form-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .two-columns {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 600px) {
   html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-  
-  body, p, span, li, a, input, textarea, button, label {
-    font-size: 15px;
-  }
-  
   .header { padding: 12px 0; }
   .nav { width: calc(100% - 20px); flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
   .logo img { width: 40px; height: 40px; }
@@ -647,51 +561,25 @@ textarea {
   .container { width: calc(100% - 28px); }
   .hero { min-height: 100svh; }
   .hero-content { width: calc(100% - 28px); padding-top: 100px; }
-  
-  h1 {
-    font-size: clamp(34px, 8vw, 42px);
-    letter-spacing: -0.5px;
-  }
-  
-  h2 {
-    font-size: clamp(24px, 5vw, 30px);
-    letter-spacing: -0.5px;
-    margin: 0 0 25px;
-  }
-  
-  h3 {
-    font-size: 18px;
-  }
-  
-  .hero-text {
-    font-size: 16px;
-    margin: 15px auto;
-  }
-  
-  .buttons { width: 100%; flex-direction: column; align-items: center; }
-  .button {
-    width: 100%; justify-content: center;
-    font-size: 15px;
-    padding: 0.5em 1.2em;
-    min-height: 44px;
-  }
-  
+  h1 { font-size: clamp(36px, 10vw, 50px); letter-spacing: -1.5px; }
+  h2 { font-size: clamp(28px, 6vw, 38px); letter-spacing: -1px; }
+  .hero-text { font-size: 16px; margin: 20px 0; }
+  .buttons { width: 100%; flex-direction: column; }
+  .button { width: 100%; justify-content: center; font-size: 15px; padding: 0.5em 1.2em; min-height: 46px; }
   .cards { grid-template-columns: 1fr; gap: 12px; }
+  .card h3 { font-size: 20px; }
   .card p { font-size: 15px; }
   .card-content { padding: 16px 18px 20px; }
   .card-image { height: 170px; }
-  
   .surface-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .surface-card { min-height: 0; }
   .surface-card img { aspect-ratio: 1 / 1; height: auto; }
   .surface-info { padding: 16px 10px 10px; }
   .surface-info strong { font-size: 14px; }
   .surface-info span { font-size: 12px; margin-top: 2px; }
-  
   .custom-select-trigger { padding: 13px 16px; border-radius: 999px !important; font-size: 15px; }
   .custom-options { border-radius: 16px; padding: 6px; }
   .custom-option { padding: 10px 14px; font-size: 15px; }
-  
   .gallery-wrapper { width: 100%; overflow: visible; }
   .gallery {
     width: calc(100% + 28px);
@@ -709,3 +597,43 @@ textarea {
     overscroll-behavior-x: contain;
     touch-action: pan-y;
   }
+  .gallery-card {
+    flex: 0 0 calc(100vw - 28px);
+    width: calc(100vw - 28px);
+    min-width: calc(100vw - 28px);
+    max-width: calc(100vw - 28px);
+    border-radius: 18px;
+  }
+  .comparison { aspect-ratio: 4 / 3; border-radius: 18px; }
+  .comparison-handle { width: 38px; height: 38px; }
+  .comparison-control { width: 54px; height: 54px; }
+  .gallery-btn { display: none !important; }
+  .section { padding: 40px 0; }
+  .contact { padding: 40px 0 50px; }
+  .contact h2 { margin: 0 0 30px; }
+  .contact-grid { gap: 30px; }
+  .schedule { font-size: 15px; }
+  .schedule strong { font-size: 15px; }
+  .contact-items p, .contact-items a { font-size: 15px; }
+  .contact-items { gap: 8px; }
+  input, textarea { padding: 13px 15px; font-size: 15px; }
+  textarea { min-height: 100px; }
+  .footer-logo { width: 42px; height: 42px; }
+  .footer-item { font-size: 14px; }
+  .copyright { font-size: 12px; }
+  .creado-por { font-size: 12px; }
+  .introduction .text p { font-size: 15px; }
+  .director-quote-text { font-size: 18px; }
+  .director-name { font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  .container { width: calc(100% - 20px); }
+  .hero-content { width: calc(100% - 20px); }
+  .nav { width: calc(100% - 16px); }
+  .logo img { width: 36px; height: 36px; }
+  .gallery { width: calc(100% + 20px); margin-left: -10px; margin-right: -10px; padding-left: 10px; padding-right: 10px; }
+  .gallery-card { flex-basis: calc(100vw - 20px); min-width: calc(100vw - 20px); max-width: calc(100vw - 20px); }
+  h1 { font-size: clamp(30px, 9vw, 42px); }
+  .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
+}
