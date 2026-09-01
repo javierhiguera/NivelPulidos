@@ -1,5 +1,4 @@
 <!doctype html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -8,180 +7,13 @@
   <meta name="description" content="Nivel Pulidos. Pulido, restauración y mantenimiento profesional de superficies. CABA / GBA." />
   <link rel="icon" href="assets/logo/logo.png" />
   <link rel="stylesheet" href="css/styles.css" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivel Pulidos - Servicios y Contacto</title>
-
-    <!-- 1. Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- 2. Bootstrap Icons (Para los iconos del footer) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-    <!-- 3. CSS PERSONALIZADO (Todas tus correcciones) -->
-    <style>
-        /* --- Fondo General de la Web --- */
-        body {
-            background-color: #0a0f1a; /* Azul marino muy oscuro */
-            color: #ffffff;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-
-        /* =========================================
-           CORRECCIÓN 1: FLECHAS DEL CARRUSEL (MÓVIL)
-        ========================================= */
-        .carousel-control-prev, 
-        .carousel-control-next {
-            width: 50px;
-            height: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-            border-radius: 50%; /* Círculo */
-            opacity: 1;
-            margin: 0 15px;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
-        }
-
-        /* Estilos específicos para MÓVIL (Tablets y celulares) */
-        @media (max-width: 768px) {
-            .carousel-control-prev, 
-            .carousel-control-next {
-                width: 60px; /* Más grande para el dedo */
-                height: 60px;
-                background-color: rgba(0, 0, 0, 0.9); /* Más oscuro para resaltar */
-                margin: 0 10px;
-            }
-            
-            /* Flechas internas más grandes */
-            .carousel-control-prev-icon,
-            .carousel-control-next-icon {
-                width: 2rem; 
-                height: 2rem;
-                background-size: 100%, 100%;
-            }
-        }
-
-        /* =========================================
-           CORRECCIÓN 2: TARJETAS AZUL OSCURO Y CUADRADAS
-        ========================================= */
-        .tarjeta-azul {
-            background-color: #1a2433; /* Azul oscuro solicitado */
-            border-radius: 0 !important; /* Bordes totalmente cuadrados */
-            border: 1px solid #2a3b52; /* Borde sutil azul */
-            color: #ffffff; 
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .tarjeta-azul:hover {
-            transform: translateY(-5px); /* Pequeña elevación al pasar el mouse */
-            border-color: #3b5580;
-        }
-
-        .tarjeta-azul .card-title {
-            color: #ffffff;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .tarjeta-azul .card-text {
-            color: #d1d5db; /* Texto gris claro */
-            line-height: 1.6;
-        }
-
-        /* Si usas imágenes dentro de las tarjetas, también se cuadran */
-        .tarjeta-azul .card-img-top {
-            border-radius: 0 !important;
-            border-bottom: 1px solid #2a3b52;
-        }
-
-        /* =========================================
-           CORRECCIÓN 3: FOOTER DE CONTACTO (Tu imagen)
-        ========================================= */
-        .footer-contacto {
-            background-color: #05080f; /* Casi negro, para diferenciar del cuerpo */
-            padding: 60px 0 30px 0;
-            text-align: center;
-            border-top: 1px solid #1a2433;
-        }
-
-        .contacto-item {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            color: #ffffff;
-        }
-
-        .contacto-item i {
-            font-size: 1.4rem;
-            color: #ffffff; /* Iconos en blanco */
-        }
-
-        /* Logo N1 estilizado en CSS puro (Sin imágenes) */
-        .logo-n1 {
-            font-family: 'Arial Black', Impact, sans-serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin: 50px 0 20px 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: -6px;
-            user-select: none;
-        }
-
-        /* Efecto degradado para la letra N (Plateado) */
-        .logo-n {
-            background: linear-gradient(135deg, #a0a0a0 0%, #ffffff 50%, #808080 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
-        }
-
-        /* Efecto degradado para el número 1 (Azul brillante) */
-        .logo-1 {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 4px 15px rgba(0, 242, 254, 0.4);
-            margin-left: 5px;
-        }
-
-        .copyright {
-            color: #8b95a5;
-            font-size: 0.95rem;
-            margin-top: 30px;
-        }
-
-        .creado-por {
-            color: #e74c3c; /* Rojo */
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* Ajustes de espaciado para móviles */
-        @media (max-width: 576px) {
-            .contacto-item {
-                font-size: 1rem;
-                flex-direction: column;
-                gap: 5px;
-            }
-            .logo-n1 {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 </head>
 <body id="inicio">
 
   <main>
     <!-- HERO -->
     <section class="hero">
+      <!-- MENÚ CON HAMBURGUESA -->
       <header class="header">
         <div class="nav">
           <a href="#inicio" class="logo" aria-label="Inicio">
@@ -198,6 +30,8 @@
             <a href="#servicios">Servicios</a>
             <a href="#superficies">Superficies</a>
             <a href="#trabajos">Trabajos</a>
+            <a href="#presupuesto">Presupuesto</a>
+            <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
           </nav>
         </div>
@@ -205,9 +39,9 @@
 
       <div class="hero-content">
         <h1>Nivel Pulidos, llevamos cada Superficie a otro nivel.</h1>
-        <p class="hero-text">Pulido, restauración y mantenimiento profesional de superficies.</p>
+        <p class="hero-text">(Pulido, restauración y mantenimiento profesional de superficies).</p>
         <div class="buttons">
-          <a href="#contacto" class="button primary">
+          <a href="#presupuesto" class="button primary">
             <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
               <path d="M14 2v6h6" />
@@ -229,6 +63,7 @@
     <!-- SERVICIOS -->
     <section class="section services" id="servicios">
       <div class="container">
+        <p class="eyebrow">SERVICIOS</p>
         <h2>Nos adaptamos a tus necesidades</h2>
         <div class="cards">
           <article class="card">
@@ -264,18 +99,6 @@
             <div class="card-content">
               <h3>Restauración</h3>
               <p>Intervenimos superficies desgastadas, opacas o deterioradas mediante procesos destinados a recuperar su aspecto y terminación.</p>
-<body>
-
-    <!-- =========================================
-         SECCIÓN 1: CARRUSEL CON FLECHAS CORREGIDAS
-    ========================================= -->
-    <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <!-- Reemplaza el div de abajo por tu <img src="..."> -->
-                <div style="height: 400px; background-color: #2a3b52; display: flex; align-items: center; justify-content: center;">
-                    <h2>Imagen o Banner 1</h2>
-                </div>
             </div>
           </article>
           <article class="card">
@@ -283,11 +106,6 @@
             <div class="card-content">
               <h3>Mantenimiento</h3>
               <p>Realizamos tratamientos de mantenimiento para conservar la superficie en condiciones adecuadas y prolongar el resultado del trabajo realizado.</p>
-            <div class="carousel-item">
-                <!-- Reemplaza el div de abajo por tu <img src="..."> -->
-                <div style="height: 400px; background-color: #34495e; display: flex; align-items: center; justify-content: center;">
-                    <h2>Imagen o Banner 2</h2>
-                </div>
             </div>
           </article>
         </div>
@@ -297,106 +115,65 @@
     <!-- SUPERFICIES -->
     <section class="section surfaces" id="superficies">
       <div class="container">
+        <p class="eyebrow">SUPERFICIES</p>
         <h2>Trabajamos diferentes materiales</h2>
         <div class="surface-grid">
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/marmol.jpg" alt="Mármol" />
             <div class="surface-info">
               <strong>Mármol</strong>
               <span>Pulido y restauración</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/mosaico.jpg" alt="Mosaico" />
             <div class="surface-info">
               <strong>Mosaico</strong>
               <span>Pulido y mantenimiento</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/granito.jpg" alt="Granito" />
             <div class="surface-info">
               <strong>Granito</strong>
               <span>Pulido y terminación</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/hormigon.jpg" alt="Hormigón" />
             <div class="surface-info">
               <strong>Hormigón</strong>
               <span>Pulido de superficies</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" />
             <div class="surface-info">
               <strong>Calcáreo</strong>
               <span>Restauración y pulido</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/travertino.jpg" alt="Travertino" />
             <div class="surface-info">
               <strong>Travertino</strong>
               <span>Tratamiento de superficie</span>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/parquet.jpg" alt="Parquet" />
             <div class="surface-info">
               <strong>Parquet</strong>
               <span>Tratamiento de madera</span>
-
-        <!-- FLECHAS (Adaptadas para Móvil gracias al CSS) -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#miCarrusel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#miCarrusel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
-    </div>
-
-    <!-- =========================================
-         SECCIÓN 2: TARJETAS AZULES CUADRADAS
-    ========================================= -->
-    <div class="container mt-5 mb-5">
-        <div class="row g-4">
-            
-            <!-- Tarjeta 1 -->
-            <div class="col-md-6">
-                <div class="card h-100 tarjeta-azul">
-                    <!-- Si tienes imagen, descomenta esto y pon tu ruta:
-                    <img src="ruta-de-tu-imagen.jpg" class="card-img-top" alt="Balcones"> -->
-                    
-                    <div class="card-body">
-                        <h5 class="card-title">Balcones</h5>
-                        <p class="card-text">Tratamos superficies exteriores expuestas al uso y a las condiciones ambientales. Evaluamos el estado existente y definimos el procedimiento adecuado para su recuperación y terminación.</p>
-                    </div>
-                </div>
             </div>
           </div>
-          <div class="surface-card">
+          <div>
             <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" />
             <div class="surface-info">
               <strong>Otras superficies</strong>
               <span>Consultar</span>
-
-            <!-- Tarjeta 2 -->
-            <div class="col-md-6">
-                <div class="card h-100 tarjeta-azul">
-                    <!-- Si tienes imagen, descomenta esto y pon tu ruta:
-                    <img src="ruta-de-tu-imagen-2.jpg" class="card-img-top" alt="Restauración"> -->
-
-                    <div class="card-body">
-                        <h5 class="card-title">Restauración</h5>
-                        <p class="card-text">Intervenimos superficies opacas o deterioradas destinados a recuperar su terminación original y protegerlas contra futuros daños.</p>
-                    </div>
-                </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -404,13 +181,9 @@
     <!-- TRABAJOS -->
     <section class="section gallery-section" id="trabajos">
       <div class="container">
+        <p class="eyebrow">TRABAJOS</p>
         <h2>Resultados que hablan por nosotros</h2>
         <div class="gallery-wrapper">
-          <button class="gallery-btn prev-btn" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
           <div class="gallery" id="gallery-track">
             <div class="gallery-card">
               <div class="comparison" data-comparison>
@@ -424,18 +197,6 @@
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de hormigón"></button>
               </div>
-    </div>
-
-    <!-- =========================================
-         SECCIÓN 3: FOOTER DE CONTACTO
-    ========================================= -->
-    <footer class="footer-contacto">
-        <div class="container">
-            
-            <!-- Ubicación -->
-            <div class="contacto-item">
-                <i class="bi bi-geo-alt-fill"></i>
-                <span>Ubicación CABA / GBA</span>
             </div>
             <div class="gallery-card">
               <div class="comparison" data-comparison>
@@ -449,11 +210,6 @@
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de granito"></button>
               </div>
-
-            <!-- Email -->
-            <div class="contacto-item">
-                <i class="bi bi-envelope-fill"></i>
-                <span>nivelpulidos@gmail.com</span>
             </div>
             <div class="gallery-card">
               <div class="comparison" data-comparison>
@@ -467,140 +223,143 @@
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de parquet"></button>
               </div>
-
-            <!-- Teléfono -->
-            <div class="contacto-item">
-                <i class="bi bi-telephone-fill"></i>
-                <span>11 2483-0787</span>
             </div>
           </div>
-          <button class="gallery-btn next-btn" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6" />
+          <div class="gallery-scrollbar" id="gallery-scrollbar" aria-label="Cambiar trabajo">
+            <div class="gallery-scrollbar-thumb" id="gallery-scrollbar-thumb"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESUPUESTO -->
+    <section class="section quote" id="presupuesto">
+      <div class="container form-layout">
+        <div class="form-info">
+          <p class="eyebrow">PRESUPUESTO</p>
+          <h2>Contanos qué trabajo necesitás</h2>
+          <div class="schedule">
+            <strong>Horario de atención</strong>
+            Lunes a Sábado de 7 a 19 hs
+          </div>
+        </div>
+        <form id="quote-form">
+          <label>
+            Nombre
+            <input id="nombre" type="text" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            WhatsApp
+            <input id="telefono" type="tel" placeholder="Tu número" required />
+          </label>
+          <label>
+            Localidad
+            <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
+          </label>
+          
+          <label>
+            Tipo de superficie
+            <div class="custom-select" id="custom-superficie">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Mármol">Mármol</li>
+                <li class="custom-option" data-value="Mosaico">Mosaico</li>
+                <li class="custom-option" data-value="Parquet">Parquet</li>
+                <li class="custom-option" data-value="Granito">Granito</li>
+                <li class="custom-option" data-value="Hormigón">Hormigón</li>
+                <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
+                <li class="custom-option" data-value="Travertino">Travertino</li>
+                <li class="custom-option" data-value="Otra">Otra</li>
+              </ul>
+              <input type="hidden" id="superficie" name="superficie" value="" required>
+            </div>
+          </label>
+
+          <label>
+            Servicio
+            <div class="custom-select" id="custom-servicio">
+              <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="selected-text">Seleccionar</span>
+                <span class="arrow"></span>
+              </button>
+              <ul class="custom-options" role="listbox">
+                <li class="custom-option" data-value="Pulido">Pulido</li>
+                <li class="custom-option" data-value="Restauración">Restauración</li>
+                <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
+                <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
+              </ul>
+              <input type="hidden" id="servicio" name="servicio" value="" required>
+            </div>
+          </label>
+
+          <label>
+            Metros cuadrados aproximados
+            <input id="metros" type="number" min="1" placeholder="Ej. 50" />
+          </label>
+          <label>
+            Descripción
+            <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
+          </label>
+          <button type="submit" class="button primary submit">
+            <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13" />
+              <path d="m22 2-7 20-4-9-9-4Z" />
             </svg>
+            Enviar consulta por WhatsApp
           </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="section introduction" id="nosotros">
+      <div class="container two-columns">
+        <div>
+          <p class="eyebrow">NOSOTROS</p>
+          <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
+        </div>
+        <div class="text">
+          <p>En Nivel Pulidos llevamos más de tres años trabajando en el pulido, restauración y mantenimiento de superficies.</p>
+          <p>Nuestro trabajo comienza con una evaluación de la superficie. Analizamos su material, estado, desgaste y características para determinar el tratamiento correspondiente.</p>
+          <p>Durante el proceso aplicamos las técnicas y procedimientos adecuados para cada superficie, buscando una terminación acorde al material y al resultado esperado.</p>
+          <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
+          <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
+          <div class="director-quote">
+            <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
+            <p class="director-name"><strong>Adriel Salvador</strong> — Founder</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACTO -->
     <section class="contact" id="contacto">
-      <div class="container">
-        <p class="eyebrow">CONTACTO</p>
-        <h2>Contanos qué trabajo necesitás</h2>
-        
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="schedule">
-              <strong>Horario de atención</strong>
-              Lunes a Sábado de 7 a 19 hs
-
-            <!-- Logo N1 (creado con CSS, no necesitas imagen) -->
-            <div class="logo-n1">
-                <span class="logo-n">N</span><span class="logo-1">1</span>
-            </div>
-            <div class="contact-items">
-              <p>
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
-                  <circle cx="12" cy="9" r="2.5" />
-                </svg>
-                Ubicación CABA / GBA
-              </p>
-              <a href="mailto:nivelpulidos@gmail.com">
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-                nivelpulidos@gmail.com
-              </a>
-              <a href="tel:+541124830787">
-                <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
-                </svg>
-                11 2483-0787
-              </a>
-
-            <!-- Copyright -->
-            <div class="copyright">
-                Copyright © 2026 Nivel Pulidos All rights reserved.
-            </div>
-          </div>
-
-          <form id="quote-form">
-            <label>
-              Nombre
-              <input id="nombre" type="text" placeholder="Tu nombre" required />
-            </label>
-            <label>
-              WhatsApp
-              <input id="telefono" type="tel" placeholder="Tu número" required />
-            </label>
-            <label>
-              Localidad
-              <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
-            </label>
-            
-            <label>
-              Tipo de superficie
-              <div class="custom-select" id="custom-superficie">
-                <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="selected-text">Seleccionar</span>
-                  <span class="arrow"></span>
-                </button>
-                <ul class="custom-options" role="listbox">
-                  <li class="custom-option" data-value="Mármol">Mármol</li>
-                  <li class="custom-option" data-value="Mosaico">Mosaico</li>
-                  <li class="custom-option" data-value="Parquet">Parquet</li>
-                  <li class="custom-option" data-value="Granito">Granito</li>
-                  <li class="custom-option" data-value="Hormigón">Hormigón</li>
-                  <li class="custom-option" data-value="Calcáreo">Calcáreo</li>
-                  <li class="custom-option" data-value="Travertino">Travertino</li>
-                  <li class="custom-option" data-value="Otra">Otra</li>
-                </ul>
-                <input type="hidden" id="superficie" name="superficie" value="" required>
-              </div>
-            </label>
-
-            <label>
-              Servicio
-              <div class="custom-select" id="custom-servicio">
-                <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
-                  <span class="selected-text">Seleccionar</span>
-                  <span class="arrow"></span>
-                </button>
-                <ul class="custom-options" role="listbox">
-                  <li class="custom-option" data-value="Pulido">Pulido</li>
-                  <li class="custom-option" data-value="Restauración">Restauración</li>
-                  <li class="custom-option" data-value="Mantenimiento">Mantenimiento</li>
-                  <li class="custom-option" data-value="No estoy seguro">No estoy seguro</li>
-                </ul>
-                <input type="hidden" id="servicio" name="servicio" value="" required>
-              </div>
-            </label>
-
-            <label>
-              Metros cuadrados aproximados
-              <input id="metros" type="number" min="1" placeholder="Ej. 50" />
-            </label>
-            <label>
-              Descripción
-              <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
-            </label>
-            <button type="submit" class="button primary submit">
-              <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 2 11 13" />
-                <path d="m22 2-7 20-4-9-9-4Z" />
-              </svg>
-              Enviar consulta por WhatsApp
-            </button>
-          </form>
-
-            <!-- Creado por -->
-            <div class="creado-por mt-2">
-                Created by Javier Higuera
-            </div>
-
+      <div class="container contact-content">
+        <div>
+          <p class="eyebrow">CONTACTO</p>
+          <p>
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+            Ubicación CABA / GBA
+          </p>
+          <a href="mailto:nivelpulidos@gmail.com">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            nivelpulidos@gmail.com
+          </a>
+          <a href="tel:+541124830787">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
+            </svg>
+            11 2483-0787
+          </a>
         </div>
       </div>
     </section>
@@ -613,10 +372,7 @@
       <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creator">Created by Javier Higuera</a>
     </div>
   </footer>
-    </footer>
 
   <script src="js/script.js" defer></script>
-    <!-- Bootstrap 5 JS (Obligatorio para que funcione el carrusel) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
