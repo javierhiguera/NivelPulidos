@@ -59,13 +59,16 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
+    <!-- SERVICIOS (sin título visible) -->
     <section class="section services" id="servicios">
       <div class="container">
-        <div class="section-header rotated">
+        <!-- Títulos ocultos visualmente pero presentes para SEO/anclaje -->
+        <div class="section-header rotated" style="display:none;">
           <p class="eyebrow">SERVICIOS</p>
           <h2>Nos adaptamos a tus necesidades</h2>
         </div>
+        <!-- ID oculto para anclaje -->
+        <span id="servicios-anchor" style="display:none;"></span>
         <div class="cards">
           <article class="card">
             <img class="card-image" src="assets/servicios/1.jpg" alt="Superficies" />
@@ -113,11 +116,10 @@
       </div>
     </section>
 
-    <!-- SUPERFICIES -->
+    <!-- SUPERFICIES (sin título visible) -->
     <section class="section surfaces" id="superficies">
       <div class="container">
-        <p class="eyebrow">SUPERFICIES</p>
-        <h2>Trabajamos diferentes materiales</h2>
+        <span id="superficies-anchor" style="display:none;"></span>
         <div class="surface-grid">
           <div class="surface-card">
             <img src="assets/superficies/marmol.jpg" alt="Mármol" />
@@ -179,11 +181,10 @@
       </div>
     </section>
 
-    <!-- TRABAJOS -->
+    <!-- TRABAJOS (sin título visible) -->
     <section class="section gallery-section" id="trabajos">
       <div class="container">
-        <p class="eyebrow">TRABAJOS</p>
-        <h2>Resultados que hablan por nosotros</h2>
+        <span id="trabajos-anchor" style="display:none;"></span>
         <div class="gallery-wrapper">
           <button class="gallery-btn prev-btn" aria-label="Anterior">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -240,7 +241,7 @@
       </div>
     </section>
 
-    <!-- PRESUPUESTO -->
+    <!-- PRESUPUESTO (con título visible - se mantiene) -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
@@ -322,7 +323,7 @@
       </div>
     </section>
 
-    <!-- NOSOTROS -->
+    <!-- NOSOTROS (con título visible - se mantiene) -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
         <div>
@@ -343,7 +344,7 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
+    <!-- CONTACTO (con título visible - se mantiene) -->
     <section class="contact" id="contacto">
       <div class="container contact-content">
         <div>
