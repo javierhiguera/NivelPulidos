@@ -12,6 +12,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
+    /* ===== NUEVA FUENTE: ALTUREA ===== */
+    @font-face {
+      font-family: "Alturea";
+      src: url("fonts/alturea.otf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     /* ===== AJUSTE PARA DEJAR EL FORMULARIO A UN LADO ===== */
     .form-layout {
       display: grid;
@@ -41,9 +50,10 @@
       }
     }
 
-    /* ===== CITA EN CURSIVA (Como el hero-text) ===== */
+    /* ===== USO DE ALTUREA EN LAS FRASES PEDIDAS ===== */
+    .hero-text,
     .director-quote-text {
-      font-family: "SF Pro Display", Georgia, "Times New Roman", serif;
+      font-family: "Alturea", "SF Pro Display", Georgia, serif;
       font-style: italic;
       font-weight: 400;
       font-size: 1.1rem;
