@@ -1,14 +1,14 @@
 /* ===== FUENTES LOCALES ===== */
 @font-face {
   font-family: "SF Pro Display";
-  src: url("../fonts/sf-pro-display.ttf") format("truetype");
+  src: url("sf-pro-display.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Asus Rog";
-  src: url("../fonts/asusrog.ttf") format("truetype");
+  src: url("asusrog.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 /* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #8a8e92 #08090a; }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #4a6a8a #08090a; }
 body {
   margin: 0;
   min-height: 100vh;
@@ -108,7 +108,7 @@ button, input, select, textarea { font: inherit; }
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.62) 34%, rgba(0,0,0,.24) 68%, rgba(0,0,0,.02) 100%),
-              url("../assets/hero/hero.jpg") center center / cover no-repeat;
+              radial-gradient(ellipse at center, #1a3a6a, #0a1628);
   -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0,0,0,.92) 70%, rgba(0,0,0,.60) 82%, rgba(0,0,0,.25) 92%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 0%, #000 54%, rgba(0,0,0,.92) 70%, rgba(0,0,0,.60) 82%, rgba(0,0,0,.25) 92%, transparent 100%);
   z-index: 0;
@@ -245,4 +245,99 @@ h2 {
   background: rgba(255,255,255,0.04);
   border-radius: 12px;
   min-height: 100%;
-  display:
+  display: flex;
+  align-items: center;
+}
+.section-header.rotated h2 {
+  margin: 0;
+  flex: 1;
+}
+
+/* ===== CARDS ESTILO "BUTTONS AND CARDS" ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card-item {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.4), -20px -20px 60px rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.03);
+  transition: transform 0.3s ease;
+}
+.card-item:hover { transform: translateY(-6px); }
+
+.card-bg {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: 2px solid rgba(255,255,255,0.06);
+}
+
+.card-blob {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ea5455, #feb692);
+  opacity: 0.5;
+  filter: blur(12px);
+  animation: blob-bounce 5s infinite ease;
+}
+
+@keyframes blob-bounce {
+  0% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+  25% { transform: translate(-100%, -100%) translate3d(100%, 0, 0); }
+  50% { transform: translate(-100%, -100%) translate3d(100%, 100%, 0); }
+  75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
+  100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+}
+
+.card-image-placeholder {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  background: linear-gradient(135deg, rgba(26,42,74,0.6), rgba(13,31,60,0.8));
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+  padding: 20px 24px 25px;
+}
+.card-content h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.card-content p {
+  margin: 0;
+  color: #d0d2d4;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ===== SUPERFICIES ===== */
+.surface-grid {
+  display: grid;
+  grid-template-columns
