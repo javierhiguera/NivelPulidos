@@ -12,15 +12,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    /* ===== NUEVA FUENTE: ALTUREA ===== */
-    @font-face {
-      font-family: "Alturea";
-      src: url("fonts/alturea.otf") format("opentype");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
     /* ===== AJUSTE PARA DEJAR EL FORMULARIO A UN LADO ===== */
     .form-layout {
       display: grid;
@@ -36,7 +27,7 @@
       }
     }
 
-    /* ===== AJUSTE PARA EL TEXTO DE NOSOTROS A LA DERECHA ===== */
+    /* ===== AJUSTE PARA QUE NOSOTROS SEA COMO LAS OTRAS SECCIONES ===== */
     .two-columns {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
@@ -137,6 +128,7 @@
             <a href="#superficies">Superficies</a>
             <a href="#trabajos">Trabajos</a>
             <a href="#presupuesto">Presupuesto</a>
+            <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
           </nav>
         </div>
@@ -343,6 +335,26 @@
       </div>
     </section>
 
+    <!-- NOSOTROS (Sin eyebrow, título igual a los demás, texto a la derecha) -->
+    <section class="section introduction" id="nosotros">
+      <div class="container two-columns">
+        <div>
+          <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
+        </div>
+        <div class="text">
+          <p>En Nivel Pulidos llevamos más de tres años trabajando en el pulido, restauración y mantenimiento de superficies.</p>
+          <p>Nuestro trabajo comienza con una evaluación de la superficie. Analizamos su material, estado, desgaste y características para determinar el tratamiento correspondiente.</p>
+          <p>Durante el proceso aplicamos las técnicas y procedimientos adecuados para cada superficie, buscando una terminación acorde al material y al resultado esperado.</p>
+          <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
+          <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
+          <div class="director-quote">
+            <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
+            <p class="director-name"><strong>Adriel Salvador</strong> — Founder</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PRESUPUESTO (Formulario a un lado) -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
@@ -423,59 +435,9 @@
         </form>
       </div>
     </section>
-
-    <!-- NOSOTROS (Texto a la derecha, sin menú) -->
-    <section class="section introduction" id="nosotros">
-      <div class="container two-columns">
-        <div>
-          <p class="eyebrow">NOSOTROS</p>
-          <h2>Más de tres años de experiencia y dedicación en cada trabajo.</h2>
-        </div>
-        <div class="text">
-          <p>En Nivel Pulidos llevamos más de tres años trabajando en el pulido, restauración y mantenimiento de superficies.</p>
-          <p>Nuestro trabajo comienza con una evaluación de la superficie. Analizamos su material, estado, desgaste y características para determinar el tratamiento correspondiente.</p>
-          <p>Durante el proceso aplicamos las técnicas y procedimientos adecuados para cada superficie, buscando una terminación acorde al material y al resultado esperado.</p>
-          <p>La terminación contempla los detalles finales del trabajo y la correcta presentación de la superficie.</p>
-          <p>Finalmente, brindamos seguimiento y asesoramiento sobre el cuidado y mantenimiento posterior.</p>
-          <div class="director-quote">
-            <p class="director-quote-text">“Gracias por confiar en nosotros y dejar su imagen en nuestras manos.”</p>
-            <p class="director-name"><strong>Adriel Salvador</strong> — Founder</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section class="contact" id="contacto">
-      <div class="container contact-content">
-        <div>
-          <p class="eyebrow">CONTACTO</p>
-          <p>
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" />
-              <circle cx="12" cy="9" r="2.5" />
-            </svg>
-            Ubicación CABA / GBA
-          </p>
-          <a href="mailto:nivelpulidos@gmail.com">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="m3 7 9 6 9-6" />
-            </svg>
-            nivelpulidos@gmail.com
-          </a>
-          <a href="tel:+541124830787">
-            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92Z" />
-            </svg>
-            11 2483-0787
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- FOOTER DE CONTACTO -->
+  <!-- FOOTER DE CONTACTO (El único que queda, con el logo grande) -->
   <footer class="footer-grande">
     <div class="container">
       <div class="contacto-item"><i class="bi bi-geo-alt-fill"></i><span>Ubicación CABA / GBA</span></div>
