@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    /* ===== NUEVA FUENTE: NORTHWELL (CORREGIDO) ===== */
+    /* ===== NUEVA FUENTE: NORTHWELL ===== */
     @font-face {
       font-family: "Northwell";
       src: url("fonts/Northwell.otf") format("opentype");
@@ -74,8 +74,7 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <!-- CORREGIDO: Se agregó la imagen del hero que estaba en assets/hero.jpg -->
-      <img src="assets/hero.jpg" alt="Fondo de Nivel Pulidos" class="hero-bg" style="position:absolute; width:100%; height:100%; object-fit:cover; z-index:-1;" />
+      <!-- ELIMINADA LA IMAGEN FLOTANTE <img src="assets/hero.jpg"...> QUE TAPABA EL CONTENIDO -->
 
       <header class="header">
         <div class="nav">
@@ -321,7 +320,6 @@
             <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
           </label>
           
-          <!-- CORREGIDO: Select nativo para que funcione sin JS -->
           <label>
             Tipo de superficie
             <select id="superficie" name="superficie" required>
@@ -337,7 +335,6 @@
             </select>
           </label>
 
-          <!-- CORREGIDO: Select nativo para que funcione sin JS -->
           <label>
             Servicio
             <select id="servicio" name="servicio" required>
@@ -407,7 +404,6 @@
       
       <div class="copyright">Copyright © 2026 Nivel Pulidos All rights reserved.</div>
       
-      <!-- CORREGIDO: Enlace envuelto en su propio div -->
       <div class="creado-por">
         <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer">Created by Javier Higuera</a>
       </div>
