@@ -21,7 +21,7 @@
       font-display: swap;
     }
 
-    /* ===== FRASE DEL HERO (SF Pro Display, sin itálica, sin negrita, alineada a la izquierda) ===== */
+    /* ===== FRASE DEL HERO (SF Pro Display) ===== */
     .hero-text {
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-style: normal;
@@ -39,7 +39,7 @@
       font-family: "Libertian Signature", "SF Pro Display", cursive;
       font-style: normal;
       font-weight: normal;
-      font-size: 1.6rem; /* Más pequeña */
+      font-size: 1.6rem;
       line-height: 1.4;
       color: #ffffff;
       margin-bottom: 15px;
@@ -47,7 +47,7 @@
 
     /* ===== TEXTO DE NOSOTROS MÁS ESPACIADO ===== */
     .introduction .text p {
-      line-height: 2; /* Interlineado más amplio */
+      line-height: 2;
       margin-bottom: 15px;
     }
 
@@ -90,10 +90,10 @@
       }
     }
 
-    /* ===== FOOTER DE CONTACTO (Compacto) ===== */
+    /* ===== FOOTER DE CONTACTO ===== */
     .footer-grande {
       background-color: #000000;
-      padding: 30px 0 20px 0;
+      padding: 40px 0 20px 0;
       text-align: center;
       color: #fff;
       font-family: Arial, Helvetica, sans-serif;
@@ -115,11 +115,25 @@
       color: #ffffff; 
     }
 
-    /* Logo en el footer (usando tu imagen) */
+    /* Horario arriba de la ubicación */
+    .footer-horario {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .footer-horario span {
+      display: block;
+      font-weight: normal;
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      margin-top: 5px;
+    }
+
+    /* Logo en el footer */
     .footer-logo-grande {
       width: 60px;
       height: auto;
-      margin: 20px auto 10px auto;
+      margin: 30px auto 10px auto;
       display: block;
     }
 
@@ -130,7 +144,6 @@
       margin-top: 10px;
     }
 
-    /* "Created by" con fuente Asus Rog */
     .creado-por {
       font-family: "Asus Rog", "OCR A Extended", monospace;
       color: #dc3545;
@@ -377,10 +390,6 @@
       <div class="container form-layout">
         <div class="form-info">
           <h2>Contanos qué trabajo necesitás</h2>
-          <div class="schedule">
-            <strong>Horario de atención</strong>
-            <span>Lunes a Sábado de 7 a 19 hs</span>
-          </div>
         </div>
         <form id="quote-form">
           <label>
@@ -453,7 +462,7 @@
       </div>
     </section>
 
-    <!-- NOSOTROS (Al final de todo, con texto más espaciado y cita más pequeña) -->
+    <!-- NOSOTROS (Con el texto espaciado y la cita más pequeña) -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
         <div>
@@ -474,9 +483,16 @@
     </section>
   </main>
 
-  <!-- FOOTER DE CONTACTO -->
+  <!-- FOOTER DE CONTACTO (Con horario arriba de la ubicación) -->
   <footer class="footer-grande">
     <div class="container">
+      
+      <!-- Horario arriba de todo -->
+      <div class="footer-horario">
+        <strong>Horario de atención</strong>
+        <span>Lunes a Sábado de 7 a 19 hs</span>
+      </div>
+
       <div class="contacto-item"><i class="bi bi-geo-alt-fill"></i><span>Ubicación CABA / GBA</span></div>
       <div class="contacto-item"><i class="bi bi-envelope-fill"></i><span>nivelpulidos@gmail.com</span></div>
       <div class="contacto-item"><i class="bi bi-telephone-fill"></i><span>11 2483-0787</span></div>
