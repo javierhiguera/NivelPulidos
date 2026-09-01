@@ -30,6 +30,8 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
             hiddenInput.value = option.dataset.value;
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
+            
+            /* --- MEJORA MÓVIL: Cierra el dropdown al seleccionar --- */
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -194,7 +196,7 @@ const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 
 if (gallery) {
-  // Lógica de flechas (Solo aplica en escritorio, ya que en móvil están ocultas por CSS)
+  // Lógica de flechas (Solo aplica en escritorio)
   if (prevBtn && nextBtn) {
     function getCardWidth() {
       const card = gallery.querySelector(".gallery-card");
@@ -217,7 +219,6 @@ if (gallery) {
     prevBtn.addEventListener("click", () => scrollGallery(-1));
     nextBtn.addEventListener("click", () => scrollGallery(1));
 
-    // Actualizar estado de botones al hacer scroll
     function updateButtons() {
       const maxScroll = gallery.scrollWidth - gallery.clientWidth;
       prevBtn.style.opacity = gallery.scrollLeft <= 1 ? "0.3" : "1";
@@ -229,34 +230,28 @@ if (gallery) {
     setTimeout(updateButtons, 200);
   }
 
-  /* --- DESBLOQUEO DEL SWIPE TÁCTIL (Solución definitiva anti-bloqueo) --- */
+  /* --- DESBLOQUEO DEL SWIPE TÁCTIL --- */
   let touchStartX = 0;
   let touchStartY = 0;
   let isHorizontal = false;
 
-  // Guardamos la posición inicial del dedo
   gallery.addEventListener("touchstart", (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
     isHorizontal = false;
   }, { passive: true });
 
-  // Detectamos hacia dónde va el dedo
   gallery.addEventListener("touchmove", (e) => {
     if (!touchStartX || !touchStartY) return;
-
     const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
     const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
 
-    // Si el movimiento horizontal es mayor que el vertical (> 45 grados)
     if (deltaX > deltaY) {
       isHorizontal = true;
-      // Bloqueamos el scroll de la página SOLO cuando deslizas la galería
       e.preventDefault(); 
     }
-  }, { passive: false }); // Importante: passive: false para poder usar preventDefault
+  }, { passive: false });
 
-  // Limpiamos los valores al soltar el dedo
   gallery.addEventListener("touchend", () => {
     touchStartX = 0;
     touchStartY = 0;
@@ -269,7 +264,6 @@ if (gallery) {
   let mouseStartScroll = 0;
 
   gallery.addEventListener("mousedown", (e) => {
-    // No interferir con el control del comparador (Before/After)
     if (e.target.closest(".comparison-control")) return;
     isMouseDown = true;
     mouseStartX = e.clientX;
