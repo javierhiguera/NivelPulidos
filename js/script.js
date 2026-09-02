@@ -31,6 +31,7 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
 
+            /* CERRAR INMEDIATAMENTE AL SELECCIONAR */
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -70,7 +71,7 @@ Vengo de la página de Nivel Pulidos porque me encuentro interesado/a en renovar
 ¿Me pueden brindar asesoramiento y presupuesto?
 
 Nombre: ${nombre}
-WhatsApp: ${telefono}
+Teléfono: ${telefono}
 Localidad: ${localidad}
 Superficie: ${superficie}
 Servicio: ${servicio}
@@ -289,3 +290,22 @@ if (gallery && prevBtn && nextBtn) {
   gallery.addEventListener("pointerup", stopGalleryDrag);
   gallery.addEventListener("pointercancel", stopGalleryDrag);
 }
+
+/* ===== BOTÓN VOLVER ARRIBA (Solo aparece al final de la página) ===== */
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  // Si el usuario llega al final de la página (footer), mostramos el botón
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+    backToTopBtn.style.display = "flex";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
