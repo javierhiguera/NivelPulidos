@@ -21,7 +21,6 @@
       font-display: swap;
     }
 
-    /* ===== FRASE DEL HERO ===== */
     .hero-text {
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-style: normal;
@@ -34,26 +33,23 @@
       max-width: 650px;
     }
 
-    /* ===== FRASE DEL DIRECTOR (Northwell) ===== */
     .director-quote-text {
       font-family: "Northwell", "SF Pro Display", cursive;
       font-style: normal;
       font-weight: normal;
-      font-size: 2rem; /* Más grande para que se note la caligrafía */
-      line-height: 1.4;
+      font-size: clamp(3.5rem, 8vw, 6rem); /* AQUÍ ESTÁ EL TAMAÑO GRANDE */
+      line-height: 1.2;
       color: #ffffff;
-      margin-bottom: 15px;
-      text-align: center;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    /* ===== TEXTO DE NOSOTROS MÁS ESPACIADO ===== */
     .introduction .text p {
       line-height: 2;
       margin-bottom: 15px;
       color: #d1d9e0;
     }
 
-    /* ===== NOMBRE Y FOUNDER DE LADO ===== */
     .director-name {
       display: inline-flex;
       align-items: center;
@@ -63,7 +59,6 @@
       font-weight: bold;
     }
 
-    /* ===== AJUSTE PARA DEJAR EL FORMULARIO A UN LADO ===== */
     .form-layout {
       display: grid;
       grid-template-columns: .8fr 1.2fr;
@@ -72,13 +67,9 @@
     }
 
     @media (max-width: 850px) {
-      .form-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
+      .form-layout { grid-template-columns: 1fr; gap: 30px; }
     }
 
-    /* ===== AJUSTE PARA EL TEXTO DE NOSOTROS A LA DERECHA ===== */
     .two-columns {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
@@ -87,12 +78,9 @@
     }
 
     @media (max-width: 850px) {
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
+      .two-columns { grid-template-columns: 1fr; }
     }
 
-    /* ===== FOOTER ===== */
     .footer-grande {
       background-color: #020812;
       padding: 25px 0 15px 0;
@@ -114,37 +102,11 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    .footer-item i { 
-      font-size: 0.9rem; 
-      color: #4a8abe;
-    }
+    .footer-item i { font-size: 0.9rem; color: #4a8abe; }
+    .footer-logo-grande { width: 40px; height: auto; margin: 20px auto 8px auto; display: block; }
+    .copyright { color: #7a8a9a; font-size: 0.65rem; font-weight: 400; margin-top: 5px; }
+    .creado-por { font-family: "Asus Rog", "OCR A Extended", monospace; color: #a2ff00; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.5px; margin-top: 3px; text-decoration: none; display: inline-block; }
 
-    .footer-logo-grande {
-      width: 40px;
-      height: auto;
-      margin: 20px auto 8px auto;
-      display: block;
-    }
-
-    .copyright {
-      color: #7a8a9a;
-      font-size: 0.65rem;
-      font-weight: 400;
-      margin-top: 5px;
-    }
-
-    .creado-por {
-      font-family: "Asus Rog", "OCR A Extended", monospace;
-      color: #a2ff00;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      margin-top: 3px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    /* ===== CENTRAR TÍTULOS DE SECCIONES ===== */
     .section-header { text-align: center; }
     .section-header h2 { margin-left: auto; margin-right: auto; }
     .surfaces h2 { text-align: center; margin-left: auto; margin-right: auto; }
@@ -164,16 +126,10 @@
     .director-quote-text { text-align: center; }
     .director-name { text-align: center; justify-content: center; }
 
-    /* ===== CORRECCIÓN CRÍTICA PARA EL MENÚ MÓVIL ===== */
     @media (max-width: 600px) {
-      .menu-toggle {
-        display: block !important;
-        position: relative;
-        z-index: 1000;
-      }
-      .nav nav.open {
-        display: flex !important;
-      }
+      .menu-toggle { display: block !important; position: relative; z-index: 1000; }
+      .nav nav.open { display: flex !important; }
+      .director-quote-text { font-size: clamp(2.5rem, 12vw, 4rem); }
     }
   </style>
 </head>
@@ -187,8 +143,8 @@
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
             <span class="logo-text">
-              <span>N I V E L</span>
-              <span>P U L I D O S</span>
+              <span>NIVEL</span>
+              <span>PULIDOS</span>
             </span>
           </a>
           
@@ -235,9 +191,7 @@
     <!-- SERVICIOS -->
     <section class="section services" id="servicios">
       <div class="container">
-        <div class="section-header">
-          <h2>Nos adaptamos a tus necesidades</h2>
-        </div>
+        <div class="section-header"><h2>Nos adaptamos a tus necesidades</h2></div>
         <div class="cards">
           <article class="card">
             <img class="card-image" src="assets/servicios/1.jpg" alt="Superficies" />
@@ -290,98 +244,54 @@
       <div class="container">
         <h2>Trabajamos diferentes materiales</h2>
         <div class="surface-grid">
-          <div class="surface-card">
-            <img src="assets/superficies/marmol.jpg" alt="Mármol" />
-            <div class="surface-info"><strong>Mármol</strong><span>Pulido y restauración</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/mosaico.jpg" alt="Mosaico" />
-            <div class="surface-info"><strong>Mosaico</strong><span>Pulido y mantenimiento</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/granito.jpg" alt="Granito" />
-            <div class="surface-info"><strong>Granito</strong><span>Pulido y terminación</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/hormigon.jpg" alt="Hormigón" />
-            <div class="surface-info"><strong>Hormigón</strong><span>Pulido de superficies</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" />
-            <div class="surface-info"><strong>Calcáreo</strong><span>Restauración y pulido</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/travertino.jpg" alt="Travertino" />
-            <div class="surface-info"><strong>Travertino</strong><span>Tratamiento de superficie</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/parquet.jpg" alt="Parquet" />
-            <div class="surface-info"><strong>Parquet</strong><span>Tratamiento de madera</span></div>
-          </div>
-          <div class="surface-card">
-            <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" />
-            <div class="surface-info"><strong>Otras superficies</strong><span>Consultar</span></div>
-          </div>
+          <div class="surface-card"><img src="assets/superficies/marmol.jpg" alt="Mármol" /><div class="surface-info"><strong>Mármol</strong><span>Pulido y restauración</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/mosaico.jpg" alt="Mosaico" /><div class="surface-info"><strong>Mosaico</strong><span>Pulido y mantenimiento</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/granito.jpg" alt="Granito" /><div class="surface-info"><strong>Granito</strong><span>Pulido y terminación</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/hormigon.jpg" alt="Hormigón" /><div class="surface-info"><strong>Hormigón</strong><span>Pulido de superficies</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/calcareo.jpg" alt="Calcáreo" /><div class="surface-info"><strong>Calcáreo</strong><span>Restauración y pulido</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/travertino.jpg" alt="Travertino" /><div class="surface-info"><strong>Travertino</strong><span>Tratamiento de superficie</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/parquet.jpg" alt="Parquet" /><div class="surface-info"><strong>Parquet</strong><span>Tratamiento de madera</span></div></div>
+          <div class="surface-card"><img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" /><div class="surface-info"><strong>Otras superficies</strong><span>Consultar</span></div></div>
         </div>
       </div>
     </section>
 
-    <!-- TRABAJOS (Comparador Antes/Después) -->
+    <!-- TRABAJOS -->
     <section class="section gallery-section" id="trabajos">
       <div class="container">
         <h2>Resultados que hablan por nosotros</h2>
         <div class="gallery-wrapper">
-          <button class="gallery-btn prev-btn" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-          </button>
+          <button class="gallery-btn prev-btn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg></button>
           <div class="gallery" id="gallery-track">
-            
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/hormigondespues.jpg" alt="Hormigón después del pulido" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/hormigonantes.jpg" alt="Hormigón antes del pulido" draggable="false" />
-                </div>
+                <div class="comparison-after"><img src="assets/trabajos/hormigondespues.jpg" alt="Hormigón después del pulido" draggable="false" /></div>
+                <div class="comparison-before"><img src="assets/trabajos/hormigonantes.jpg" alt="Hormigón antes del pulido" draggable="false" /></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de hormigón"></button>
               </div>
             </div>
-
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/granitodespues.jpg" alt="Granito después del pulido" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/granitoantes.jpg" alt="Granito antes del pulido" draggable="false" />
-                </div>
+                <div class="comparison-after"><img src="assets/trabajos/granitodespues.jpg" alt="Granito después del pulido" draggable="false" /></div>
+                <div class="comparison-before"><img src="assets/trabajos/granitoantes.jpg" alt="Granito antes del pulido" draggable="false" /></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de granito"></button>
               </div>
             </div>
-
             <div class="gallery-card">
               <div class="comparison" data-comparison>
-                <div class="comparison-after">
-                  <img src="assets/trabajos/parquetdespues.jpg" alt="Parquet después del tratamiento" draggable="false" />
-                </div>
-                <div class="comparison-before">
-                  <img src="assets/trabajos/parquetantes.jpg" alt="Parquet antes del tratamiento" draggable="false" />
-                </div>
+                <div class="comparison-after"><img src="assets/trabajos/parquetdespues.jpg" alt="Parquet después del tratamiento" draggable="false" /></div>
+                <div class="comparison-before"><img src="assets/trabajos/parquetantes.jpg" alt="Parquet antes del tratamiento" draggable="false" /></div>
                 <div class="comparison-divider"></div>
                 <div class="comparison-handle" aria-hidden="true"></div>
                 <button type="button" class="comparison-control" aria-label="Mover comparación de parquet"></button>
               </div>
             </div>
-
           </div>
-          <button class="gallery-btn next-btn" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
-          </button>
+          <button class="gallery-btn next-btn" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg></button>
         </div>
       </div>
     </section>
@@ -389,16 +299,13 @@
     <!-- PRESUPUESTO -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
-        <div class="form-info">
-          <h2>Contanos qué trabajo necesitás</h2>
-        </div>
+        <div class="form-info"><h2>Contanos qué trabajo necesitás</h2></div>
         <form id="quote-form">
           <label>Nombre<input id="nombre" type="text" placeholder="Tu nombre" required /></label>
           <label>WhatsApp<input id="telefono" type="tel" placeholder="Tu número" required /></label>
           <label>Localidad<input id="localidad" type="text" placeholder="Ej. Adrogué" required /></label>
           
-          <label>
-            Tipo de superficie
+          <label>Tipo de superficie
             <div class="custom-select" id="custom-superficie">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text" style="color: #7a8a9a;">Seleccionar</span>
@@ -418,8 +325,7 @@
             </div>
           </label>
 
-          <label>
-            Servicio
+          <label>Servicio
             <div class="custom-select" id="custom-servicio">
               <button type="button" class="custom-select-trigger" aria-haspopup="listbox" aria-expanded="false">
                 <span class="selected-text" style="color: #7a8a9a;">Seleccionar</span>
