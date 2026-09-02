@@ -14,6 +14,7 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
     const hiddenInput = customSelect.querySelector('input[type="hidden"]');
     const selectedText = trigger.querySelector('.selected-text');
 
+    // Abrir / Cerrar al hacer clic en el trigger
     trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         document.querySelectorAll('.custom-select.open').forEach(select => {
@@ -23,20 +24,19 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
         trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
     });
 
+    // Seleccionar opción
     options.forEach(option => {
-    option.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectedText.textContent = option.textContent;
-        hiddenInput.value = option.dataset.value;
-        options.forEach(opt => opt.classList.remove('selected'));
-        option.classList.add('selected');
-        // FORZAR CIERRE COMPLETO
-        customSelect.classList.remove('open');
-        trigger.setAttribute('aria-expanded', 'false');
-        // CIERRA TODOS LOS DROPDOWNS ABIERTOS
-        document.querySelectorAll('.custom-select.open').forEach(select => {
-            select.classList.remove('open');
-            select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedText.textContent = option.textContent;
+            hiddenInput.value = option.dataset.value;
+            
+            options.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+
+            // Cerrar el desplegable inmediatamente
+            customSelect.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
         });
     });
 });
@@ -162,6 +162,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     const deltaX = Math.abs(event.clientX - startX);
     const deltaY = Math.abs(event.clientY - startY);
 
+    // Si el dedo se mueve más hacia arriba/abajo que hacia los lados, cancelar (para permitir scroll)
     if (!horizontalConfirmed && deltaY > deltaX && deltaY > 8) {
       dragging = false;
       control.releasePointerCapture?.(event.pointerId);
@@ -193,7 +194,7 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
   updateComparison(50);
 });
 
-/* ===== GALERÍA CON BOTONES LATERALES ===== */
+/* ===== GALERÍA CON BOTONES LATERALES (WEB + MÓVIL) ===== */
 const gallery = document.querySelector("#gallery-track");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
@@ -233,7 +234,7 @@ if (gallery && prevBtn && nextBtn) {
   window.addEventListener("resize", updateButtons);
   setTimeout(updateButtons, 200);
 
-  // Touch/drag para móviles
+  // Touch/drag para móviles (ARRANCA EN LA GALERÍA, NO EN EL COMPARADOR)
   let draggingGallery = false;
   let galleryPointerId = null;
   let galleryStartX = 0;
@@ -242,6 +243,7 @@ if (gallery && prevBtn && nextBtn) {
   let galleryHorizontal = false;
 
   gallery.addEventListener("pointerdown", (event) => {
+    // Si el toque es sobre el control del comparador, no iniciar el scroll de la galería
     if (event.target.closest(".comparison-control")) return;
     if (event.pointerType === "mouse" && event.button !== 0) return;
 
@@ -250,7 +252,7 @@ if (gallery && prevBtn && nextBtn) {
     galleryStartX = event.clientX;
     galleryStartY = event.clientY;
     galleryStartScroll = gallery.scrollLeft;
-    galleryHorizontal = event.pointerType === "mouse";
+    galleryHorizontal = event.pointerType === "mouse"; // En PC, siempre horizontal
 
     if (event.pointerType === "mouse") {
       gallery.setPointerCapture?.(event.pointerId);
@@ -266,11 +268,14 @@ if (gallery && prevBtn && nextBtn) {
     if (event.pointerType === "touch" && !galleryHorizontal) {
       const absX = Math.abs(deltaX);
       const absY = Math.abs(deltaY);
+      
+      // Si el dedo va hacia arriba/abajo, soltar para que haga scroll la página
       if (absY > absX && absY > 8) {
         draggingGallery = false;
         galleryPointerId = null;
         return;
       }
+      // Si va hacia los lados, activar el arrastre
       if (absX > absY && absX > 8) {
         galleryHorizontal = true;
       }
@@ -278,6 +283,7 @@ if (gallery && prevBtn && nextBtn) {
 
     if (!galleryHorizontal) return;
 
+    // Arrastrar la galería hacia los lados
     gallery.scrollLeft = galleryStartScroll - deltaX;
 
     if (event.pointerType === "touch") {
