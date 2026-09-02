@@ -267,14 +267,14 @@ h2 {
 .section { padding: 70px 0; background: transparent; }
 .container { width: min(1150px, 90%); margin: auto; }
 
-/* ===== CARDS - AZUL OSCURO PROFUNDO ===== */
+/* ===== CARDS ===== */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .card {
   min-height: 250px;
   padding: 0;
   overflow: hidden;
   background: linear-gradient(145deg, #0a1a35, #040e20);
-  border: 1px solid #20304a;
+  border: 1px solid #20304a; /* Borde GRIS METÁLICO por defecto */
   border-radius: 22px;
   transition: transform .3s ease, border-color .3s ease, background .3s ease;
   display: flex;
@@ -282,7 +282,7 @@ h2 {
 }
 .card:hover, .card:focus-within {
   transform: translateY(-6px);
-  border-color: #a2ff00; 
+  border-color: #a2ff00; /* Verde SOLO al pasar el mouse */
   background: linear-gradient(145deg, #0f2245, #061530);
 }
 .card-image { width: 100%; height: 180px; display: block; object-fit: cover; transition: transform .5s ease; }
@@ -317,12 +317,12 @@ h2 {
 .surface-card {
   position: relative; overflow: hidden; min-height: 220px;
   background: #061530;
-  border: 1px solid #20304a;
+  border: 1px solid #20304a; /* Borde GRIS por defecto */
   border-radius: 18px;
   text-align: center;
   transition: transform .3s ease, border-color .3s ease;
 }
-.surface-card:hover, .surface-card:focus-within { transform: translateY(-5px); border-color: #a2ff00; }
+.surface-card:hover, .surface-card:focus-within { transform: translateY(-5px); border-color: #a2ff00; /* Verde solo al hover */ }
 .surface-card img { width: 100%; height: 220px; display: block; object-fit: cover; transition: transform .5s ease; }
 .surface-card:hover img, .surface-card:focus-within img { transform: scale(1.04); }
 .surface-info {
@@ -333,7 +333,7 @@ h2 {
 .surface-info strong { display: block; font-size: 16px; color: #ffffff; font-weight: 700; text-align: center; }
 .surface-info span { display: block; margin-top: 4px; color: #a2b8cc; font-size: 14px; font-weight: 400; text-align: center; }
 
-/* ===== GALERÍA (VERDE NEÓN EN BORDES Y FOTOS VISIBLES) ===== */
+/* ===== GALERÍA (Verde SOLO al hacer hover) ===== */
 .gallery-wrapper { position: relative; width: 100%; overflow: visible; }
 .gallery {
   display: flex; gap: 18px; width: 100%;
@@ -347,9 +347,11 @@ h2 {
 .gallery-card {
   position: relative; flex: 0 0 min(560px, 78vw); min-width: 0; overflow: hidden;
   border-radius: 22px; background: #061530;
-  border: 2px solid #a2ff00; /* BORDE VERDE NEÓN VISIBLE */
+  border: 2px solid #20304a; /* Borde GRIS METÁLICO por defecto */
   scroll-snap-align: center;
+  transition: border-color .3s ease;
 }
+.gallery-card:hover { border-color: #a2ff00; /* Verde SOLO al pasar el mouse */ }
 .comparison {
   position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden;
   background: #020812; user-select: none; isolation: isolate; touch-action: pan-y;
@@ -433,9 +435,22 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 .copyright { color: #7a8a9a; font-size: 13px; font-weight: 400; margin-top: 5px; }
 .creado-por { font-family: "Asus Rog", "OCR A Extended", monospace; color: #a2ff00; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; margin-top: 3px; text-decoration: none; display: inline-block; }
 
-/* ===== NOSOTROS ===== */
+/* ===== NOSOTROS (FRASE MUCHO MÁS GRANDE) ===== */
 .introduction .text p { line-height: 2; margin-bottom: 15px; color: #d1d9e0; font-size: 16px; text-align: center; }
-.director-quote-text { font-family: "Northwell", "SF Pro Display", cursive; font-style: normal; font-weight: normal; font-size: 2rem; line-height: 1.4; color: #ffffff; margin-bottom: 15px; text-align: center; }
+
+/* AQUÍ ESTÁ EL CAMBIO DE LA FRASE: Tamaño enorme y legible */
+.director-quote-text { 
+  font-family: "Northwell", "SF Pro Display", cursive; 
+  font-style: normal; 
+  font-weight: normal; 
+  font-size: clamp(3.5rem, 8vw, 6rem); /* Tamaño gigante y fluido */
+  line-height: 1.2; 
+  color: #ffffff; 
+  margin-bottom: 25px; 
+  text-align: center; 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra sutil para que resalte sobre el fondo */
+}
+
 .director-name { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; color: #ffffff; font-weight: bold; text-align: center; justify-content: center; }
 .director-name span { font-weight: 400; color: #8ab4d6; }
 
@@ -507,7 +522,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .custom-options { border-radius: 16px; padding: 6px; }
   .custom-option { padding: 10px 14px; font-size: 15px; }
   
-  /* Galería móvil: desplazamiento horizontal */
+  /* Galería móvil */
   .gallery { width: calc(100% + 28px); max-width: none; margin-left: -14px; margin-right: -14px; padding: 4px 14px 8px; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
   .gallery-card { flex: 0 0 calc(100vw - 28px); min-width: calc(100vw - 28px); border-radius: 18px; }
   .gallery-btn { display: none !important; }
@@ -528,7 +543,9 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .copyright { font-size: 12px; }
   .creado-por { font-size: 12px; }
   .introduction .text p { font-size: 15px; }
-  .director-quote-text { font-size: 1.5rem; }
+  
+  /* Frase del Founder en móvil (Grande pero adaptada) */
+  .director-quote-text { font-size: clamp(2.5rem, 12vw, 4rem); }
   .director-name { font-size: 15px; }
 }
 
