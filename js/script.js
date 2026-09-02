@@ -239,4 +239,55 @@ if (gallery && prevBtn && nextBtn) {
 
     draggingGallery = true;
     galleryPointerId = event.pointerId;
-   
+    galleryStartX = event.clientX;
+    galleryStartY = event.clientY;
+    galleryStartScroll = gallery.scrollLeft;
+    galleryHorizontal = event.pointerType === "mouse";
+
+    if (event.pointerType === "mouse") {
+      gallery.setPointerCapture?.(event.pointerId);
+    }
+  });
+
+  gallery.addEventListener("pointermove", (event) => {
+    if (!draggingGallery || event.pointerId !== galleryPointerId) return;
+
+    const deltaX = event.clientX - galleryStartX;
+    const deltaY = event.clientY - galleryStartY;
+
+    if (event.pointerType === "touch" && !galleryHorizontal) {
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+      
+      if (absY > absX && absY > 8) {
+        draggingGallery = false;
+        galleryPointerId = null;
+        return;
+      }
+      if (absX > absY && absX > 8) {
+        galleryHorizontal = true;
+      }
+    }
+
+    if (!galleryHorizontal) return;
+
+    gallery.scrollLeft = galleryStartScroll - deltaX;
+
+    if (event.pointerType === "touch") {
+      event.preventDefault();
+    }
+  }, { passive: false });
+
+  function stopGalleryDrag(event) {
+    if (event.pointerId !== galleryPointerId) return;
+    draggingGallery = false;
+    galleryHorizontal = false;
+    if (event.pointerType === "mouse") {
+      gallery.releasePointerCapture?.(event.pointerId);
+    }
+    galleryPointerId = null;
+  }
+
+  gallery.addEventListener("pointerup", stopGalleryDrag);
+  gallery.addEventListener("pointercancel", stopGalleryDrag);
+}
