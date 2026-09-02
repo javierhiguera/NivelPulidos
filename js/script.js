@@ -25,7 +25,7 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
 
     options.forEach(option => {
         option.addEventListener('click', (e) => {
-            e.stopPropagation(); /* ESTO ES LO QUE FALTABA */
+            e.stopPropagation();
             selectedText.textContent = option.textContent;
             hiddenInput.value = option.dataset.value;
             options.forEach(opt => opt.classList.remove('selected'));
