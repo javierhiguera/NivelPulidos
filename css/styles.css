@@ -60,8 +60,26 @@ button, input, select, textarea { font: inherit; }
   justify-content: space-between;
   gap: 30px;
 }
-.logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo img { width: 58px; height: 58px; display: block; object-fit: contain; }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logo img {
+  width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+}
+.logo-text {
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
 .nav nav {
   display: flex;
   align-items: center;
@@ -131,12 +149,6 @@ button, input, select, textarea { font: inherit; }
   align-items: center;
 }
 
-h1, h2 {
-  background: linear-gradient(180deg, #ffffff 0%, #f4f4f4 35%, #a7aaad 75%, #777b7f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
 h1 {
   max-width: 1100px;
   margin: 0 auto;
@@ -145,13 +157,14 @@ h1 {
   letter-spacing: -4px;
   font-weight: 700;
   text-align: center;
+  color: #ffffff;
 }
 h1 span { display: block; }
 
 .hero-text {
   max-width: 650px;
   margin: 30px auto;
-  color: #d8dadd;
+  color: #ffffff;
   font-size: 19px;
   line-height: 1.6;
   font-family: "Alturea", "SF Pro Display", Georgia, "Times New Roman", serif;
@@ -176,6 +189,7 @@ h2 {
   letter-spacing: -2px;
   font-weight: 700;
   text-align: center;
+  color: #ffffff;
 }
 
 .buttons {
@@ -243,6 +257,8 @@ h2 {
   border: 1px solid #1a3055;
   border-radius: 22px;
   transition: transform .3s ease, border-color .3s ease, background .3s ease;
+  display: flex;
+  flex-direction: column;
 }
 .card:hover {
   transform: translateY(-6px);
@@ -251,21 +267,27 @@ h2 {
 }
 .card-image { width: 100%; height: 180px; display: block; object-fit: cover; transition: transform .5s ease; }
 .card:hover .card-image { transform: scale(1.04); }
-.card-content { 
+.card-content {
+  flex: 1;
   padding: 20px 24px 25px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
 }
-.card h3 { 
-  margin: 12px 0 10px; 
-  font-size: 22px; 
-  font-weight: 700; 
+.card h3 {
+  margin: 12px 0 10px;
+  font-size: 22px;
+  font-weight: 700;
   color: #ffffff;
   text-align: center;
 }
-.card p { 
-  margin: 0; 
+.card p {
+  margin: 0;
   color: #d0dce8;
-  line-height: 1.7; 
+  line-height: 1.7;
   font-size: 16px;
   text-align: center;
 }
@@ -283,22 +305,22 @@ h2 {
 .surface-card:hover { transform: translateY(-5px); border-color: #2a5a8a; }
 .surface-card img { width: 100%; height: 220px; display: block; object-fit: cover; transition: transform .5s ease; }
 .surface-card:hover img { transform: scale(1.04); }
-.surface-info { 
-  position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 18px 18px; 
+.surface-info {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 18px 18px;
   background: linear-gradient(180deg, transparent 0%, rgba(4,14,32,.9) 55%, rgba(4,14,32,.98) 100%);
   text-align: center;
 }
-.surface-info strong { 
-  display: block; 
-  font-size: 16px; 
+.surface-info strong {
+  display: block;
+  font-size: 16px;
   color: #ffffff;
   font-weight: 700;
   text-align: center;
 }
-.surface-info span { 
-  display: block; 
-  margin-top: 4px; 
-  color: #b0c8e0; 
+.surface-info span {
+  display: block;
+  margin-top: 4px;
+  color: #b0c8e0;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
@@ -358,38 +380,38 @@ h2 {
 
 /* ===== FORMULARIO - TODOS LOS TEXTOS DEL MISMO TAMAÑO ===== */
 form { display: grid; gap: 18px; }
-label { 
-  display: grid; 
-  gap: 8px; 
-  font-size: 16px; 
-  font-weight: 600; 
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
   color: #d0dce8;
 }
 input, textarea {
-  width: 100%; 
-  padding: 15px 17px; 
+  width: 100%;
+  padding: 15px 17px;
   border: 1px solid rgba(26,48,85,0.4);
-  border-radius: 999px; 
+  border-radius: 999px;
   background: linear-gradient(145deg, rgba(6,21,48,0.7), rgba(2,8,18,0.5));
   color: #ffffff;
   font-size: 16px;
-  outline: none; 
+  outline: none;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 7px 20px rgba(0,0,0,.25);
   transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
 }
-input::placeholder, textarea::placeholder { 
-  color: #5a7a9a; 
+input::placeholder, textarea::placeholder {
+  color: #5a7a9a;
   font-size: 16px;
 }
-input:focus, textarea:focus { 
-  border-color: rgba(60,140,255,0.4); 
-  background: linear-gradient(145deg, rgba(10,30,60,0.8), rgba(4,14,32,0.6)); 
-  box-shadow: 0 0 0 3px rgba(60,140,255,0.08), inset 0 1px 0 rgba(255,255,255,.1), 0 10px 24px rgba(0,0,0,.2); 
+input:focus, textarea:focus {
+  border-color: rgba(60,140,255,0.4);
+  background: linear-gradient(145deg, rgba(10,30,60,0.8), rgba(4,14,32,0.6));
+  box-shadow: 0 0 0 3px rgba(60,140,255,0.08), inset 0 1px 0 rgba(255,255,255,.1), 0 10px 24px rgba(0,0,0,.2);
 }
-textarea { 
-  resize: vertical; 
-  min-height: 130px; 
-  border-radius: 20px !important; 
+textarea {
+  resize: vertical;
+  min-height: 130px;
+  border-radius: 20px !important;
   font-size: 16px;
 }
 #metros { appearance: textfield; -moz-appearance: textfield; }
@@ -413,14 +435,14 @@ textarea {
 .custom-select.open .arrow { transform: rotate(-135deg); }
 .custom-options { position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: rgba(4,14,32,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(26,48,85,0.4); border-radius: 20px; padding: 8px; z-index: 100; display: none; max-height: 250px; overflow-y: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
 .custom-select.open .custom-options { display: block; }
-.custom-option { 
-  padding: 12px 16px; 
-  border-radius: 12px; 
-  color: #d0dce8; 
-  cursor: pointer; 
-  transition: all .2s ease; 
-  font-size: 16px; 
-  list-style: none; 
+.custom-option {
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #d0dce8;
+  cursor: pointer;
+  transition: all .2s ease;
+  font-size: 16px;
+  list-style: none;
 }
 .custom-option:hover { background: rgba(60,140,255,0.15); color: #fff; }
 .custom-option.selected { background: rgba(60,140,255,0.2); color: #fff; font-weight: 600; }
@@ -447,9 +469,9 @@ textarea {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.footer-item i { 
-  font-size: 16px; 
-  color: #4a8abe; 
+.footer-item i {
+  font-size: 16px;
+  color: #4a8abe;
 }
 
 .footer-logo-grande {
@@ -519,35 +541,68 @@ textarea {
 .contact h2 { margin: 0 0 40px; }
 .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
 .contact-info { display: flex; flex-direction: column; gap: 30px; }
-.schedule { 
-  color: #c8d8e8; 
-  font-size: 16px; 
-  line-height: 1.7; 
+.schedule {
+  color: #c8d8e8;
+  font-size: 16px;
+  line-height: 1.7;
 }
-.schedule strong { 
-  display: block; 
-  margin-bottom: 5px; 
-  color: #fff; 
-  font-size: 16px; 
+.schedule strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 16px;
 }
 .contact-items { display: flex; flex-direction: column; gap: 12px; }
-.contact-items p, .contact-items a { 
-  color: #c8d8e8; 
-  font-size: 16px; 
-  font-weight: 500; 
-  display: inline-flex; 
-  align-items: center; 
-  gap: 8px; 
-  transition: color .2s ease; 
-  margin: 0; 
+.contact-items p, .contact-items a {
+  color: #c8d8e8;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color .2s ease;
+  margin: 0;
 }
 .contact-items a:hover { color: #4a8abe; }
 .contact-icon { width: 18px; height: 18px; display: block; flex-shrink: 0; }
+
+/* ===== CENTRAR VERTICAL Y HORIZONTALMENTE LOS TÍTULOS ===== */
+
+/* 1. Título del formulario - centrado en su columna */
+.quote .form-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.quote .form-info h2 {
+  text-align: center;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* 2. Título de Nosotros - centrado en su columna */
+.nosotros-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 200px;
+}
+
+.nosotros-title h2 {
+  text-align: center;
+  margin: 0;
+  color: #ffffff;
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 850px) {
   .nav { width: calc(100% - 32px); flex-wrap: wrap; justify-content: center; }
   .logo img { width: 44px; height: 44px; }
+  .logo-text { font-size: 17px; }
   .contact-grid { grid-template-columns: 1fr; gap: 35px; }
   .cards { grid-template-columns: 1fr; gap: 15px; }
   .card-image { height: 200px; }
@@ -564,6 +619,7 @@ textarea {
   .header { padding: 12px 0; }
   .nav { width: calc(100% - 20px); flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
   .logo img { width: 40px; height: 40px; }
+  .logo-text { font-size: 16px; }
   .menu-toggle { display: block; }
   .nav nav {
     display: none;
@@ -656,68 +712,9 @@ textarea {
   .hero-content { width: calc(100% - 20px); }
   .nav { width: calc(100% - 16px); }
   .logo img { width: 36px; height: 36px; }
+  .logo-text { font-size: 14px; }
   .gallery { width: calc(100% + 20px); margin-left: -10px; margin-right: -10px; padding-left: 10px; padding-right: 10px; }
   .gallery-card { flex-basis: calc(100vw - 20px); min-width: calc(100vw - 20px); max-width: calc(100vw - 20px); }
   h1 { font-size: clamp(30px, 9vw, 42px); }
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
-}
-/* ===== CENTRAR VERTICAL Y HORIZONTALMENTE LOS TÍTULOS ===== */
-
-/* 1. Título del formulario - centrado en su columna */
-.quote .form-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 200px;
-}
-
-.quote .form-info h2 {
-  text-align: center;
-  margin: 0;
-}
-
-/* 2. Título de Nosotros - centrado en su columna */
-.introduction > .container > div:first-child {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 200px;
-}
-
-.introduction h2 {
-  text-align: center;
-  margin: 0;
-}
-
-/* ===== CENTRAR VERTICAL Y HORIZONTALMENTE TEXTOS DE CARDS ===== */
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 180px;
-}
-
-.card-content h3,
-.card-content p {
-  text-align: center;
-  margin: 5px 0;
-}
-
-/* Asegurar que las cards tengan altura suficiente para centrar */
-.card {
-  display: flex;
-  flex-direction: column;
-}
-
-.card-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
