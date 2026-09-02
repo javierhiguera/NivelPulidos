@@ -14,7 +14,6 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
     const hiddenInput = customSelect.querySelector('input[type="hidden"]');
     const selectedText = trigger.querySelector('.selected-text');
 
-    // Abrir / Cerrar al hacer clic en el trigger
     trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         document.querySelectorAll('.custom-select.open').forEach(select => {
@@ -24,18 +23,14 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
         trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
     });
 
-    // Seleccionar opción y CERRAR INMEDIATAMENTE
     options.forEach(option => {
         option.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que el clic global lo cierre antes de tiempo
-            
+            e.stopPropagation();
             selectedText.textContent = option.textContent;
             hiddenInput.value = option.dataset.value;
-            
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
 
-            // Forzar cierre inmediato del desplegable
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
         });
@@ -119,7 +114,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     return ((event.clientX - rect.left) / rect.width) * 100;
   }
 
-  // Mouse: arrastrar desde cualquier parte
   comparison.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "mouse") return;
     dragging = true;
@@ -146,7 +140,6 @@ document.querySelectorAll("[data-comparison]").forEach((comparison) => {
     pointerId = null;
   });
 
-  // Touch: arrastrar desde el control
   control.addEventListener("pointerdown", (event) => {
     if (event.pointerType !== "touch") return;
     dragging = true;
@@ -231,7 +224,6 @@ if (gallery && prevBtn && nextBtn) {
   window.addEventListener("resize", updateButtons);
   setTimeout(updateButtons, 200);
 
-  // Touch/drag para móviles
   let draggingGallery = false;
   let galleryPointerId = null;
   let galleryStartX = 0;
