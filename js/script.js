@@ -25,7 +25,7 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
 
     options.forEach(option => {
         option.addEventListener('click', (e) => {
-            e.stopPropagation();
+            e.stopPropagation(); /* ESTO ES LO QUE FALTABA */
             selectedText.textContent = option.textContent;
             hiddenInput.value = option.dataset.value;
             options.forEach(opt => opt.classList.remove('selected'));
@@ -295,7 +295,6 @@ if (gallery && prevBtn && nextBtn) {
 const backToTopBtn = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
-  // Si el usuario llega al final de la página (footer), mostramos el botón
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
     backToTopBtn.style.display = "flex";
   } else {
