@@ -64,7 +64,7 @@ button, input, select, textarea { font: inherit; }
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-shrink: 0;
   text-decoration: none;
 }
@@ -76,10 +76,19 @@ button, input, select, textarea { font: inherit; }
 }
 .logo-text {
   font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 24px;
+  font-size: 22px; /* Mismo tamaño grande que el logo */
   font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
+  letter-spacing: 4px; /* Separación amplia entre letras */
+  line-height: 1; /* Para que las dos líneas queden juntas */
+  color: #a2b8cc; /* Gris metálico */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.logo-text span {
+  display: block;
+  text-align: left;
 }
 .nav nav {
   display: flex;
@@ -604,7 +613,7 @@ textarea {
 @media (max-width: 850px) {
   .nav { width: calc(100% - 32px); flex-wrap: wrap; justify-content: center; }
   .logo img { width: 44px; height: 44px; }
-  .logo-text { font-size: 20px; }
+  .logo-text { font-size: 18px; }
   .contact-grid { grid-template-columns: 1fr; gap: 35px; }
   .cards { grid-template-columns: 1fr; gap: 15px; }
   .card-image { height: 200px; }
@@ -621,7 +630,7 @@ textarea {
   .header { padding: 12px 0; }
   .nav { width: calc(100% - 20px); flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
   .logo img { width: 40px; height: 40px; }
-  .logo-text { font-size: 18px; }
+  .logo-text { font-size: 16px; letter-spacing: 2px; }
   .menu-toggle { display: block; }
   .nav nav {
     display: none;
@@ -714,7 +723,7 @@ textarea {
   .hero-content { width: calc(100% - 20px); }
   .nav { width: calc(100% - 16px); }
   .logo img { width: 36px; height: 36px; }
-  .logo-text { font-size: 16px; }
+  .logo-text { font-size: 14px; letter-spacing: 1px; }
   .gallery { width: calc(100% + 20px); margin-left: -10px; margin-right: -10px; padding-left: 10px; padding-right: 10px; }
   .gallery-card { flex-basis: calc(100vw - 20px); min-width: calc(100vw - 20px); max-width: calc(100vw - 20px); }
   h1 { font-size: clamp(30px, 9vw, 42px); }
