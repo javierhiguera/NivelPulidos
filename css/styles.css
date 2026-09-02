@@ -451,12 +451,12 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   font-family: "Northwell", "SF Pro Display", cursive; 
   font-style: normal; 
   font-weight: normal; 
-  font-size: clamp(6rem, 14vw, 11rem);
-  line-height: 1.1; 
+  font-size: 18px;
+  line-height: 1.6; 
   color: #ffffff; 
   margin-bottom: 25px; 
   text-align: center; 
-  text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 .director-name { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; color: #ffffff; font-weight: bold; text-align: center; justify-content: center; }
 .director-name span { font-weight: 400; color: #8ab4d6; }
@@ -581,7 +581,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .creado-por { font-size: 12px; }
   .introduction .text p { font-size: 15px; }
   
-  .director-quote-text { font-size: clamp(4.5rem, 20vw, 7rem); line-height: 1; }
+  .director-quote-text { font-size: 18px; line-height: 1.6; }
   .director-name { font-size: 15px; }
   
   #backToTop { width: 50px; height: 50px; font-size: 20px; }
