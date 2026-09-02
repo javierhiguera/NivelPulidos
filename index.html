@@ -12,44 +12,45 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <style>
-    /* ===== NUEVA FUENTE: LIBERTIAN SIGNATURE ===== */
+    /* ===== NUEVA FUENTE: NORTHWELL ===== */
     @font-face {
-      font-family: "Libertian Signature";
-      src: url("fonts/libertian-signature.otf") format("opentype");
+      font-family: "Northwell";
+      src: url("fonts/Northwell.otf") format("opentype");
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
 
-    /* ===== FRASE DEL HERO (SF Pro Display) ===== */
+    /* ===== FRASE DEL HERO ===== */
     .hero-text {
       font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-style: normal;
       font-weight: 400;
       font-size: 19px;
       line-height: 1.6;
-      color: #d1d9e0; /* Gris metálico claro */
+      color: #d1d9e0;
       text-align: center;
       margin: 30px auto;
       max-width: 650px;
     }
 
-    /* ===== FRASE DEL DIRECTOR (Libertian Signature, más pequeña) ===== */
+    /* ===== FRASE DEL DIRECTOR (Northwell) ===== */
     .director-quote-text {
-      font-family: "Libertian Signature", "SF Pro Display", cursive;
+      font-family: "Northwell", "SF Pro Display", cursive;
       font-style: normal;
       font-weight: normal;
-      font-size: 1.6rem;
+      font-size: 2rem; /* Más grande para que se note la caligrafía */
       line-height: 1.4;
       color: #ffffff;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     /* ===== TEXTO DE NOSOTROS MÁS ESPACIADO ===== */
     .introduction .text p {
       line-height: 2;
       margin-bottom: 15px;
-      color: #d1d9e0; /* Gris metálico claro */
+      color: #d1d9e0;
     }
 
     /* ===== NOMBRE Y FOUNDER DE LADO ===== */
@@ -91,9 +92,9 @@
       }
     }
 
-    /* ===== FOOTER DE CONTACTO (Compacto y pequeño) ===== */
+    /* ===== FOOTER ===== */
     .footer-grande {
-      background-color: #020812; /* Azul casi negro metálico */
+      background-color: #020812;
       padding: 25px 0 15px 0;
       text-align: center;
       color: #fff;
@@ -108,14 +109,14 @@
       justify-content: center;
       align-items: center;
       gap: 6px;
-      color: #d1d9e0; /* Gris metálico claro */
+      color: #d1d9e0;
       font-weight: 400;
       font-family: Arial, Helvetica, sans-serif;
     }
 
     .footer-item i { 
       font-size: 0.9rem; 
-      color: #4a8abe; /* Azul metálico brillante */
+      color: #4a8abe;
     }
 
     .footer-logo-grande {
@@ -126,7 +127,7 @@
     }
 
     .copyright {
-      color: #7a8a9a; /* Gris metálico medio */
+      color: #7a8a9a;
       font-size: 0.65rem;
       font-weight: 400;
       margin-top: 5px;
@@ -134,7 +135,7 @@
 
     .creado-por {
       font-family: "Asus Rog", "OCR A Extended", monospace;
-      color: #a2ff00; /* Verde neón mate */
+      color: #a2ff00;
       font-size: 0.7rem;
       font-weight: 500;
       letter-spacing: 0.5px;
@@ -144,97 +145,35 @@
     }
 
     /* ===== CENTRAR TÍTULOS DE SECCIONES ===== */
-    .section-header {
-      text-align: center;
-    }
+    .section-header { text-align: center; }
+    .section-header h2 { margin-left: auto; margin-right: auto; }
+    .surfaces h2 { text-align: center; margin-left: auto; margin-right: auto; }
+    .services .section-header h2 { text-align: center; margin-left: auto; margin-right: auto; }
+    .hero-content h1 { text-align: center; margin-left: auto; margin-right: auto; }
+    .card-content { text-align: center; }
+    .card-content h3 { text-align: center; }
+    .card-content p { text-align: center; }
+    .surface-info { text-align: center; }
+    .surface-info strong, .surface-info span { text-align: center; }
+    .gallery-section h2 { text-align: center; margin-left: auto; margin-right: auto; }
+    .quote .form-info h2 { text-align: center; margin-left: auto; margin-right: auto; }
+    .introduction h2 { text-align: left; margin-left: 0; margin-right: auto; }
+    .introduction .text { text-align: center; }
+    .introduction .text p { text-align: center; }
+    .director-quote { text-align: center; }
+    .director-quote-text { text-align: center; }
+    .director-name { text-align: center; justify-content: center; }
 
-    .section-header h2 {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .surfaces h2 {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .services .section-header h2 {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== CENTRAR TÍTULO HERO ===== */
-    .hero-content h1 {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== CENTRAR TEXTO DE CARDS ===== */
-    .card-content {
-      text-align: center;
-    }
-
-    .card-content h3 {
-      text-align: center;
-    }
-
-    .card-content p {
-      text-align: center;
-    }
-
-    /* ===== CENTRAR SUPERFICIES ===== */
-    .surface-info {
-      text-align: center;
-    }
-
-    .surface-info strong,
-    .surface-info span {
-      text-align: center;
-    }
-
-    /* ===== CENTRAR TÍTULO TRABAJOS ===== */
-    .gallery-section h2 {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== CENTRAR TÍTULO PRESUPUESTO ===== */
-    .quote .form-info h2 {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== NOSOTROS - TÍTULO IZQUIERDA, TEXTO CENTRADO ===== */
-    .introduction h2 {
-      text-align: left;
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    .introduction .text {
-      text-align: center;
-    }
-
-    .introduction .text p {
-      text-align: center;
-    }
-
-    .director-quote {
-      text-align: center;
-    }
-
-    .director-quote-text {
-      text-align: center;
-    }
-
-    .director-name {
-      text-align: center;
-      justify-content: center;
+    /* ===== CORRECCIÓN CRÍTICA PARA EL MENÚ MÓVIL ===== */
+    @media (max-width: 600px) {
+      .menu-toggle {
+        display: block !important;
+        position: relative;
+        z-index: 1000;
+      }
+      .nav nav.open {
+        display: flex !important;
+      }
     }
   </style>
 </head>
@@ -248,8 +187,8 @@
           <a href="#inicio" class="logo" aria-label="Inicio">
             <img src="assets/logo/logo.png" alt="Nivel Pulidos" />
             <span class="logo-text">
-              <span>NIVEL</span>
-              <span>PULIDOS</span>
+              <span>N I V E L</span>
+              <span>P U L I D O S</span>
             </span>
           </a>
           
@@ -353,75 +292,50 @@
         <div class="surface-grid">
           <div class="surface-card">
             <img src="assets/superficies/marmol.jpg" alt="Mármol" />
-            <div class="surface-info">
-              <strong>Mármol</strong>
-              <span>Pulido y restauración</span>
-            </div>
+            <div class="surface-info"><strong>Mármol</strong><span>Pulido y restauración</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/mosaico.jpg" alt="Mosaico" />
-            <div class="surface-info">
-              <strong>Mosaico</strong>
-              <span>Pulido y mantenimiento</span>
-            </div>
+            <div class="surface-info"><strong>Mosaico</strong><span>Pulido y mantenimiento</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/granito.jpg" alt="Granito" />
-            <div class="surface-info">
-              <strong>Granito</strong>
-              <span>Pulido y terminación</span>
-            </div>
+            <div class="surface-info"><strong>Granito</strong><span>Pulido y terminación</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/hormigon.jpg" alt="Hormigón" />
-            <div class="surface-info">
-              <strong>Hormigón</strong>
-              <span>Pulido de superficies</span>
-            </div>
+            <div class="surface-info"><strong>Hormigón</strong><span>Pulido de superficies</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/calcareo.jpg" alt="Calcáreo" />
-            <div class="surface-info">
-              <strong>Calcáreo</strong>
-              <span>Restauración y pulido</span>
-            </div>
+            <div class="surface-info"><strong>Calcáreo</strong><span>Restauración y pulido</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/travertino.jpg" alt="Travertino" />
-            <div class="surface-info">
-              <strong>Travertino</strong>
-              <span>Tratamiento de superficie</span>
-            </div>
+            <div class="surface-info"><strong>Travertino</strong><span>Tratamiento de superficie</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/parquet.jpg" alt="Parquet" />
-            <div class="surface-info">
-              <strong>Parquet</strong>
-              <span>Tratamiento de madera</span>
-            </div>
+            <div class="surface-info"><strong>Parquet</strong><span>Tratamiento de madera</span></div>
           </div>
           <div class="surface-card">
             <img src="assets/superficies/otras_superficies.jpg" alt="Otras superficies" />
-            <div class="surface-info">
-              <strong>Otras superficies</strong>
-              <span>Consultar</span>
-            </div>
+            <div class="surface-info"><strong>Otras superficies</strong><span>Consultar</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TRABAJOS -->
+    <!-- TRABAJOS (Comparador Antes/Después) -->
     <section class="section gallery-section" id="trabajos">
       <div class="container">
         <h2>Resultados que hablan por nosotros</h2>
         <div class="gallery-wrapper">
           <button class="gallery-btn prev-btn" aria-label="Anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
           </button>
           <div class="gallery" id="gallery-track">
+            
             <div class="gallery-card">
               <div class="comparison" data-comparison>
                 <div class="comparison-after">
@@ -435,6 +349,7 @@
                 <button type="button" class="comparison-control" aria-label="Mover comparación de hormigón"></button>
               </div>
             </div>
+
             <div class="gallery-card">
               <div class="comparison" data-comparison>
                 <div class="comparison-after">
@@ -448,6 +363,7 @@
                 <button type="button" class="comparison-control" aria-label="Mover comparación de granito"></button>
               </div>
             </div>
+
             <div class="gallery-card">
               <div class="comparison" data-comparison>
                 <div class="comparison-after">
@@ -461,35 +377,25 @@
                 <button type="button" class="comparison-control" aria-label="Mover comparación de parquet"></button>
               </div>
             </div>
+
           </div>
           <button class="gallery-btn next-btn" aria-label="Siguiente">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- PRESUPUESTO (Formulario a un lado) -->
+    <!-- PRESUPUESTO -->
     <section class="section quote" id="presupuesto">
       <div class="container form-layout">
         <div class="form-info">
           <h2>Contanos qué trabajo necesitás</h2>
         </div>
         <form id="quote-form">
-          <label>
-            Nombre
-            <input id="nombre" type="text" placeholder="Tu nombre" required />
-          </label>
-          <label>
-            WhatsApp
-            <input id="telefono" type="tel" placeholder="Tu número" required />
-          </label>
-          <label>
-            Localidad
-            <input id="localidad" type="text" placeholder="Ej. Adrogué" required />
-          </label>
+          <label>Nombre<input id="nombre" type="text" placeholder="Tu nombre" required /></label>
+          <label>WhatsApp<input id="telefono" type="tel" placeholder="Tu número" required /></label>
+          <label>Localidad<input id="localidad" type="text" placeholder="Ej. Adrogué" required /></label>
           
           <label>
             Tipo de superficie
@@ -529,31 +435,20 @@
             </div>
           </label>
 
-          <label>
-            Metros cuadrados aproximados
-            <input id="metros" type="number" min="1" placeholder="Ej. 50" />
-          </label>
-          <label>
-            Descripción
-            <textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea>
-          </label>
+          <label>Metros cuadrados aproximados<input id="metros" type="number" min="1" placeholder="Ej. 50" /></label>
+          <label>Descripción<textarea id="descripcion" rows="5" placeholder="Describí el trabajo que necesitás..."></textarea></label>
           <button type="submit" class="button primary submit">
-            <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 2 11 13" />
-              <path d="m22 2-7 20-4-9-9-4Z" />
-            </svg>
+            <svg class="button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13" /><path d="m22 2-7 20-4-9-9-4Z" /></svg>
             Enviar consulta por WhatsApp
           </button>
         </form>
       </div>
     </section>
 
-    <!-- NOSOTROS (Al final de todo) -->
+    <!-- NOSOTROS -->
     <section class="section introduction" id="nosotros">
       <div class="container two-columns">
-        <div class="nosotros-title">
-          <h2>Nosotros sabemos cómo hacerlo</h2>
-        </div>
+        <div class="nosotros-title"><h2>Nosotros sabemos cómo hacerlo</h2></div>
         <div class="text">
           <p>En Nivel Pulidos sumamos más de tres años de trayectoria especializada en la restauración, pulido y cuidado de superficies, impulsados por la misión de ofrecer un servicio de máxima calidad que recupere la estética y durabilidad de cada material a través de diagnósticos exhaustivos y técnicas precisas.</p>
           <p>Con la visión de consolidarnos como referentes de confianza en el sector, logramos este propósito mediante acabados impecables y una atención minuciosa al detalle en cada intervención.</p>
@@ -567,23 +462,14 @@
     </section>
   </main>
 
-  <!-- FOOTER DE CONTACTO -->
   <footer class="footer-grande" id="contacto">
     <div class="container">
-      
-      <div class="footer-item">
-        <strong>Horario de atención</strong>
-      </div>
-      <div class="footer-item">
-        <span>Lunes a Sábado de 7 a 19 hs</span>
-      </div>
-
+      <div class="footer-item"><strong>Horario de atención</strong></div>
+      <div class="footer-item"><span>Lunes a Sábado de 7 a 19 hs</span></div>
       <div class="footer-item"><i class="bi bi-geo-alt-fill"></i><span>Ubicación CABA / GBA</span></div>
       <div class="footer-item"><i class="bi bi-envelope-fill"></i><span>nivelpulidos@gmail.com</span></div>
       <div class="footer-item"><i class="bi bi-telephone-fill"></i><span>11 2483-0787</span></div>
-      
       <img src="assets/logo/logo.png" alt="Nivel Pulidos" class="footer-logo-grande" />
-      
       <div class="copyright">Copyright © 2026 Nivel Pulidos All rights reserved.</div>
       <a href="https://www.instagram.com/byjavierhiguera" target="_blank" rel="noopener noreferrer" class="creado-por">Created by Javier Higuera</a>
     </div>
