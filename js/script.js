@@ -7,7 +7,7 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* ===== DESPLEGABLES PERSONALIZADOS (FORMULARIO) - CORREGIDO ===== */
+/* ===== DESPLEGABLES PERSONALIZADOS (FORMULARIO) - OPTIMIZADO ===== */
 document.querySelectorAll('.custom-select').forEach(customSelect => {
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
@@ -27,42 +27,48 @@ document.querySelectorAll('.custom-select').forEach(customSelect => {
         });
         
         // Toggle del actual
-        customSelect.classList.toggle('open');
-        trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
+        const isOpen = customSelect.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', isOpen);
     });
 
     // SELECCIONAR opción
     options.forEach(option => {
         option.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             
-            // Cambiar texto
+            // Cambiar texto visual y color
             selectedText.textContent = option.textContent;
-            selectedText.style.color = '#ffffff'; // Blanco al seleccionar
+            selectedText.style.color = '#ffffff';
             
-            // Guardar valor
+            // Guardar valor real en el input oculto
             hiddenInput.value = option.dataset.value;
             
-            // Marcar como seleccionado
+            // Marcar clase seleccionada
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
             
-            // ✅ CERRAR INMEDIATAMENTE
+            // CERRAR INMEDIATAMENTE EL CONTENEDOR
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
+            
+            // Forzar pérdida de foco para evitar estados "active" fantasmas
+            trigger.blur();
         });
     });
 });
 
-// Cerrar al hacer clic fuera
-document.addEventListener('click', () => {
-    document.querySelectorAll('.custom-select.open').forEach(select => {
-        select.classList.remove('open');
-        const trigger = select.querySelector('.custom-select-trigger');
-        if (trigger) {
-            trigger.setAttribute('aria-expanded', 'false');
-        }
-    });
+// Cerrar al hacer clic fuera de los desplegables
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select.open').forEach(select => {
+            select.classList.remove('open');
+            const trigger = select.querySelector('.custom-select-trigger');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 /* ===== FORMULARIO WHATSAPP ===== */
