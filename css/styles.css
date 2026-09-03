@@ -20,7 +20,6 @@
   font-style: normal;
   font-display: swap;
 }
-/* Nota: Se removió el bloque @font-face de "Alturea" ya que el archivo .otf no existe en el repositorio y causaba un error 404 */
 
 /* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -282,14 +281,14 @@ h2 {
   display: grid;
   grid-template-columns: .8fr 1.2fr;
   gap: 50px;
-  align-items: start;
+  align-items: center;
 }
 
 .two-columns {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
-  align-items: start;
+  align-items: center;
 }
 
 /* Alineaciones centralizadas migradas del HTML */
@@ -304,7 +303,7 @@ h2 {
 .surface-info { text-align: center; }
 .surface-info strong, .surface-info span { text-align: center; }
 .gallery-section h2 { text-align: center; margin-left: auto; margin-right: auto; }
-.quote .form-info h2 { text-align: center; margin-left: auto; margin-right: auto; }
+.quote .form-info h2 { text-align: left; margin-left: 0; margin-right: auto; }
 .introduction h2 { text-align: left; margin-left: 0; margin-right: auto; }
 .introduction .text { text-align: center; }
 .introduction .text > p { text-align: center; }
@@ -478,7 +477,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 .custom-option:hover, .custom-option:focus { background: rgba(162, 255, 0, 0.15); color: #a2ff00; }
 .custom-option.selected { background: rgba(162, 255, 0, 0.25); color: #a2ff00; font-weight: 600; }
 
-/* ===== FOOTER (Unificado usando medidas estables en px/rem) ===== */
+/* ===== FOOTER ===== */
 .footer-grande { background-color: #020812; padding: 25px 0 15px 0; text-align: center; color: #fff; font-family: Arial, Helvetica, sans-serif; border-top: 1px solid #20304a; }
 .footer-item { font-size: 15px; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 6px; color: #d1d9e0; font-weight: 400; font-family: Arial, Helvetica, sans-serif; }
 .footer-item i { font-size: 16px; color: #4a8abe; }
@@ -541,6 +540,14 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .prev-btn { left: -12px; }
   .next-btn { right: -12px; }
   .form-layout, .two-columns { grid-template-columns: 1fr; gap: 30px; }
+  
+  /* Centrar títulos en móviles */
+  .quote .form-info h2,
+  .introduction h2 {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -627,81 +634,4 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   h1 { font-size: clamp(30px, 9vw, 42px); }
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
   .submit { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
-}
-.quote .form-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.quote .form-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.quote .form-info h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.introduction .two-columns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.introduction .nosotros-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.introduction h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (min-width: 851px) {
-
-.quote .form-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.quote .form-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.quote .form-info h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.introduction .two-columns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.introduction .nosotros-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.introduction h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
