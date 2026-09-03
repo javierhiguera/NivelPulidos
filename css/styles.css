@@ -20,13 +20,7 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Alturea";
-  src: url("../fonts/alturea.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* Nota: Se removió el bloque @font-face de "Alturea" ya que el archivo .otf no existe en el repositorio y causaba un error 404 */
 
 /* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -184,8 +178,7 @@ h1 span { display: block; }
   color: #d1d9e0; 
   font-size: 19px;
   line-height: 1.6;
-  font-family: "Alturea", "SF Pro Display", Georgia, "Times New Roman", serif;
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   text-align: center;
 }
@@ -281,9 +274,43 @@ h2 {
 }
 .button-icon { width: 19px; height: 19px; display: block; flex-shrink: 0; }
 
-/* ===== SECCIONES ===== */
+/* ===== SECCIONES Y LAYOUTS MIGRADOS ===== */
 .section { padding: 70px 0; background: transparent; }
 .container { width: min(1150px, 90%); margin: auto; }
+
+.form-layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Alineaciones centralizadas migradas del HTML */
+.section-header { text-align: center; }
+.section-header h2 { margin-left: auto; margin-right: auto; }
+.surfaces h2 { text-align: center; margin-left: auto; margin-right: auto; }
+.services .section-header h2 { text-align: center; margin-left: auto; margin-right: auto; }
+.hero-content h1 { text-align: center; margin-left: auto; margin-right: auto; }
+.card-content { text-align: center; }
+.card-content h3 { text-align: center; }
+.card-content p { text-align: center; }
+.surface-info { text-align: center; }
+.surface-info strong, .surface-info span { text-align: center; }
+.gallery-section h2 { text-align: center; margin-left: auto; margin-right: auto; }
+.quote .form-info h2 { text-align: center; margin-left: auto; margin-right: auto; }
+.introduction h2 { text-align: left; margin-left: 0; margin-right: auto; }
+.introduction .text { text-align: center; }
+.introduction .text p { text-align: center; }
+.director-quote { text-align: center; }
+.director-quote-text { text-align: center; }
+.director-name { text-align: center; justify-content: center; }
 
 /* ===== CARDS ===== */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
@@ -308,7 +335,6 @@ h2 {
 .card-content {
   flex: 1;
   padding: 20px 24px 25px;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -320,14 +346,12 @@ h2 {
   font-size: 22px;
   font-weight: 700;
   color: #ffffff;
-  text-align: center;
 }
 .card p {
   margin: 0;
   color: #d1d9e0;
   line-height: 1.7;
   font-size: 16px;
-  text-align: center;
 }
 
 /* ===== SUPERFICIES ===== */
@@ -346,10 +370,9 @@ h2 {
 .surface-info {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 18px 18px;
   background: linear-gradient(180deg, transparent 0%, rgba(4,14,32,.9) 55%, rgba(4,14,32,.98) 100%);
-  text-align: center;
 }
-.surface-info strong { display: block; font-size: 16px; color: #ffffff; font-weight: 700; text-align: center; }
-.surface-info span { display: block; margin-top: 4px; color: #a2b8cc; font-size: 14px; font-weight: 400; text-align: center; }
+.surface-info strong { display: block; font-size: 16px; color: #ffffff; font-weight: 700; }
+.surface-info span { display: block; margin-top: 4px; color: #a2b8cc; font-size: 14px; font-weight: 400; }
 
 /* ===== GALERÍA ===== */
 .gallery-wrapper { position: relative; width: 100%; overflow: visible; }
@@ -455,7 +478,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 .custom-option:hover, .custom-option:focus { background: rgba(162, 255, 0, 0.15); color: #a2ff00; }
 .custom-option.selected { background: rgba(162, 255, 0, 0.25); color: #a2ff00; font-weight: 600; }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER (Unificado usando medidas estables en px/rem) ===== */
 .footer-grande { background-color: #020812; padding: 25px 0 15px 0; text-align: center; color: #fff; font-family: Arial, Helvetica, sans-serif; border-top: 1px solid #20304a; }
 .footer-item { font-size: 15px; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 6px; color: #d1d9e0; font-weight: 400; font-family: Arial, Helvetica, sans-serif; }
 .footer-item i { font-size: 16px; color: #4a8abe; }
@@ -463,7 +486,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 .copyright { color: #7a8a9a; font-size: 13px; font-weight: 400; margin-top: 5px; }
 .creado-por { font-family: "Asus Rog", "OCR A Extended", monospace; color: #a2ff00; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; margin-top: 3px; text-decoration: none; display: inline-block; }
 
-/* ===== NOSOTROS (FRASE 32px) ===== */
+/* ===== NOSOTROS ===== */
 .introduction .text p { line-height: 2; margin-bottom: 15px; color: #d1d9e0; font-size: 16px; text-align: center; }
 .director-quote-text { 
   font-family: "Northwell", "SF Pro Display", cursive; 
@@ -478,12 +501,6 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 }
 .director-name { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; color: #ffffff; font-weight: bold; text-align: center; justify-content: center; }
 .director-name span { font-weight: 400; color: #8ab4d6; }
-
-/* ===== TÍTULOS CENTRADOS ===== */
-.quote .form-info { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 200px; }
-.quote .form-info h2 { text-align: center; margin: 0; color: #ffffff; }
-.nosotros-title { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 200px; }
-.nosotros-title h2 { text-align: center; margin: 0; color: #ffffff; }
 
 /* ===== BOTÓN VOLVER ARRIBA ===== */
 #backToTop {
@@ -511,7 +528,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   border-color: #a2ff00;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 @media (max-width: 850px) {
   .nav { width: calc(100% - 32px); flex-wrap: wrap; justify-content: center; }
   .logo img { width: 44px; height: 44px; }
@@ -523,6 +540,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .gallery-btn { width: 36px; height: 36px; }
   .prev-btn { left: -12px; }
   .next-btn { right: -12px; }
+  .form-layout, .two-columns { grid-template-columns: 1fr; gap: 30px; }
 }
 
 @media (max-width: 600px) {
