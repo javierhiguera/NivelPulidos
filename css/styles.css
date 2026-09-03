@@ -463,25 +463,18 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 .copyright { color: #7a8a9a; font-size: 13px; font-weight: 400; margin-top: 5px; }
 .creado-por { font-family: "Asus Rog", "OCR A Extended", monospace; color: #a2ff00; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; margin-top: 3px; text-decoration: none; display: inline-block; }
 
-/* ===== NOSOTROS (FRASE 40px) ===== */
+/* ===== NOSOTROS (FRASE 32px) ===== */
 .introduction .text p { line-height: 2; margin-bottom: 15px; color: #d1d9e0; font-size: 16px; text-align: center; }
-.director-quote-text {
-    font-family: "Northwell", "SF Pro Display", cursive;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 40px;
-    line-height: 1.35;
-    color: #ffffff;
-    margin-bottom: 25px;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-    text-align: center;
-}
-
-@media (max-width: 600px) {
-    .director-quote-text {
-        font-size: 34px;
-        line-height: 1.35;
-    }
+.director-quote-text { 
+  font-family: "Northwell", "SF Pro Display", cursive; 
+  font-style: normal; 
+  font-weight: normal; 
+  font-size: 44px !important;
+  line-height: 1.35; 
+  color: #ffffff; 
+  margin-bottom: 25px; 
+  text-align: center; 
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 .director-name { display: inline-flex; align-items: center; gap: 6px; font-size: 16px; color: #ffffff; font-weight: bold; text-align: center; justify-content: center; }
 .director-name span { font-weight: 400; color: #8ab4d6; }
@@ -598,7 +591,7 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .creado-por { font-size: 12px; }
   .introduction .text p { font-size: 15px; }
   
-  .director-quote-text { font-size: 28px; line-height: 1.4; }
+  .director-quote-text { font-size: 36px !important; line-height: 1.35; }
   .director-name { font-size: 15px; }
   
   #backToTop { width: 50px; height: 50px; font-size: 20px; }
@@ -616,4 +609,13 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   h1 { font-size: clamp(30px, 9vw, 42px); }
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
   .submit { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
+}
+
+/* ===== GALERIA: IMAGENES SIN RECORTE EXTRA ===== */
+.comparison img { object-position: center center; }
+@media (max-width: 600px) {
+  .director-quote-text { font-size: 36px !important; }
+}
+@media (max-width: 380px) {
+  .director-quote-text { font-size: 32px !important; }
 }
