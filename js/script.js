@@ -7,42 +7,61 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* ===== DESPLEGABLES PERSONALIZADOS (FORMULARIO) ===== */
+/* ===== DESPLEGABLES PERSONALIZADOS (FORMULARIO) - CORREGIDO ===== */
 document.querySelectorAll('.custom-select').forEach(customSelect => {
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
     const hiddenInput = customSelect.querySelector('input[type="hidden"]');
     const selectedText = trigger.querySelector('.selected-text');
 
+    // ABRIR/CERRAR al hacer clic en el trigger
     trigger.addEventListener('click', (e) => {
         e.stopPropagation();
+        
+        // Cerrar otros dropdowns abiertos
         document.querySelectorAll('.custom-select.open').forEach(select => {
-            if (select !== customSelect) select.classList.remove('open');
+            if (select !== customSelect) {
+                select.classList.remove('open');
+                select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
+            }
         });
+        
+        // Toggle del actual
         customSelect.classList.toggle('open');
         trigger.setAttribute('aria-expanded', customSelect.classList.contains('open'));
     });
 
+    // SELECCIONAR opción
     options.forEach(option => {
         option.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            // Cambiar texto
             selectedText.textContent = option.textContent;
+            selectedText.style.color = '#ffffff'; // Blanco al seleccionar
+            
+            // Guardar valor
             hiddenInput.value = option.dataset.value;
+            
+            // Marcar como seleccionado
             options.forEach(opt => opt.classList.remove('selected'));
             option.classList.add('selected');
-
-            /* CERRAR INMEDIATAMENTE AL SELECCIONAR */
+            
+            // ✅ CERRAR INMEDIATAMENTE
             customSelect.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
         });
     });
 });
 
-/* ===== Cerrar dropdowns al hacer clic fuera ===== */
+// Cerrar al hacer clic fuera
 document.addEventListener('click', () => {
     document.querySelectorAll('.custom-select.open').forEach(select => {
         select.classList.remove('open');
-        select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
+        const trigger = select.querySelector('.custom-select-trigger');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
