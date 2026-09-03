@@ -628,3 +628,74 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .button { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
   .submit { font-size: 13px; padding: 0.4em 1em; min-height: 40px; }
 }
+.quote .form-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote .form-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.quote .form-info h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.introduction .two-columns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.introduction .nosotros-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.introduction h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 851px) {
+  .quote .form-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+  }
+
+  .quote .form-info {
+    justify-content: flex-start;
+  }
+
+  .quote .form-info h2 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .introduction .two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+  }
+
+  .introduction .nosotros-title {
+    justify-content: flex-start;
+  }
+
+  .introduction h2 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
