@@ -7,82 +7,24 @@ menuToggle?.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
 });
 
-/* ===== DESPLEGABLES PERSONALIZADOS ===== */
-
+/* ===== DESPLEGABLES PERSONALIZADOS (FORMULARIO) - CORREGIDO ===== */
 document.querySelectorAll('.custom-select').forEach(customSelect => {
     const trigger = customSelect.querySelector('.custom-select-trigger');
     const options = customSelect.querySelectorAll('.custom-option');
     const hiddenInput = customSelect.querySelector('input[type="hidden"]');
     const selectedText = trigger.querySelector('.selected-text');
 
-    function closeSelect() {
-        customSelect.classList.remove('open');
-        trigger.setAttribute('aria-expanded', 'false');
-    }
-
-    function openSelect() {
+    // ABRIR/CERRAR al hacer clic en el trigger
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Cerrar otros dropdowns abiertos
         document.querySelectorAll('.custom-select.open').forEach(select => {
             if (select !== customSelect) {
                 select.classList.remove('open');
-
-                const otherTrigger = select.querySelector('.custom-select-trigger');
-                if (otherTrigger) {
-                    otherTrigger.setAttribute('aria-expanded', 'false');
-                }
+                select.querySelector('.custom-select-trigger').setAttribute('aria-expanded', 'false');
             }
         });
-
-        customSelect.classList.add('open');
-        trigger.setAttribute('aria-expanded', 'true');
-    }
-
-    trigger.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if (customSelect.classList.contains('open')) {
-            closeSelect();
-        } else {
-            openSelect();
-        }
-    });
-
-    options.forEach(option => {
-        option.addEventListener('click', event => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            selectedText.textContent = option.textContent.trim();
-            selectedText.style.color = '#ffffff';
-
-            hiddenInput.value = option.dataset.value;
-
-            options.forEach(opt => {
-                opt.classList.remove('selected');
-            });
-
-            option.classList.add('selected');
-
-            // Cerrar inmediatamente después de seleccionar
-            closeSelect();
-        });
-    });
-});
-
-/* Cerrar cualquier desplegable al hacer clic fuera */
-document.addEventListener('click', event => {
-    if (!event.target.closest('.custom-select')) {
-        document.querySelectorAll('.custom-select.open').forEach(select => {
-            select.classList.remove('open');
-
-            const trigger = select.querySelector('.custom-select-trigger');
-
-            if (trigger) {
-                trigger.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-});
         
         // Toggle del actual
         customSelect.classList.toggle('open');
