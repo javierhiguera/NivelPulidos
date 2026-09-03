@@ -291,7 +291,6 @@ h2 {
   align-items: center;
 }
 
-/* Alineaciones generalizadas y específicas para escritorio (centrado vertical y alineado a la izquierda) */
 .section-header { text-align: center; }
 .section-header h2 { margin-left: auto; margin-right: auto; }
 .surfaces h2 { text-align: center; margin-left: auto; margin-right: auto; }
@@ -304,7 +303,6 @@ h2 {
 .surface-info strong, .surface-info span { text-align: center; }
 .gallery-section h2 { text-align: center; margin-left: auto; margin-right: auto; }
 
-/* Escritorio: Títulos a la izquierda y alineados verticalmente respecto a su columna */
 .quote .form-info {
   display: flex;
   flex-direction: column;
@@ -563,7 +561,6 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .next-btn { right: -12px; }
   .form-layout, .two-columns { grid-template-columns: 1fr; gap: 30px; }
   
-  /* Celulares: resetear alineaciones de escritorio y centrar títulos perfectamente */
   .quote .form-info {
     align-items: center;
     height: auto;
@@ -612,11 +609,10 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .submit { font-size: 15px; min-height: 46px; padding: 0.5em 1.2em; }
   .cards { grid-template-columns: 1fr; gap: 12px; }
   
-  /* Títulos y textos móviles (20px y 15px) para cards de servicios y superficies */
-  .card h3 { font-size: 20px; }
-  .card p { font-size: 15px; }
-  .surface-info strong { font-size: 20px; }
-  .surface-info span { font-size: 15px; }
+  .card h3 { font-size: 20px !important; }
+  .card p { font-size: 15px !important; }
+  .surface-info strong { font-size: 20px !important; }
+  .surface-info span { font-size: 15px !important; }
 
   .card-content { padding: 16px 18px 20px; }
   .card-image { height: 170px; }
