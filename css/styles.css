@@ -291,7 +291,7 @@ h2 {
   align-items: center;
 }
 
-/* Alineaciones centralizadas migradas del HTML */
+/* Alineaciones generalizadas y específicas para escritorio (centrado vertical y alineado a la izquierda) */
 .section-header { text-align: center; }
 .section-header h2 { margin-left: auto; margin-right: auto; }
 .surfaces h2 { text-align: center; margin-left: auto; margin-right: auto; }
@@ -303,8 +303,30 @@ h2 {
 .surface-info { text-align: center; }
 .surface-info strong, .surface-info span { text-align: center; }
 .gallery-section h2 { text-align: center; margin-left: auto; margin-right: auto; }
-.quote .form-info h2 { text-align: left; margin-left: 0; margin-right: auto; }
-.introduction h2 { text-align: left; margin-left: 0; margin-right: auto; }
+
+/* Escritorio: Títulos a la izquierda y alineados verticalmente respecto a su columna */
+.quote .form-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+.quote .form-info h2 { 
+  text-align: left; 
+  margin: 0; 
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.introduction h2 { 
+  text-align: left; 
+  margin: 0 0 35px 0; 
+}
+
 .introduction .text { text-align: center; }
 .introduction .text > p { text-align: center; }
 .director-quote { text-align: center; }
@@ -541,12 +563,17 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .next-btn { right: -12px; }
   .form-layout, .two-columns { grid-template-columns: 1fr; gap: 30px; }
   
-  /* Centrar títulos en móviles */
+  /* Celulares: resetear alineaciones de escritorio y centrar títulos perfectamente */
+  .quote .form-info {
+    align-items: center;
+    height: auto;
+  }
   .quote .form-info h2,
   .introduction h2 {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    margin-bottom: 25px;
   }
 }
 
@@ -623,9 +650,9 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
 }
 
 @media (max-width: 380px) {
-  .container { width: calc(100% - 20px); }
-  .hero-content { width: calc(100% - 20px); }
-  .nav { width: calc(100% - 16px); }
+  .container { width: min(1150px, 90%); }
+  .hero-content { width: min(1150px, 90%); }
+  .nav { width: min(1150px, 90%); }
   .logo img { width: 36px; height: 36px; }
   .logo-text { font-size: 14px; letter-spacing: 1px; }
   .gallery { width: calc(100% + 20px); margin-left: -10px; margin-right: -10px; padding-left: 10px; padding-right: 10px; }
