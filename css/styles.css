@@ -609,10 +609,10 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .submit { font-size: 15px; min-height: 46px; padding: 0.5em 1.2em; }
   .cards { grid-template-columns: 1fr; gap: 12px; }
   
-  .card h3 { font-size: 20px !important; }
-  .card p { font-size: 15px !important; }
-  .surface-info strong { font-size: 20px !important; }
-  .surface-info span { font-size: 15px !important; }
+  .card h3 { font-size: 22px !important; }
+  .card p { font-size: 16px !important; }
+  .surface-info strong { font-size: 22px !important; }
+  .surface-info span { font-size: 16px !important; }
 
   .card-content { padding: 16px 18px 20px; }
   .card-image { height: 170px; }
