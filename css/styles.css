@@ -333,7 +333,7 @@ h2 {
 .director-quote-text { text-align: center; }
 .director-name { text-align: center; justify-content: center; }
 
-/* ===== CARDS ===== */
+/* ===== CARDS (SERVICIOS) ===== */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .card {
   min-height: 250px;
@@ -392,8 +392,8 @@ h2 {
   position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 18px 18px;
   background: linear-gradient(180deg, transparent 0%, rgba(4,14,32,.9) 55%, rgba(4,14,32,.98) 100%);
 }
-.surface-info strong { display: block; font-size: 16px; color: #ffffff; font-weight: 700; }
-.surface-info span { display: block; margin-top: 4px; color: #a2b8cc; font-size: 14px; font-weight: 400; }
+.surface-info strong { display: block; font-size: 22px; color: #ffffff; font-weight: 700; }
+.surface-info span { display: block; margin-top: 4px; color: #a2b8cc; font-size: 16px; font-weight: 400; }
 
 /* ===== GALERÍA ===== */
 .gallery-wrapper { position: relative; width: 100%; overflow: visible; }
@@ -611,16 +611,19 @@ textarea { resize: vertical; min-height: 130px; border-radius: 20px !important; 
   .button { width: 100%; justify-content: center; font-size: 15px; padding: 0.5em 1.2em; min-height: 46px; }
   .submit { font-size: 15px; min-height: 46px; padding: 0.5em 1.2em; }
   .cards { grid-template-columns: 1fr; gap: 12px; }
+  
+  /* Títulos y textos móviles (20px y 15px) para cards de servicios y superficies */
   .card h3 { font-size: 20px; }
   .card p { font-size: 15px; }
+  .surface-info strong { font-size: 20px; }
+  .surface-info span { font-size: 15px; }
+
   .card-content { padding: 16px 18px 20px; }
   .card-image { height: 170px; }
   .surface-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .surface-card { min-height: 0; }
   .surface-card img { aspect-ratio: 1 / 1; height: auto; }
   .surface-info { padding: 16px 10px 10px; }
-  .surface-info strong { font-size: 14px; }
-  .surface-info span { font-size: 12px; margin-top: 2px; }
   .custom-select-trigger { padding: 13px 16px; border-radius: 999px !important; font-size: 15px; }
   .custom-options { border-radius: 16px; padding: 6px; }
   .custom-option { padding: 10px 14px; font-size: 15px; }
