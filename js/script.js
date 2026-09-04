@@ -106,7 +106,7 @@ Descripción:
 ${descripcion || "Sin descripción adicional."}`;
 
   const url =
-    "https://wa.me/541124830787?text=" +
+    "https://wa.me/541125712689?text=" +
     encodeURIComponent(mensaje);
 
   window.open(url, "_blank");
